@@ -15,14 +15,24 @@ h6{
 	background: fadein(@ribbon-bg, 100%);
 	background: @ribbon-bg;
 	color: @ribbon-color;
+	z-index: 1;
 }
 
 .glow{
+	z-index: 1;
 	text-shadow: 0 0 3px @glow-bg-color;
 	color: @glow-color;
+
+	small{
+		color: @glow-color;
+	}
 
 	.no-textshadow{
 		filter: progid:DXImageTransform.Microsoft.Glow(color=@glow-bg-color);
 	}
+}
+
+.page-header-top{
+	margin-top: 0;
 }
 

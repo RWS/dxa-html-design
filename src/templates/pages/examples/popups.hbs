@@ -1,0 +1,141 @@
+---
+title: Popups
+section: Examples
+---
+
+<div class='container'>
+
+	{{> breadcrumb }}
+	
+	<div class="row">
+		<div class="col-sm-3">
+			{{> nav-sidebar }}
+		</div>
+		<div class="col-sm-7">
+
+			<article class='rich-text'>
+
+				<h1>Popups</h1>
+
+				<p>Based upon <a href='http://dimsemenov.com/plugins/magnific-popup/'>jQuery Magnific Popup</a> with some added default classes for JavaScript free implementation.</p>
+
+				<div class='content'>
+					<h3>Single Popups</h3>
+					<ul>
+						<li>
+							<a class='popup-image'
+								href='http://placekitten.com/2000/1500'>Large Single Image <small>(a.popup-image)</small></a>
+						</li>
+						<li>
+							<a class='popup-image' 
+								title="Image Caption"
+								href='http://placekitten.com/2000/1500'>Large Single Image With Caption <small>(a.popup-image)</small></a>
+						</li>
+						<li>
+							<a class='popup-image' 
+								href='http://placekitten.com/300/150'>Small Single Image <small>(a.popup-image)</small></a>
+						</li>
+						<li>
+							<a class='popup-iframe' 
+								href='https://www.youtube.com/watch?v=tdHIhAFvEa0'>Single YouTube Video <small>(a.popup-iframe)</small></a>
+						</li>
+						<li>
+							<a class='popup-iframe' 
+								href='http://vimeo.com/92179785'>Single Vimeo Video <small>(a.popup-iframe)</small></a>
+						</li>
+						<li>
+							<a class="popup-iframe" href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&amp;hl=en&amp;t=v&amp;hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom">Single Google Map <small>(a.popup-iframe)</small></a>
+						</li>
+						<li>
+							<a class='popup-inline' 
+								href='#inline1'>Single Inline Content <small>(a.popup-inline)</small></a>
+						</li>
+						<li>
+							<a class='popup-ajax' 
+								href='/ajax/popup.html'>Single Ajax Content <small>(a.popup-ajax)</small></a>
+						</li>
+					</ul>
+
+					<div id='inline1' class='popup-content mfp-hide'>
+						<h3>Some inline content <small>(.popup-content .mfp-hide)</small></h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<p>
+							<img src='http://lorempixel.com/120/120/sports/1/' alt=''>
+						</p>
+					</div>
+
+					<h3>Image Gallery <small>(.popup-image-gallery a)</small></h3>
+					<ul class='popup-image-gallery'>
+						<li>
+							<a href='http://placekitten.com/2000/1500'>Large Single Image</a>
+						</li>
+						<li>
+							<a title="Image Caption"
+								href='http://placekitten.com/1500/1500'>Large Single Image With Caption</a>
+						</li>
+						<li>
+							<a href='http://placekitten.com/300/150'>Small Single Image</a>
+						</li>
+					</ul>
+
+					<h3>Image Gallery with Thumbnails <small>(.popup-image-gallery a)</small></h3>
+					<ul class='popup-image-gallery list-gallery'>
+						<li>
+							<a href='http://lorempixel.com/600/400/sports/1/'>
+								<img src='http://lorempixel.com/120/120/sports/1/' alt=''>
+							</a>
+						</li>
+						<li>
+							<a href='http://lorempixel.com/600/400/sports/2/'>
+								<img src='http://lorempixel.com/120/120/sports/2/' alt=''>
+							</a>
+						</li>
+						<li>
+							<a href='http://lorempixel.com/600/400/sports/3/'>
+								<img src='http://lorempixel.com/120/120/sports/3/' alt=''>
+							</a>
+						</li>
+						<li>
+							<a href='http://lorempixel.com/600/400/sports/4/'>
+								<img src='http://lorempixel.com/120/120/sports/4/' alt=''>
+							</a>
+						</li>
+						<li>
+							<a href='http://lorempixel.com/600/400/sports/5/'>
+								<img src='http://lorempixel.com/120/120/sports/5/' alt=''>
+							</a>
+						</li>
+						<li>
+							<a href='http://lorempixel.com/600/400/sports/6/'>
+								<img src='http://lorempixel.com/120/120/sports/6/' alt=''>
+							</a>
+						</li>
+					</ul>
+
+					<h3>Disable Popup on Mobile</h3>
+					<p>To work correctly you must reload the page after resizing the browser.</p>
+					<ul>
+						<li>
+							<a class='popup-image popup-mobile-ignore'
+								href='http://placekitten.com/600/400'>Direct link to image on mobile <small>(a.popup-image.popup-mobile-ignore)</small></a>
+						</li>
+						<li>
+							<a class='popup-iframe popup-mobile-ignore'
+								href='https://www.youtube.com/watch?v=tdHIhAFvEa0'>Direct link to video on mobile <small>(a.popup-iframe.popup-mobile-ignore)</small></a>
+						</li>
+					</ul>
+
+				</div>
+
+			</article>
+
+		</div>
+	</div>
+
+</div>
+

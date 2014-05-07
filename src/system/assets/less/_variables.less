@@ -1,15 +1,21 @@
 
 // Bootstrap Overrides
-@import "../../bower_components/bootstrap/less/variables.less";
-@image-path: '/assets/images/';
+@import "../../../bower_components/bootstrap/less/variables.less";
+@image-path: '/system/assets/images/';
 @navbar-default-bg: #FFF;
 @navbar-border-radius: 0;
 @brand-primary: #008a5a;
 
 //Font Awesome Overrides
-@fa-font-path:        "/assets/fonts";
+@fa-font-path:        "/system/assets/fonts";
 
 // Custom Variables
+
+//Cookie bar
+@cookie-bg: @gray-dark;
+@cookie-color: contrast(@cookie-bg);
+@cookie-link-color: @brand-primary;
+@cookie-link-padding: 5px 10px;
 
 // Nav
 @navbar-default-link-active-border-color: @brand-primary;

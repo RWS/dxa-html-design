@@ -1,0 +1,97 @@
+
+.overlay-container{
+	position: relative;
+	margin-bottom: @line-height-computed / 2;
+	background: @gray-lighter;
+
+	img{
+		max-width: 100%;
+		height: auto;
+		display: block;
+		margin: 0 auto;
+	}
+}
+
+.overlay{
+	position: absolute;
+	padding: @line-height-computed / 2;
+	margin: 0;
+}
+
+.overlay-tl{
+	top: 0;
+	left: 0;
+
+	.carousel &{
+		top: @line-height-computed;
+		left: @line-height-computed;
+	}
+}
+
+.overlay-tr{
+	top: 0;
+	right: 0;
+
+	.carousel &{
+		top: @line-height-computed;
+		right: @line-height-computed;
+	}
+}
+
+.overlay-bl{
+	bottom: 0;
+	left: 0;
+
+	.carousel &{
+		bottom: @line-height-computed;
+		left: @line-height-computed;
+	}
+}
+
+.overlay-br{
+	bottom: 0;
+	right: 0;
+
+	.carousel &{
+		bottom: @line-height-computed;
+		right: @line-height-computed;
+	}
+}
+
+.overlay-cover{
+	bottom: 0;
+	right: 0;
+	top: 0;
+	left: 0;
+
+	.carousel &{
+		top: @line-height-computed;
+		left: @line-height-computed;
+		bottom: @line-height-computed;
+		right: @line-height-computed;
+	}
+}
+
+.overlay-top{
+	right: 0;
+	top: 0;
+	left: 0;
+
+	.carousel &{
+		top: @line-height-computed;
+		left: @line-height-computed;
+		right: @line-height-computed;
+	}
+}
+
+.overlay-bottom{
+	right: 0;
+	bottom: 0;
+	left: 0;
+
+	.carousel &{
+		bottom: @line-height-computed;
+		left: @line-height-computed;
+		right: @line-height-computed;
+	}
+}

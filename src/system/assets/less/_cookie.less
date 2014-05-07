@@ -1,0 +1,23 @@
+
+.cookiebar{
+	background: @cookie-bg;
+	color: @cookie-color;
+
+	padding: (@line-height-computed / 2) 0;
+
+	.nav{
+		margin-top: @line-height-computed / 2;
+		a{
+			color: @cookie-link-color;
+			padding: @cookie-link-padding;
+		}
+
+		li{
+			&.active a,
+			a:hover,
+			a:focus{
+				background: lighten(@cookie-bg, 10%);
+			}
+		}
+	}
+}

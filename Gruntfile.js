@@ -43,10 +43,10 @@ module.exports = function(grunt) {
         files: ['<%= config.src %>/{content,data,templates}/**/*.{md,hbs,yml,json}'],
         tasks: ['assemble']
       },
-      // less: {
-      //   files: ['<%= config.src %>/assets/less/**/*.less'],
-      //   tasks: ['less:server']
-      // },
+      less: {
+        files: ['<%= config.src %>/system/assets/less/**/*.less'],
+        tasks: ['less:server']
+      },
       livereload: {
         options: {
           livereload: LIVERELOAD_PORT
@@ -54,9 +54,9 @@ module.exports = function(grunt) {
         files: [
           '.tmp/**/*.html',
           //'.tmp/assets/css/**/*.css',
-          //'<%= config.src %>/assets/less/**/*.less',
-          '<%= config.src %>/assets/scripts/**/*.js',
-          '<%= config.src %>/assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= config.src %>/system/assets/less/**/*.less',
+          '<%= config.src %>/system/assets/scripts/**/*.js',
+          '<%= config.src %>/system/assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
     },
@@ -93,7 +93,7 @@ module.exports = function(grunt) {
     assemble: {
       options: {
         flatten: true,
-        assets: '<%= config.dist %>/assets',
+        assets: '<%= config.dist %>/system/assets',
         layout: '<%= config.src %>/templates/layouts/default.hbs',
         data: '<%= config.src %>/data/*.{json,yml}',
         partials: '<%= config.src %>/templates/partials/**/*.hbs',
@@ -122,8 +122,8 @@ module.exports = function(grunt) {
         options: {
         },
         files: {
-          ".tmp/assets/css/main.css": "<%= config.src %>/assets/less/main.less",
-          ".tmp/assets/css/icons.css": "<%= config.src %>/assets/less/icons.less"
+          ".tmp/system/assets/css/main.css": "<%= config.src %>/system/assets/less/main.less",
+          ".tmp/system/assets/css/icons.css": "<%= config.src %>/system/assets/less/icons.less"
         }
       },
       dist: {
@@ -135,8 +135,8 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          ".tmp/assets/css/main.css": "<%= config.src %>/assets/less/main.less",
-          ".tmp/assets/css/icons.css": "<%= config.src %>/assets/less/icons.less"
+          ".tmp/system/assets/css/main.css": "<%= config.src %>/system/assets/less/main.less",
+          ".tmp/system/assets/css/icons.css": "<%= config.src %>/system/assets/less/icons.less"
         }
       }
     },
@@ -161,25 +161,33 @@ module.exports = function(grunt) {
                 expand: true,
                 dot: true,
                 cwd: '<%= config.src %>',
-                dest: '<%= config.dist %>',
+                dest: '<%= config.dist %>/system/',
+                src: [
+                    '/assets/images/**/*.{webp,gif}',
+                    '/assets/fonts/*',
+                    '/assets/less/**/*',
+                    '/assets/scripts/PIE.htc',
+                    '/assets/scripts/theme-customiser.js'
+                    //'bower_components/bootstrap/less/**/*',
+                    //'bower_components/less.js/dist/less-1.7.0.min.js',
+                    //'bower_components/font-awesome/less/**/*'
+                ]
+            },
+            {
+                expand: true,
+                dot: true,
+                cwd: '<%= config.src %>',
+                dest: '<%= config.dist %>/',
                 src: [
                     '*.{ico,txt}',
-                    '.htaccess',
-                    'assets/images/**/*.{webp,gif}',
-                    'assets/fonts/*',
-                    'assets/less/**/*',
-                    'assets/scripts/PIE.htc',
-                    'assets/scripts/theme-customiser.js',
-                    'bower_components/bootstrap/less/**/*',
-                    'bower_components/less.js/dist/less-1.7.0.min.js',
-                    'bower_components/font-awesome/less/**/*'
+                    '.htaccess'
                 ]
             },
             {
                 expand: true,
                 dot: true,
                 cwd: '<%= config.src %>/bower_components/font-awesome/fonts/',
-                dest: '<%= config.dist %>/assets/fonts',
+                dest: '<%= config.dist %>/system/assets/fonts',
                 src: [
                     '**'
                 ]
@@ -190,7 +198,7 @@ module.exports = function(grunt) {
                 expand: true,
                 dot: true,
                 cwd: '<%= config.src %>/bower_components/font-awesome/fonts/',
-                dest: '.tmp/assets/fonts',
+                dest: '.tmp/system/assets/fonts',
                 src: [
                     '**'
                 ]
@@ -207,7 +215,7 @@ module.exports = function(grunt) {
     },
     usemin: {
         html: ['<%= config.dist %>/{,*/}*.html'],
-        css: ['<%= config.dist %>/assets/css/**/*.css'],
+        css: ['<%= config.dist %>/system/assets/css/**/*.css'],
         options: {
             dirs: ['<%= config.dist %>']
         }
@@ -228,9 +236,9 @@ module.exports = function(grunt) {
         dist: {
             files: [{
                 expand: true,
-                cwd: '<%= config.src %>/assets/images',
+                cwd: '<%= config.src %>/system/assets/images',
                 src: '**/*.{png,jpg,jpeg}',
-                dest: '<%= config.dist %>/assets/images'
+                dest: '<%= config.dist %>/system/assets/images'
             }]
         }
     },
@@ -238,16 +246,16 @@ module.exports = function(grunt) {
         dist: {
             files: [{
                 expand: true,
-                cwd: '<%= config.src %>/assets/images',
+                cwd: '<%= config.src %>/system/assets/images',
                 src: '{,*/}*.svg',
-                dest: '<%= config.dist %>/assets/images'
+                dest: '<%= config.dist %>/system/assets/images'
             }]
         }
     },
     cssmin: {
         dist: {
             files: {
-                '<%= config.dist %>/assets/css/main.css': [
+                '<%= config.dist %>/system/assets/css/main.css': [
                     '.tmp/css/**/*.css',
                     '<%= config.src %>/css/**/*.css'
                 ]
@@ -258,10 +266,10 @@ module.exports = function(grunt) {
         dist: {
             files: {
                 src: [
-                    '<%= config.dist %>/assets/scripts/**/*.js',
-                    '<%= config.dist %>/assets/css/**/*.css',
-                    '<%= config.dist %>/assets/images/**/*.{png,jpg,jpeg,gif,webp}',
-                    '<%= config.dist %>/assets/fonts/**/*'
+                    '<%= config.dist %>/system/assets/scripts/**/*.js',
+                    '<%= config.dist %>/system/assets/css/**/*.css',
+                    '<%= config.dist %>/system/assets/images/**/*.{png,jpg,jpeg,gif,webp}',
+                    '<%= config.dist %>/system/assets/fonts/**/*'
                 ]
             }
         }
