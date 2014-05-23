@@ -1,0 +1,46 @@
+.teaser {
+	position: relative;
+
+	h3 {
+		margin: 0;
+		padding: 10px;
+	}
+
+	p, a {
+		padding: 10px;
+	}
+
+	a {
+		display: none;
+	}
+
+	img {
+		max-width: 100%;
+		display: block;
+		margin: 0 auto;
+	}
+}
+
+@media screen and (max-width: @screen-sm-min) {
+
+	.teaser {
+		background: #79b19a;
+		color: #fff;
+		margin-bottom: 20px;
+
+		h3, p {
+			background: transparent;
+			position: relative;
+		}
+
+		img {
+			width: 35%;
+			float: right;
+			margin: 0 10px 10px;
+		}
+
+		a {
+			display: block;
+		}
+	}
+}

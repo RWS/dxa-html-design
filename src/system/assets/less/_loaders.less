@@ -1,0 +1,35 @@
+
+
+.is-loading{
+	& > *{
+		.opacity(@loader-content-opacity);
+	}
+}
+
+.loading-panel{
+	position: relative;
+	display: none;
+
+	position: absolute;
+	top: -@loader-margin;
+	left: -@loader-margin;
+	right: -@loader-margin;
+	bottom: -@loader-margin;
+	background: fade(@loader-bg-color, 100%) url("@{image-path}@{spinner-src}") center center no-repeat;
+	background: @loader-bg-color url("@{image-path}@{spinner-src}") center center no-repeat;
+	background-size: @spinner-width @spinner-height;
+	z-index: 2;
+
+	.no-rgba &{
+		.opacity(0.4);
+	}
+
+	.is-loading > &{
+		display: block;
+		.opacity(1);
+		
+	}
+} 
+
+
+

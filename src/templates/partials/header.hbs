@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html class='no-js'>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>{{title}} | {{site.title}}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
 
     {{!--
       <link rel="stylesheet/less" type="text/css" href="/assets/less/main.less" />
@@ -20,39 +25,15 @@
     <!-- build:js(src) /system/assets/scripts/header.js -->
       <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
-    
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <script src="/bower_components/html5shiv/dist/html5shiv.min.js"></script>
+      <script src="/bower_components/respond/dest/respond.min.js"></script>
     <![endif]-->
   </head>
   <body>
-
-{{#if cookiebar}} 
-    <div class='cookiebar'>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-7 col-sm-offset-1">
-                    <div class='h4'>Cookies</div>
-                    <p>We use cookies to ensure that we give you the best experience on our website. If you continue without changing your settings, we'll assume that you are happy to receive all cookies on this website. However, if you would like to, you can change your cookie settings at any time.</p>
-                </div>
-                <div class="col-sm-3">
-                    <ul class='nav nav-cookie'>
-                        <li>
-                            <a href='#'><i class="fa fa-check-circle"></i> Continue</a>
-                        </li>
-                        <li>
-                            <a href='#'><i class="fa fa-cog"></i> Change settings</a>
-                        </li>
-                        <li>
-                            <a href='#'><i class="fa fa-question-circle"></i> Find out more</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-{{/if}} 
+    <div id="page-wrapper">
+      {{> incompability-bar}}
+      {{> cookie-bar}}

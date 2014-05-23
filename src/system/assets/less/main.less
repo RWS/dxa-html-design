@@ -1,6 +1,4 @@
-
-
-
+@import "_pie.less";
 @import "_mixins.less";
 @import "_bootstrap.less";
 @import "_variables.less";
@@ -19,4 +17,31 @@
 
 @import "_cookie.less";
 @import "_carousel.less";
+
 @import "_popups.less";
+@import "_loaders.less";
+@import "_share-buttons.less";
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) {
+	@fontSize: "12px";
+
+	@import "_teaser.less";
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) {
+	@fontSize: "13px";
+
+	@import "_teaser.less";
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {
+	@fontSize: "14px";
+
+	@import "_teaser.less";
+}

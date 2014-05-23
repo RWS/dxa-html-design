@@ -3,7 +3,10 @@
 	var ignoreMobileSelector = SDL_ENV.isSmallScreen ? ":not(.popup-mobile-ignore)" : "";
 
 	$(".popup-image" + ignoreMobileSelector).magnificPopup({
-		type: "image"
+		type: "image",
+		image: {
+			cursor: null
+		}
 	});
 
 	$(".popup-iframe" + ignoreMobileSelector).magnificPopup({
@@ -18,6 +21,9 @@
 				enabled: true,
 				navigateByImgClick: true,
 				preload: [0,1]
+			},
+			image: {
+				cursor: null
 			}
 		});
 	});

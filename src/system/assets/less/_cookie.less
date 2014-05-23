@@ -1,7 +1,8 @@
 
-.cookiebar{
+#cookiebar, #incompability {
 	background: @cookie-bg;
 	color: @cookie-color;
+	display: none;
 
 	padding: (@line-height-computed / 2) 0;
 
@@ -20,4 +21,8 @@
 			}
 		}
 	}
+}
+
+.lt-ie8 #incompability {
+	display: block;
 }

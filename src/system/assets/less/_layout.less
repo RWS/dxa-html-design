@@ -1,97 +1,167 @@
 
 .overlay-container{
-	position: relative;
-	margin-bottom: @line-height-computed / 2;
-	background: @gray-lighter;
+    position: relative;
+    margin-bottom: @line-height-computed / 2;
+    background: @gray-lighter;
 
-	img{
-		max-width: 100%;
-		height: auto;
-		display: block;
-		margin: 0 auto;
-	}
+    img{
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
 }
 
 .overlay{
-	position: absolute;
-	padding: @line-height-computed / 2;
-	margin: 0;
+    position: absolute;
+    padding: @line-height-computed / 2;
+    margin: 0;
 }
 
 .overlay-tl{
-	top: 0;
-	left: 0;
+    top: 0;
+    left: 0;
 
-	.carousel &{
-		top: @line-height-computed;
-		left: @line-height-computed;
-	}
+    .carousel &{
+        top: @line-height-computed;
+        left: @line-height-computed;
+    }
 }
 
 .overlay-tr{
-	top: 0;
-	right: 0;
+    top: 0;
+    right: 0;
 
-	.carousel &{
-		top: @line-height-computed;
-		right: @line-height-computed;
-	}
+    .carousel &{
+        top: @line-height-computed;
+        right: @line-height-computed;
+    }
 }
 
 .overlay-bl{
-	bottom: 0;
-	left: 0;
+    bottom: 0;
+    left: 0;
 
-	.carousel &{
-		bottom: @line-height-computed;
-		left: @line-height-computed;
-	}
+    .carousel &{
+        bottom: @line-height-computed;
+        left: @line-height-computed;
+    }
 }
 
 .overlay-br{
-	bottom: 0;
-	right: 0;
+    bottom: 0;
+    right: 0;
 
-	.carousel &{
-		bottom: @line-height-computed;
-		right: @line-height-computed;
-	}
+    .carousel &{
+        bottom: @line-height-computed;
+        right: @line-height-computed;
+    }
 }
 
 .overlay-cover{
-	bottom: 0;
-	right: 0;
-	top: 0;
-	left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    left: 0;
 
-	.carousel &{
-		top: @line-height-computed;
-		left: @line-height-computed;
-		bottom: @line-height-computed;
-		right: @line-height-computed;
-	}
+    .carousel &{
+        top: @line-height-computed;
+        left: @line-height-computed;
+        bottom: @line-height-computed;
+        right: @line-height-computed;
+    }
 }
 
 .overlay-top{
-	right: 0;
-	top: 0;
-	left: 0;
+    right: 0;
+    top: 0;
+    left: 0;
 
-	.carousel &{
-		top: @line-height-computed;
-		left: @line-height-computed;
-		right: @line-height-computed;
-	}
+    .carousel &{
+        top: @line-height-computed;
+        left: @line-height-computed;
+        right: @line-height-computed;
+    }
 }
 
 .overlay-bottom{
-	right: 0;
-	bottom: 0;
-	left: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
-	.carousel &{
-		bottom: @line-height-computed;
-		left: @line-height-computed;
-		right: @line-height-computed;
-	}
+    .carousel &{
+        bottom: @line-height-computed;
+        left: @line-height-computed;
+        right: @line-height-computed;
+    }
+}
+
+.hscroll{
+    overflow-x: auto;
+}
+
+.margin {
+    margin: 0 20px 20px;
+}
+
+
+// For very small screens
+@media screen and (max-width: @screen-sm-min) {
+    .container, .col-sm-12 {
+        padding: 0; 
+    }
+
+    .row, .container > .navbar-header, .container > .navbar-collapse {
+        margin: 0;
+    }
+
+    .breadcrumb {
+        border-radius: 0;
+    }
+
+
+
+}
+
+.hero {
+    position: relative;
+    margin-bottom: 20px;
+
+    a {
+        -webkit-transition: background-color .2s linear;
+        -moz-transition: background-color .2s linear;
+        -o-transition: background-color .2s linear;
+        transition: background-color .2s linear;
+    }
+
+    a:hover {
+        background: rgba(0,138,90,0.7);
+        text-decoration: none;
+        color: #fff;
+    }
+
+    img {
+        width: 100%;
+        display: block;
+    }
+
+    .overlay-tl {
+        top: 20px;
+        left: 20px;
+    }
+
+    .overlay-tr {
+        top: 20px;
+        right: 20px;
+    }
+
+    .overlay-bl {
+        bottom: 20px;
+        left: 20px;
+    }
+
+    .overlay-br {
+        bottom: 20px;
+        right: 20px;
+    }
 }
