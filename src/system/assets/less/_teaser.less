@@ -1,46 +1,74 @@
+// For extra small screens
 .teaser {
+	background: @teaser-background-color;
+	color: @teaser-color;
+	margin-bottom: 10px;
 	position: relative;
+	font-size: 12px;
+
+	.overlay {
+		padding: 0;
+		position: relative;
+	}
+
+	.description {
+		padding: 3%;
+	}
+
+	h3, p {
+		margin-bottom: 5px;
+	}
 
 	h3 {
-		margin: 0;
-		padding: 10px;
-	}
-
-	p, a {
-		padding: 10px;
-	}
-
-	a {
-		display: none;
+		font-size: 1.4em;
+		font-weight: bold;
 	}
 
 	img {
-		max-width: 100%;
+		width: 35%;
+		float: right;
+		margin: 3%;
+	}
+
+	a {
 		display: block;
-		margin: 0 auto;
 	}
 }
 
-@media screen and (max-width: @screen-sm-min) {
-
+// For small and larger screens
+@media screen and (min-width: @screen-sm) {
 	.teaser {
-		background: #79b19a;
-		color: #fff;
-		margin-bottom: 20px;
+		font-size: 13px;
 
+		.description {
+			padding: 0; 
+
+			.overlay {
+				margin: 0;
+			    padding: @line-height-computed / 2;
+			    position: absolute;
+			}
+		}
+		
 		h3, p {
-			background: transparent;
-			position: relative;
+			margin: 0;
+			padding: 10px;
 		}
 
 		img {
-			width: 35%;
-			float: right;
-			margin: 0 10px 10px;
+			width: 100%;
+			display: block;
+			margin: 0 auto;
 		}
 
 		a {
-			display: block;
+			display: none;
 		}
+	}
+}
+
+@media screen and (min-width: @screen-md) {
+	.teaser {
+		font-size: 14px;
 	}
 }

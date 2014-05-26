@@ -273,12 +273,23 @@ module.exports = function(grunt) {
                 ]
             }
         }
+    },
+    validation: {
+        options: {
+            reset: grunt.option('reset') || false,
+            relaxerror: ['Bad value X-UA-Compatible for attribute http-equiv on element meta.'] //ignores these errors
+        },
+        files: {
+            src: ['<%= config.dist %>/examples/*.html',
+                  '<%= config.dist %>/ajax/*.html',
+                  '<%= config.dist %>/index.html']
+        }
     }
-
 
   });
 
   grunt.loadNpmTasks('assemble');
+  grunt.loadNpmTasks('grunt-html-validation');
 
   grunt.registerTask('serve', function(target){
     if (target === 'dist') {
@@ -328,7 +339,8 @@ module.exports = function(grunt) {
     'copy',
     //'rev',
     'usemin',
-    //'htmlmin'
+    //'htmlmin',
+    'validation'
   ]);
 
   grunt.registerTask('default', [

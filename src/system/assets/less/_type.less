@@ -11,13 +11,6 @@ h6{
 	}
 }
 
-.ribbon{
-	background: fadein(@ribbon-bg, 100%);
-	background: @ribbon-bg;
-	color: @ribbon-color;
-	z-index: 1;
-}
-
 .glow{
 	z-index: 1;
 	text-shadow: 0 0 3px @glow-bg-color;
@@ -36,3 +29,14 @@ h6{
 	margin-top: 0;
 }
 
+@media screen and (min-width: @screen-sm) {
+	.ribbon {
+		background: fadein(@ribbon-bg, 100%);
+		background: @ribbon-bg;
+		color: @ribbon-color;
+		position: absolute;
+		z-index: 1;
+		padding: 3%;
+		margin: 0;
+	}
+}

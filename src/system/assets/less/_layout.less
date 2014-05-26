@@ -1,10 +1,10 @@
-
-.overlay-container{
+// Overlays
+.overlay-container {
     position: relative;
     margin-bottom: @line-height-computed / 2;
     background: @gray-lighter;
 
-    img{
+    img {
         max-width: 100%;
         height: auto;
         display: block;
@@ -12,7 +12,7 @@
     }
 }
 
-.overlay{
+.overlay {
     position: absolute;
     padding: @line-height-computed / 2;
     margin: 0;
@@ -121,47 +121,4 @@
 
 
 
-}
-
-.hero {
-    position: relative;
-    margin-bottom: 20px;
-
-    a {
-        -webkit-transition: background-color .2s linear;
-        -moz-transition: background-color .2s linear;
-        -o-transition: background-color .2s linear;
-        transition: background-color .2s linear;
-    }
-
-    a:hover {
-        background: rgba(0,138,90,0.7);
-        text-decoration: none;
-        color: #fff;
-    }
-
-    img {
-        width: 100%;
-        display: block;
-    }
-
-    .overlay-tl {
-        top: 20px;
-        left: 20px;
-    }
-
-    .overlay-tr {
-        top: 20px;
-        right: 20px;
-    }
-
-    .overlay-bl {
-        bottom: 20px;
-        left: 20px;
-    }
-
-    .overlay-br {
-        bottom: 20px;
-        right: 20px;
-    }
 }
