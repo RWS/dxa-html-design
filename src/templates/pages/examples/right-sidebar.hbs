@@ -3,26 +3,25 @@ title: Right Sidebar
 section: Examples
 ---
 
-<div class='container'>
+<div class="row">
+	<div class="col-sm-12">
+		{{> breadcrumb }}
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-3">
+		{{> nav-sidebar }}
+	</div>
+	<div class="col-sm-6 col-md-7">
 
-	{{> breadcrumb }}
-	
-	<div class="row">
-		<div class="col-sm-3">
-			{{> nav-sidebar }}
-		</div>
-		<div class="col-sm-6 col-md-7">
+		<article class='rich-text'>
 
-			<article class='rich-text'>
+			<h1>Article Heading</h1>
+			<div class='meta'>Posted on 1st January 1970 by Joe Bloggs</div>
 
-				<h1>Article Heading</h1>
-				<div class='meta'>
-					Posted on 1st January 1970 by Joe Bloggs
-				</div>
+			<img class='center-block' src="http://fpoimg.com/653x200?text=Feature Image (.rich-text .center-block)" alt="">
 
-				<img class='center-block' src="http://fpoimg.com/653x200?text=Feature Image (.rich-text .center-block)" />
-
-				<div class='content'>
+			<div class='content'>
 {{#markdown}}
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -47,25 +46,22 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 {{/markdown}}
-				</div>
+			</div>
 
-			</article>
+		</article>
 
-		</div>
-		<div class="col-sm-3 col-md-2">
-			<ul class='nav nav-sidebar'>
-				<li>
-					<a href="#">Link One</a> 
-				</li>
-				<li>
-					<a href="#">Link Two</a> 
-				</li>
-				<li>
-					<a href="#">Link Three</a> 
-				</li>
-			</ul>
-		</div>
 	</div>
-
+	<div class="col-sm-3 col-md-2">
+		<ul class='nav nav-sidebar'>
+			<li>
+				<a href="#">Link One</a> 
+			</li>
+			<li>
+				<a href="#">Link Two</a> 
+			</li>
+			<li>
+				<a href="#">Link Three</a> 
+			</li>
+		</ul>
+	</div>
 </div>
-
