@@ -2,6 +2,8 @@
 
 	var ignoreMobileSelector = SDL_ENV.isSmallScreen ? ":not(.popup-mobile-ignore)" : "";
 
+	console.log(SDL_ENV.isSmallScreen);
+
 	$(".popup-image" + ignoreMobileSelector).magnificPopup({
 		type: "image",
 		image: {
