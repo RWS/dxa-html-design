@@ -1,21 +1,25 @@
 (function(jQuery){
 
-	window.setupCookieBar = function(setAsSeen){
-		if($.cookie('seen-cookie-notice') === undefined){
-			$('#cookiebar').show();
+	window.cookieBar = {
+		open: function() {
+			$('#cookiebar').slideDown();
 
-			if(setAsSeen){
-				$.cookie('seen-cookie-notice', true , { path: '/' });
-			}
-
-			$('#cookiebar-hide').click(function(){
-				$.removeCookie('seen-cookie-notice', { path: '/' });
-				$('#cookiebar').slideUp();
-				return false;
+			$('#cookiebar-hide').click(function() {
+				cookieBar.close();
 			});
+		},
+		close: function() {
+			$('#cookiebar').slideUp();
+			$.cookie('seen-cookie-notice', true, { path: '/' });
+		},
+		reset: function() {
+			$.removeCookie('seen-cookie-notice');
+		},
+		setup: function() {
+			if (!$.cookie('seen-cookie-notice')) this.open();
 		}
-	}
+	};
 
-	setupCookieBar(true);
+	cookieBar.setup();
 
 })($);
