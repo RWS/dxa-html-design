@@ -6,8 +6,6 @@
 
 	window.SDL_ENV = SDL_ENV;
 
-  $('.selectpicker').selectpicker();
-
 })($);
 
 /**

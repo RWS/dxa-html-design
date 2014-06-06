@@ -1,6 +1,7 @@
 ---
 component: navbar
 ---
+
 <header id="page-header" class="navbar navbar-default">
   <div class="container-fluid page-border">
     <div class="row">
@@ -16,14 +17,6 @@ component: navbar
 
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav utility-nav">
-            <li>
-              <select class="selectpicker">
-                <option>English</option>
-                <option>Dutch</option>
-                <option>Ukrainian</option>
-                <option>French</option>
-              </select>
-            </li>
             <li{{#if this.isCurrentPage}} class="active"{{/if}}>
               <a href="#">Utility Nav</a>
             </li>
@@ -34,6 +27,13 @@ component: navbar
               <a href="#">Log out</a>
             </li>
           </ul>
+          <select class="selectpicker" data-width="auto">
+            <option>English</option>
+            <option>Dutch</option>
+            <option>French</option>
+            <option>German</option>
+            <option>Ukrainian</option>
+          </select>
           <ul class="nav navbar-nav main-nav">
             <li{{#is section 'Examples'}} class="active"{{/is}}>
               <a href="/examples/article.html">Examples</a>
