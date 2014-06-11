@@ -17,7 +17,7 @@ section: Examples
 		<p>Where to find us and how to get there?</p>
 
 		<div class="container-fluid">
-			<div class="row">
+			<div id="location-tile" class="row">
 				<div class="col-sm-6">
 					<div id="map-canvas" style="height:300px;"></div>
 					<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxId4iD_j_G73gjgHZwb8NPcCVs24Mm4g&sensor=false"></script>
@@ -43,22 +43,28 @@ section: Examples
 				</div>
 				<div class="col-sm-6">
 					<div class="tile">
-						<h4><i class="fa fa-map-marker"></i> Address</h4>
-						<div class="h-card">
-						  <p class="p-name">Joe Bloggs</p>
-						  <p class="p-adr h-adr">
-						    <span class="p-street-address">17 Austerstræti</span>
-						    <span class="p-locality">Reykjavík</span>
-						    <span class="p-country-name">Iceland</span>
-						  </p>
+
+						<div class="vcard">
+							<h3 class="org">Sally Ride Science</h3>
+							<a href="http://maps.google.com/maps?daddr=1600+Amphitheatre+Parkway,+Mountain+View,+CA">Get directions with Google Maps</a>
+
+							<h4><i class="fa fa-map-marker"></i> Address</h4>
+							<div class="adr">
+								<p class="street-address">123 Main st.</p>
+								<p>
+									<span class="locality">Los Angeles</span>,
+									<abbr class="region" title="California">CA</abbr>,
+									<span class="postal-code">91316</span>
+								</p>
+								<p class="country-name">U.S.A</p>
+							</div>
+
+							<h4><i class="fa fa-envelope"></i> Contact Details</h4>
+							<p>Sales Department: <a class="email" href="mailto:sales@company.com">sales@company.com</a></p>
+						  <p>Technical Support: <a class="email" href="mailto:support@company.com">support@company.com</a></p>
+							<div class="tel">Mobile Number: <a href="tel:+18185551212">+1 818 555 1212</a></div>
 						</div>
-						<br>
-						<h4><i class="fa fa-envelope"></i> Contact Details</h4>
-						<div class="h-card">
-						  <p class="p-name">Sales Department: <a href="mailto:sales@company.com">sales@company.com</a></p>
-						  <p class="p-name">Technical Support: <a href="mailto:support@company.com">support@company.com</a></p>
-						  <p class="p-adr h-adr">Mobile Number: +31 554 884 85 21</p>
-						</div>
+
 					</div>
 				</div>
 			</div>

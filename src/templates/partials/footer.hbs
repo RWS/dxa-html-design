@@ -12,7 +12,21 @@
       <script src="/bower_components/jquery-cookie/jquery.cookie.js"></script>
       <script src="/bower_components/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
       <script src="/system/assets/scripts/bootstrap-select.min.js"></script>
-      <script>$(document).ready(function(){$('.selectpicker').selectpicker();});</script>
+    <!-- endbuild -->
+
+    <script>
+      $(document).ready(function(){
+        $('.selectpicker').selectpicker();
+
+        $(function(){
+          var footerHeight = $("#page-footer").height();
+          $("#page-wrapper").css("padding-bottom", footerHeight);
+          $("#page-footer").css("margin-top", -footerHeight);
+        });
+      });
+    </script>
+
+    <!-- build:js(src) /system/assets/scripts/custom.js -->
 
       {{!-- Custom --}}
       <script src="/system/assets/scripts/navbar.js"></script>

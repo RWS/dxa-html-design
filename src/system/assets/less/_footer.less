@@ -13,7 +13,7 @@ html, body {
 
 #page-wrapper {
     min-height: 100%;
-    margin-bottom: -(@page-footer-height); /* equal to footer height */
+    /*margin-bottom: -(@page-footer-height); /* equal to footer height */
 }
 
 #page-wrapper:after {
@@ -23,13 +23,16 @@ html, body {
 
 
 #page-footer, #page-wrapper:after {
-    height: @page-footer-height; /* .push must be the same height as footer */
+    height: auto; /*@page-footer-height; /* .push must be the same height as footer */
 }
 
 #page-footer {
 	background: @page-footer-bg-color;
 	color: @page-footer-color;
-	padding: @page-footer-vertical-padding 0;
+
+	.container-fluid {
+		padding: @page-footer-vertical-padding;
+	}
 
 	a {
 		color: @page-footer-link-color;

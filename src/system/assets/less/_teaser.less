@@ -74,12 +74,17 @@
 }
 
 #map-canvas {
-	margin-bottom: 20px;
+	margin: 15px 0;
 }
 
 .tile {
-	background: @gray-lighter;
-	border-left: @nav-sidebar-border-width solid @nav-sidebar-color;
 	padding: 10px 20px;
-	height: 300px;
+}
+
+#location-tile {
+	background: @breadcrumb-bg;
+
+	> div.col-sm-6:first-child {
+		background: @brand-primary;
+	}
 }
