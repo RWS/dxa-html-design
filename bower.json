@@ -4,7 +4,7 @@
   "authors": [
     "Chris Rowe <chris@webcoda.co.uk>"
   ],
-  "description": "",
+  "description": "Add dependencies for grunt build",
   "license": "",
   "private": true,
   "ignore": [
