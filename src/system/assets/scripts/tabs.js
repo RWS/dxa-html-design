@@ -1,9 +1,9 @@
 (function(jQuery){
 
-	$(document).on('change.bs.tab.data-api', 'select[data-toggle="tab"]', function (e) {
-		e.preventDefault()
-		var $selected = $(this).find(":selected");
-		$($selected).tab('show')
-	})
+	$('a[data-toggle="tab"]').on('click', function (e) {
+	  $(e.target).tab('show'); // activated tab
+	  $(e.relatedTarget).tab('hide'); // previous tab
+	  return false;
+	});
 
 })($);

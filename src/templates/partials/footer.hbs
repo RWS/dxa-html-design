@@ -23,6 +23,13 @@
           $("#page-wrapper").css("padding-bottom", footerHeight);
           $("#page-footer").css("margin-top", -footerHeight);
         });
+
+        $('.image-loading').each(function(e) {
+          $(this).addClass('is-loading');
+          $(this).find('img').on('load', function() {
+            $(this).closest('.image-loading').removeClass('is-loading');
+          });
+        });
       });
     </script>
 
