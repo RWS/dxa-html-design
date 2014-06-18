@@ -1,0 +1,27 @@
+{
+  "name": "SDL-Template-CMS",
+  "version": "0.0.1",
+  "authors": [
+    "Bart Koopman <bkoopman@sdl.com>"
+  ],
+  "description": "Build from CMS",
+  "license": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "~3.1.1",
+    "modernizr": "~2.7.2",
+    "jquery": "<2.0.0",
+    "less.js": "~1.7.0",
+    "font-awesome": "~4.0.3",
+    "fitvids": "~1.1.0",
+    "jquery-touchswipe": "~1.6.4",
+    "magnific-popup": "~0.9.9"
+  }
+}
