@@ -10,32 +10,31 @@
 	padding: 0;
 	list-style: none;
 
-	& > li:first-child {
-		border: none;
+	padding: 10px;
+
+	i {
+		background: @brand-primary;
+		color: #fff;
+		float: left;
+		font-size: 2em;
+		line-height: 37px;
+		width: 60px;
+		text-align: center;
+		margin-right: 20px; 
 	}
 
-	& > li {
-		padding: 10px;
-		border-top: 1px solid @gray-lighter;
+	a {
+		font-weight: bold; 
+	}
 
-		i {
-			background: @brand-primary;
-			color: #fff;
-			float: left;
-			font-size: 2em;
-			line-height: 37px;
-			width: 60px;
-			text-align: center;
-			margin-right: 20px; 
-		}
-
-		a {
-			font-weight: bold; 
-		}
-
-		small {
-			color: @gray-dark;
-			display: block;
-		}
+	small {
+		color: @gray-dark;
+		display: block;
+	}
+	
+	small.size{
+		color: @gray-dark;
+		display: inline-block;
+		margin-left: 10px;
 	}
 }
