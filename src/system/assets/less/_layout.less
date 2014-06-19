@@ -1,3 +1,36 @@
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+html, body {
+    font-size: @font-size-xs;
+    height: 100%;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm) {
+    html, body {
+        font-size: @font-size-sm;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md) {
+    html, body {
+        font-size: @font-size-md;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg) {
+    html, body {
+        font-size: @font-size-lg;
+    }
+
+    .page-border {
+        width: 1024px;
+        margin: 0 auto;
+    }
+}
+
 // Overlays
 .overlay-container {
     position: relative;
@@ -16,7 +49,7 @@
     position: absolute;
     padding: @line-height-computed / 2;
     margin: 0;
-    z-index: 100;
+    z-index: 5;
 }
 
 .overlay-tl{
