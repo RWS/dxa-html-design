@@ -1,4 +1,4 @@
-(function(jQuery){
+(function($){
 
 	$(".carousel-inner").swipe( {
 			
@@ -12,4 +12,4 @@
 		threshold:75
 	});
 
-})($);
+})(jQuery);

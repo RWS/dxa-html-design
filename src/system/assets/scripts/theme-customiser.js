@@ -1,4 +1,4 @@
-(function(jQuery){
+(function($) {
 
 	var $variable = $('#less-variable');
 	var $value = $('#less-value');
@@ -16,4 +16,4 @@
 
 	});
 
-})($);
+})(jQuery);

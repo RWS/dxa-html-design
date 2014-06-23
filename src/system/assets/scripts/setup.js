@@ -1,18 +1,13 @@
-(function(jQuery){
-
-	var SDL_ENV = {};
-	// IE8 doesn't support media queries so we can't use Modernizr.mq here
-	SDL_ENV.isSmallScreen = document.body.clientWidth < 768;
-
-	window.SDL_ENV = SDL_ENV;
-
-})($);
-
 /**
  * Protect window.console method calls, e.g. console is not defined on IE
  * unless dev tools are open, and IE doesn't define console.debug
  */
 (function() {
+
+  SDL_ENV = {
+    isSmallScreen: document.body.clientWidth < 768 // IE8 doesn't support media queries so we can't use Modernizr.mq here
+  };
+
   if (!window.console) {
     window.console = {};
   }

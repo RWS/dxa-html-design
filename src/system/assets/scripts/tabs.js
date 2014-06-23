@@ -1,4 +1,4 @@
-(function(jQuery){
+(function($) {
 
 	$('a[data-toggle="tab"]').on('click', function (e) {
 	  $(e.target).tab('show'); // activated tab
@@ -6,4 +6,4 @@
 	  return false;
 	});
 
-})($);
+})(jQuery);

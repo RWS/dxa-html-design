@@ -1,4 +1,4 @@
-(function(jQuery){
+(function($) {
 
 	var ignoreMobileSelector = SDL_ENV.isSmallScreen ? ":not(.popup-mobile-ignore)" : "";
 
@@ -36,4 +36,4 @@
 		type:'ajax'
 	});
 
-})($);
+})(jQuery);

@@ -1,4 +1,4 @@
-(function(jQuery){
+(function($) {
 
 	$.fn.setup_navigation = function(settings) {
 		settings = jQuery.extend({
@@ -30,4 +30,4 @@
 
 	$('.nav').setup_navigation();
 
-})($);
+})(jQuery);

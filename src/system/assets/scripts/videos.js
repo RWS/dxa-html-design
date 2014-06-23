@@ -1,4 +1,4 @@
-(function(jQuery){
+(function($) {
 
 	$("body").fitVids();
 
@@ -6,4 +6,4 @@
 		$(this).parent().html('<iframe width="960" height="720" src="//www.youtube.com/embed/'+$(this).data('video')+'" frameborder="0" allowfullscreen></iframe>');
 	});
 
-})($);
+})(jQuery);

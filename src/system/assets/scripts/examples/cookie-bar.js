@@ -1,7 +1,7 @@
-(function(jQuery){
+(function($) {
 
-	$('#reset-cookiebar').click(function(){
+	$('#reset-cookiebar').click(function() {
 		cookieBar.reset();
 	});
 
-})($);
+})(jQuery);

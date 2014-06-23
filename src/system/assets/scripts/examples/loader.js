@@ -1,4 +1,4 @@
-(function(jQuery){
+(function($){
 
 	$('#show-loader').click(function(){
 		$('#loading-example').addClass('is-loading');
@@ -8,4 +8,4 @@
 		return false;
 	});
 
-})($);
+})(jQuery);
