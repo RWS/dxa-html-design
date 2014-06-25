@@ -78,6 +78,15 @@ module.exports = function(grunt) {
 		}
     },
 
+    uglify: {
+      options: {
+        compress: {
+          negate_iife: false,
+          drop_console: true
+        }
+      }
+    },
+
     copy: {
         dist: {
             files: [{
