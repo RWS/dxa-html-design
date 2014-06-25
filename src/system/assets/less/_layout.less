@@ -63,8 +63,8 @@ h4.overlay {
 
     .carousel &{
         top: @line-height-computed;
-        left: 50px;
-		right: 50px;
+        left: 10%;
+		right: 10%;
     }
 }
 
@@ -74,7 +74,7 @@ h4.overlay {
 
     .carousel &{
         top: @line-height-computed;
-        right: 50px;
+        right: 10%;
     }
 }
 
@@ -84,7 +84,7 @@ h4.overlay {
 
     .carousel &{
         bottom: @line-height-computed;
-        left: 50px;
+        left: 10%;
     }
 }
 
@@ -94,7 +94,7 @@ h4.overlay {
 
     .carousel &{
         bottom: @line-height-computed;
-        right: 50px;
+        right: 10%;
     }
 }
 
@@ -147,8 +147,13 @@ h4.overlay {
 
 // For very small screens
 @media screen and (max-width: @screen-sm-min) {
-    .container, .col-sm-12 {
+    .container-fluid, .col-sm-12 {
         padding: 0; 
+    }
+
+    .row {
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .breadcrumb {

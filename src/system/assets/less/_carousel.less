@@ -7,32 +7,26 @@
 	.carousel-icon-right {
 		position: absolute;
 		top: 50%;
-		z-index: 5;
-		display: inline-block;
-	}
-	.carousel-icon-left, .carousel-icon-right {
 		left: 50%;
+		z-index: 5;
+		display: block;
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
+		margin-left: -15px;
+		margin-top: -15px;
+		font-size: 2rem;
+	}
+
+	.carousel-indicators {
+		margin-bottom: 0;
+	}
+
+	.carousel-control {
+		width: 10%;
 	}
 
 	.carousel-inner > .item > img, .carousel-inner > .item > a > img {
 		width: 100%;
 	}
-}
-
-@media screen and (min-width: @screen-sm-min) {
-
-	// Scale up the controls a smidge
-	.carousel-control {
-		width: 50px;
-		
-		.carousel-icon-left,
-		.carousel-icon-right{
-			width: 30px;
-			height: 30px;
-			margin-top: -15px;
-			margin-left: -15px;
-			font-size: 30px;
-		}
-	}
-
 }
