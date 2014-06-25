@@ -11,14 +11,14 @@ component: navbar
             <i class="fa fa-bars"></i>
           </button>
           <a class="navbar-logo" href="/" title="{{ site.title }}">
-            <img src="/system/assets/images/temp/sdl-globe.png" alt="{{ site.title }} Logo">
+            <img height="80" src="/system/assets/images/logo.png" alt="{{ site.title }} Logo">
           </a>
         </div>
 
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav utility-nav">
             <li{{#if this.isCurrentPage}} class="active"{{/if}}>
-              <a href="#">Utility Nav</a>
+              <a href="#">3<sup>rd</sup> Party Products</a>
             </li>
             <li{{#if this.isCurrentPage}} class="active"{{/if}}>
               <a href="#">Account</a>
@@ -28,13 +28,29 @@ component: navbar
             </li>
           </ul>
           <select class="selectpicker" data-width="auto">
-            <option>English</option>
-            <option>Dutch</option>
-            <option>French</option>
-            <option>German</option>
-            <option>Ukrainian</option>
+            <option value="en" href="//en.wikipedia.com/">English</option>
+            <option value="nl" href="//nl.wikipedia.com/">Dutch</option>
+            <option value="fr" href="//fr.wikipedia.com/">French</option>
+            <option value="de" href="//de.wikipedia.com/">German</option>
+            <option value="uk" href="//uk.wikipedia.com/">Ukrainian</option>
           </select>
           <ul class="nav navbar-nav main-nav">
+            <li{{#is section 'Home'}} class="active"{{/is}}>
+              <a href="/index.html">Home</a>
+            </li>
+            <li{{#is section 'Layouts'}} class="active"{{/is}}>
+              <a href="/layouts/index.html">Layouts</a>
+            </li>
+            <li{{#is section 'Lists'}} class="active"{{/is}}>
+              <a href="/lists/index.html">Lists</a>
+            </li>
+            <li{{#is section 'Elements'}} class="active"{{/is}}>
+              <a href="/elements/index.html">Elements</a>
+            </li>
+            <li{{#is section 'Features'}} class="active"{{/is}}>
+              <a href="/features/index.html">Features</a>
+            </li>
+
             <li{{#is section 'Examples'}} class="active"{{/is}}>
               <a href="/examples/article.html">Examples</a>
             </li>

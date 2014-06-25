@@ -30,4 +30,8 @@
 
 	$('.nav').setup_navigation();
 
+	$('.selectpicker').on('change', function(e) {
+		window.location.href = $(e.target[e.target.selectedIndex]).attr('href');
+	});
+
 })(jQuery);

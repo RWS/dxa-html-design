@@ -9,10 +9,10 @@ section: Examples
 	</div>
 </div>
 <div class="row">
-	<div class="col-sm-3">
+	<div class="col-sm-12 col-md-3">
 		{{> nav-sidebar }}
 	</div>
-	<div class="col-sm-9">
+	<div class="col-sm-12 col-md-9">
 		<h2>Contact us</h2>
 		<p>Where to find us and how to get there?</p>
 
@@ -23,11 +23,11 @@ section: Examples
 					<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxId4iD_j_G73gjgHZwb8NPcCVs24Mm4g"></script>
 					<script type="text/javascript">
 					  function initialize() {
-					  	var myLatlng = new google.maps.LatLng(-34.397,150.644);
+					  	var myLatlng = new google.maps.LatLng(51.52381,-0.158441);
 							
 					    var mapOptions = {
 					      center: myLatlng,
-					      zoom: 8
+					      zoom: 13
 					    };
 					    var map = new google.maps.Map(document.getElementById("map-canvas"),
 					      mapOptions);
@@ -46,17 +46,16 @@ section: Examples
 
 						<div class="vcard">
 							<h3 class="org">Sally Ride Science</h3>
-							<a href="http://maps.google.com/maps?daddr=1600+Amphitheatre+Parkway,+Mountain+View,+CA">Get directions with Google Maps</a>
+							<a href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom">Get directions with Google Maps</a>
 
 							<h4><i class="fa fa-map-marker"></i> Address</h4>
 							<div class="adr">
-								<p class="street-address">123 Main st.</p>
+								<p class="street-address">221B Baker Street</p>
 								<p>
-									<span class="locality">Los Angeles</span>,
-									<abbr class="region" title="California">CA</abbr>,
+									<span class="locality">London</span>,
 									<span class="postal-code">91316</span>
 								</p>
-								<p class="country-name">U.S.A</p>
+								<p class="country-name">United Kingdom</p>
 							</div>
 
 							<h4><i class="fa fa-envelope"></i> Contact Details</h4>
