@@ -1,6 +1,6 @@
 (function($) {
 
-	cookieBar = {
+	var cookieBar = {
     open: function() {
       $('#cookiebar').slideDown();
 
@@ -21,5 +21,9 @@
   };
 
   cookieBar.setup();
+
+  $('#reset-cookiebar').click(function() {
+    cookieBar.reset();
+  });
 
 })(jQuery);
