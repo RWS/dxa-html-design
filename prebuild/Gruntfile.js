@@ -97,6 +97,7 @@ module.exports = function(grunt) {
                 src: [
 				    // ignore all images (unless we really need some)
                     //'/assets/images/**/*.{webp,gif}',
+					'/assets/images/wait-spinner.gif',
                     '/assets/fonts/*',
                     '/assets/less/**/*',
                     '/assets/scripts/PIE.htc',
@@ -147,6 +148,16 @@ module.exports = function(grunt) {
             dirs: ['<%= config.dist %>']
         }
     },
+	imagemin: {
+        dist: {
+            files: [{
+                expand: true,
+                cwd: '<%= config.src %>/system/assets/images',
+                src: 'wait-spinner.gif',
+                dest: '<%= config.dist %>/system/assets/images'
+            }]
+        }
+    },
     cssmin: {
         dist: {
             files: {
@@ -167,6 +178,7 @@ module.exports = function(grunt) {
     'less:dist',
     'useminPrepare',
     'concat',
+	'imagemin',
     'uglify',
     'copy',
     'usemin',
