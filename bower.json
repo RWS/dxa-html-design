@@ -22,6 +22,7 @@
     "font-awesome": "~4.1.0",
     "fitvids": "~1.1.0",
     "jquery-touchswipe": "~1.6.4",
-    "magnific-popup": "~0.9.9"
+    "magnific-popup": "~0.9.9",
+	"jquery-cookie" : "1.4.1"
   }
 }

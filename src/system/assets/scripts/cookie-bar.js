@@ -13,7 +13,7 @@
       $.cookie('seen-cookie-notice', true, { path: '/' });
     },
     reset: function() {
-      $.removeCookie('seen-cookie-notice');
+      $.removeCookie('seen-cookie-notice', { path: '/' });
     },
     setup: function() {
       if (!$.cookie('seen-cookie-notice')) this.open();
