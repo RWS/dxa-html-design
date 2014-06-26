@@ -5,10 +5,26 @@ html, body {
     height: 100%;
 }
 
+.navbar-header .selectpicker {
+    display: block;
+}
+
+.navbar-collapse .selectpicker {
+    display: none;
+}
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: @screen-sm) {
     html, body {
         font-size: @font-size-sm;
+    }
+
+    .navbar-header .selectpicker {
+        display: none;
+    }
+
+    .navbar-collapse .selectpicker {
+        display: block;
     }
 }
 

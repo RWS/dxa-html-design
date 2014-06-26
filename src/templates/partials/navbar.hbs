@@ -10,6 +10,13 @@ component: navbar
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <i class="fa fa-bars"></i>
           </button>
+          <select class="selectpicker" data-width="auto">
+            <option value="en" data-href="//en.wikipedia.com/">English</option>
+            <option value="nl" data-href="//nl.wikipedia.com/">Dutch</option>
+            <option value="fr" data-href="//fr.wikipedia.com/">French</option>
+            <option value="de" data-href="//de.wikipedia.com/">German</option>
+            <option value="uk" data-href="//uk.wikipedia.com/">Ukrainian</option>
+          </select>
           <a class="navbar-logo" href="/" title="{{ site.title }}">
             <img height="80" src="/system/assets/images/logo.png" alt="{{ site.title }} Logo">
           </a>
@@ -28,11 +35,11 @@ component: navbar
             </li>
           </ul>
           <select class="selectpicker" data-width="auto">
-            <option value="en" href="//en.wikipedia.com/">English</option>
-            <option value="nl" href="//nl.wikipedia.com/">Dutch</option>
-            <option value="fr" href="//fr.wikipedia.com/">French</option>
-            <option value="de" href="//de.wikipedia.com/">German</option>
-            <option value="uk" href="//uk.wikipedia.com/">Ukrainian</option>
+            <option value="en" data-href="//en.wikipedia.com/">English</option>
+            <option value="nl" data-href="//nl.wikipedia.com/">Dutch</option>
+            <option value="fr" data-href="//fr.wikipedia.com/">French</option>
+            <option value="de" data-href="//de.wikipedia.com/">German</option>
+            <option value="uk" data-href="//uk.wikipedia.com/">Ukrainian</option>
           </select>
           <ul class="nav navbar-nav main-nav">
             <li{{#is section 'Home'}} class="active"{{/is}}>
