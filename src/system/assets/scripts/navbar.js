@@ -2,7 +2,7 @@
 
 	$.fn.setup_navigation = function(settings) {
 		settings = jQuery.extend({
-			menuHoverClass: 'show-menu',
+			menuHoverClass: 'show-menu'
 		}, settings);
 		
 		$(this).find('> li > a').hover(function(){
