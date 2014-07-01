@@ -16,13 +16,13 @@
     <!-- endbuild -->
 
     <script>
-      $(document).ready(function(){
+      $(document).ready(function() {
         $('.selectpicker').selectpicker();
 
-        $(function(){
-          var footerHeight = $("#page-footer").height();
-          $("#page-wrapper").css("padding-bottom", footerHeight);
-          $("#page-footer").css("margin-top", -footerHeight);
+        $(window).resize(function() {
+          var footerHeight = $('#page-footer').height();
+          $('#page-wrapper').css('padding-bottom', footerHeight);
+          $('#page-footer').css('margin-top', -footerHeight);
         });
 
         $('.image-loading').each(function(e) {
