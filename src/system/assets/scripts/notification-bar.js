@@ -4,7 +4,7 @@
     open: function(barId, barCloseId, cookie) {
       $('#' + barId).slideDown();
 
-      $('#' + barCloseId).click(function() {
+      $('#' + barCloseId).on('click', function() {
         notificationBar.close(barId, cookie);
       });
     },
