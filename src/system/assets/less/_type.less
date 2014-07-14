@@ -31,12 +31,21 @@ h6{
 
 @media screen and (min-width: @screen-xs) {
 	.ribbon {
-		background: fadein(@ribbon-bg, 100%);
-		background: @ribbon-bg;
 		color: @ribbon-color;
 		position: absolute;
 		z-index: 1;
 		padding: 3%;
 		margin: 0;
 	}
+}
+
+.ribbon {
+    background: @ribbon-bg-color;
+	background: transparent\9;
+	background: rgba(red(@ribbon-bg-color), green(@ribbon-bg-color), blue(@ribbon-bg-color), @ribbon-bg-transparency);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(rgba(red(@ribbon-bg-color), green(@ribbon-bg-color), blue(@ribbon-bg-color), @ribbon-bg-transparency)),endColorstr=argb(rgba(red(@ribbon-bg-color), green(@ribbon-bg-color), blue(@ribbon-bg-color), @ribbon-bg-transparency)));
+	zoom: 1;
+}
+.ribbon:nth-child(n) {
+	filter: none;
 }
