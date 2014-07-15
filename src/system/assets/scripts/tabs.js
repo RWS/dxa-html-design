@@ -6,4 +6,9 @@
 	  return false;
 	});
 
+	$('.tab-select').on('change', function (e) {
+	  $(e.target.selectedOptions[0]).tab('show'); // activated tab
+	  return false;
+	});
+
 })(jQuery);
