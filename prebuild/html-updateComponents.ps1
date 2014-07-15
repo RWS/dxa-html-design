@@ -9,7 +9,7 @@ param (
 #Terminate script on first occured exception
 trap {
     Write-Error $_.Exception.Message
-    return
+    return 1
 }
 
 # Initialization
@@ -20,7 +20,7 @@ if (!(Test-Path $tempFolder)) {
 if (!(Test-Path $htmlDist)) {
     $htmlDist = Join-Path $ScriptDir "..\html\"
 }
-$dllsFolder = Join-Path ($MyInvocation.MyCommand.Path) "ImportExport\"
+$dllsFolder = Join-Path (Split-Path $MyInvocation.MyCommand.Path) "ImportExport\"
 $designZip = Join-Path $htmlDist "html-design.zip"
 
 # Prepare package
