@@ -6,6 +6,12 @@ param (
     [string]$cmsUrl = "http://localhost/"
 )
 
+#Terminate script on first occured exception
+trap {
+    Write-Error $_.Exception.Message
+    return
+}
+
 # Initialization
 $tempFolder = Join-Path $env:TEMP "TSI_html\"
 if (!(Test-Path $tempFolder)) {
@@ -18,9 +24,14 @@ $dllsFolder = Join-Path ($MyInvocation.MyCommand.Path) "ImportExport\"
 $designZip = Join-Path $htmlDist "html-design.zip"
 
 # Prepare package
+$tempDesignZip = Join-Path $tempFolder "html-design.zip"
+if (Test-Path $tempDesignZip) {
+    Remove-Item $tempDesignZip | Out-Null
+}
 Add-Type -Assembly System.IO.Compression.FileSystem
 $compressionLevel = [System.IO.Compression.CompressionLevel]::Optimal
-[System.IO.Compression.ZipFile]::CreateFromDirectory($htmlDist,$designZip, $compressionLevel, $false)
+[System.IO.Compression.ZipFile]::CreateFromDirectory($htmlDist,$tempDesignZip, $compressionLevel, $false)
+Copy-Item $tempDesignZip $designZip -Force
 
 function InitUpdater {
     if (-not $global:UpdaterIsInitialized) {
