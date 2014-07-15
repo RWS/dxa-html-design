@@ -134,7 +134,5 @@ PublishPage "/webdav/400 Example Site/Home/_System/Publish HTML Design.tpg" "tcm
 Start-Sleep -s 100
 
 # Recycle application pools
-function Recycle-IisAppPool([string]$appPoolName) { 
-     Invoke-WmiMethod -Name Recycle -Namespace "root\MicrosoftIISv2" -Path "IIsApplicationPool.Name='W3SVC/APPPOOLS/$appPoolName'" 
-}
-"Staging (Git Version)", "Staging" | % { Recycle-IisAppPool $_ }
+Import-Module WebAdministration
+"Staging (Stable demo version)", "Staging (GIT version)" | % { (Get-Item "IIS:\Sites\$_"| Select-Object applicationPool).applicationPool } | % { Restart-WebAppPool $_ }
