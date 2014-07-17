@@ -12,6 +12,17 @@
 
 	.description {
 		padding: @teaser-padding;
+
+		& > a {
+			background: rgba(0,0,0,.5);
+			color: #fff;
+			display: block;
+			line-height: 18px;
+			position: absolute;
+			padding: @teaser-padding; 
+			bottom: 0;
+			left: 0;
+		}
 	}
 
 	p {
@@ -25,7 +36,7 @@
 	}
 
 	.loading-panel {
-		display: none;
+		display: none !important;
 	}
 	
 	img {
@@ -44,10 +55,14 @@
 		left: 0;
 		color: @teaser-link-color;
 	}
+
+	.ribbon {
+		background: none;
+	}
 }
 
 // For small and larger screens
-@media screen and (min-width: @screen-sm) {
+@media screen and (min-width: @screen-xs) {
 	.teaser {
 		font-size: 13px;
 
@@ -59,9 +74,14 @@
 			    padding: @line-height-computed / 2;
 			    position: absolute;
 			}
+
+			& > a {
+				display: none;
+			}
 		}
 		
 		h3, p {
+			background: rgba(0,0,0,.5) !important;
 			margin: 0;
 			padding: 10px;
 		}

@@ -62,8 +62,6 @@
 
 		.navbar-default &{
 			& > li.active > a{
-				background: transparent;
-				border-bottom: @navbar-link-active-border-width solid @navbar-default-link-active-border-color;
 				padding-bottom: @navbar-padding-vertical - @navbar-link-active-border-width;
 			}
 
@@ -74,8 +72,6 @@
 				&:hover,
 				&:focus{
 					background: transparent;
-					border-bottom: @navbar-link-active-border-width solid @navbar-default-link-active-border-color;
-					padding-bottom: @navbar-padding-vertical - @navbar-link-active-border-width;
 				}
 			}
 		}
@@ -125,11 +121,15 @@
 	height: auto;
 }
 
+.mega-nav-link {
+	position: relative !important;
+}
+
 .mega-nav{
 	position: absolute;
 	display: none;
-	left: 0;
-	width: 100%;
+	left: -1px;
+	width: 500px;
 	z-index: 100;
 
 	.mega-nav-content{
@@ -144,21 +144,21 @@
 
 	.mega-nav-link{
 
-		position: static !important;
-
 		&:hover, &.show-menu {
 			outline: @mega-nav-border;
 
 			& > a{
 				position: relative;
+				display: block;
 
 				&:after{
 					content: " ";
-					border-top: 1px solid @mega-nav-bg;
 					position: absolute;
-					bottom: -@navbar-link-active-border-width - 1;
+					bottom: -4px;
 					left: 0;
 					right: 0;
+					height: 8px;
+					background: #fff;
 				}
 			}
 
@@ -191,4 +191,13 @@
 .bootstrap-select {
 	float: right !important;
 	margin: 8px;
+}
+
+.navbar-nav {
+	& > li {
+		& > a {
+			padding: 0 15px;
+			line-height: 50px;
+		}
+	}
 }
