@@ -5,16 +5,27 @@ html, body {
     height: 100%;
 }
 
+body {
+    display: table;
+    width: 100%;
+}
+
+/* CSS-only solution for footer */
+.page-row {
+  display: table-row;
+  height: 0;
+}
+ 
+.page-row-expanded {
+    height: 100%;
+}
+
 .navbar-header .selectpicker {
     display: block;
 }
 
 .navbar-collapse .selectpicker {
     display: none;
-}
-
-.container-fluid:after {
-    height: 30px;
 }
 
 /* Small devices (tablets, 768px and up) */
