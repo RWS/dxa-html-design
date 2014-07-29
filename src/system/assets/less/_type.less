@@ -42,15 +42,14 @@ h6{
 .ribbon {
     background: @ribbon-bg-color;
 	background: transparent\9;
-	background: rgba(red(@ribbon-bg-color), green(@ribbon-bg-color), blue(@ribbon-bg-color), @ribbon-bg-transparency);	
-}
 
-.lt-ie9 .ribbon {
-	background: none !important;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(rgba(red(@ribbon-bg-color), green(@ribbon-bg-color), blue(@ribbon-bg-color), @ribbon-bg-transparency)),endColorstr=argb(rgba(red(@ribbon-bg-color), green(@ribbon-bg-color), blue(@ribbon-bg-color), @ribbon-bg-transparency)));
-	zoom: 1;
-}
+	&:nth-child(n) {
+		filter: none;
+	}
 
-.ribbon:nth-child(n) {
-	filter: none;
+	.lt-ie9 & {
+		background: none !important;
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(rgba(red(@ribbon-bg-color), green(@ribbon-bg-color), blue(@ribbon-bg-color), alpha(@ribbon-bg-color))),endColorstr=argb(rgba(red(@ribbon-bg-color), green(@ribbon-bg-color), blue(@ribbon-bg-color), alpha(@ribbon-bg-color))));
+		zoom: 1;
+	}	
 }

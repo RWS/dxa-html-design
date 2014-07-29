@@ -97,18 +97,18 @@
   	<script src="/bower_components/jquery-cookie/jquery.cookie.js"></script>
   	<script src="/bower_components/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
   	<script src="/system/assets/scripts/bootstrap-select.min.js"></script>
-  	<script src="/system/assets/scripts/discover-min.js"></script>
     <!-- endbuild -->
+    <script src="/system/assets/scripts/discover-min.js"></script>
 
     <script>
       $(document).ready(function() {
         $('.selectpicker').selectpicker();
 
-        $('.image-loading').each(function(e) {
-          $(this).addClass('is-loading');
-          $(this).find('img').on('load', function() {
-            $(this).closest('.image-loading').removeClass('is-loading');
-          });
+        $('.image-loading img').one('load', function() {
+          $(this).closest('.image-loading').find('.loading-panel').remove();
+          $(this).closest('.image-loading').removeClass('image-loading');
+        }).each(function() {
+          if (this.complete) $(this).load();
         });
       });
     </script>
