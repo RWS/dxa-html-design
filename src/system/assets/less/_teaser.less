@@ -4,6 +4,7 @@
 	color: @teaser-color;
 	margin-bottom: 10px;
 	position: relative;
+	overflow: hidden;
 
 	.overlay {
 		padding: 0;
@@ -23,16 +24,22 @@
 			bottom: 0;
 			left: 0;
 		}
-	}
 
-	p {
-		margin-bottom: 18px + (@teaser-padding * 3);	
-	}
+		& > h3 {
+			font: bold 1em/2em Arial, Helvetica, sans-serif;
+			padding: 0 10px !important;
+		}
 
-	h3 {
-		font-size: 1.4em;
-		font-weight: bold;
-		margin-bottom: 5px;
+		& > p {
+			top: 100%;
+		}
+
+		&:hover > p {
+			-webkit-animation: showTeaserDescription .5s both;
+			-moz-animation:    showTeaserDescription .5s both;
+			-o-animation:      showTeaserDescription .5s both;
+			animation:         showTeaserDescription .5s both;
+		}
 	}
 
 	img {
@@ -59,6 +66,23 @@
 	.ribbon {
 		background: none;
 	}
+}
+
+@-webkit-keyframes showTeaserDescription {
+  0%   { top: 100%; opacity: 0; }
+  100% { top: 2em; opacity: 1; }
+}
+@-moz-keyframes showTeaserDescription {
+  0%   { top: 100%; opacity: 0; }
+  100% { top: 2em; opacity: 1; }
+}
+@-o-keyframes showTeaserDescription {
+  0%   { top: 100%; opacity: 0; }
+  100% { top: 2em; opacity: 1; }
+}
+@keyframes showTeaserDescription {
+  0%   { top: 100%; opacity: 0; }
+  100% { top: 2em; opacity: 1; }
 }
 
 // For small and larger screens
