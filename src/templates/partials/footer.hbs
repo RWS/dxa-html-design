@@ -101,9 +101,9 @@
       $(document).ready(function() {
         $('.selectpicker').selectpicker();
 
-        $('.image-loading img').one('load', function() {
-          $(this).closest('.image-loading').find('.loading-panel').remove();
-          $(this).closest('.image-loading').removeClass('image-loading');
+        $('.loader .loader-img').one('load', function() {
+          $(this).closest('.loader').find('.loader-overlay').remove();
+          $(this).closest('.loader').removeClass('loader');
         }).each(function() {
           if (this.complete) $(this).load();
         });

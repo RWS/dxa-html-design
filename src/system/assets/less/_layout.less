@@ -37,6 +37,19 @@ body {
     display: none;
 }
 
+#map-canvas {
+    margin: 15px 0;
+}
+
+#location-tile {
+    background: @breadcrumb-bg;
+    margin-bottom: 15px;
+
+    > div.col-sm-6:first-child {
+        background: @brand-primary;
+    }
+}
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: @screen-sm) {
     html, body {

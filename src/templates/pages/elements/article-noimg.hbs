@@ -1,0 +1,147 @@
+---
+title: Article (No Banner)
+section: Elements
+---
+<div class="row">
+	<div class="col-sm-12">
+		{{> breadcrumb }}
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-12 col-md-3">
+		{{> nav-sidebar }}
+	</div>
+	<div class="col-sm-12 col-md-9">
+		{{> share-buttons}}
+		<article class='rich-text'>
+			<div class='row'>
+				<div class="col-md-12">
+					<h1>Article Heading</h1>
+					<div class='meta'>Posted on 1st January 1970 by Joe Bloggs</div>
+				</div>
+			</div>
+			<div class='content'>
+{{#markdown}}
+Anything wrapped in a containing element with a class of **rich-text** will be assumed to have come from a rich text editor. This gives extra context to classes like **pull-left**, **pull-right** and **center-block**.
+
+<img class='pull-left' src="http://fpoimg.com/180x85?text=.rich-text%20.pull-left" alt="Floating left image">
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+<img class='pull-right' src="http://fpoimg.com/180x85?text=.rich-text%20.pull-right" alt="Floating right image">
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+<img class='center-block' src="http://fpoimg.com/300x100?text=.rich-text%20.center-block" alt="">
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua.  
+
+
+### Responsive Videos (YouTube/Vimeo Iframe Embeds)
+
+<iframe width="960" height="720" src="//www.youtube.com/embed/tdHIhAFvEa0" style="border:none;" allowfullscreen></iframe>
+
+### Using Figure with Captions
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+<figure>
+	<img src="http://fpoimg.com/300x200?text=Figure%20with%20Caption" alt="">
+	<figcaption>
+		<strong>Figure Caption.</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua.
+	</figcaption>
+</figure>
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+<figure>
+	<img class='center-block' src="http://fpoimg.com/400x200?text=Centered%20Figure%20with%20Caption" alt="">
+	<figcaption class='text-center'>
+		<strong>Figure Caption (.text-center)</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua.
+	</figcaption>
+</figure>
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+<figure class='overlay-container'>
+	<img src="http://placekitten.com/653/200" alt="">
+	<figcaption class='overlay overlay-bottom ribbon'>
+		<strong>Figure Caption Overlay Bottom with Text Ribbon.</strong> overlay overlay-bottom ribbon
+	</figcaption>
+</figure>
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+<figure class='overlay-container'>
+	<img src="http://placekitten.com/653/200" alt="">
+	<figcaption class='overlay overlay-tl ribbon'>
+		<strong>Figure Caption Overlay Top Left with Text Ribbon.</strong> overlay overlay-tl ribbon
+	</figcaption>
+</figure>
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+<figure class='overlay-container'>
+	<img src="http://placekitten.com/653/200" alt="">
+	<figcaption class='overlay overlay-top glow'>
+		<strong>Figure Caption Overlay Top with Text Glow.</strong> overlay overlay-bottom glow
+	</figcaption>
+</figure>
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+{{/markdown}}
+			</div>
+		</article>
+	</div>
+</div>
