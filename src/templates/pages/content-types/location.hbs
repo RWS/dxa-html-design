@@ -1,6 +1,6 @@
 ---
 title: Location
-section: Elements
+section: Content Types
 ---
 
 <div class="row">
@@ -13,9 +13,12 @@ section: Elements
 		{{> nav-sidebar }}
 	</div>
 	<div class="col-sm-12 col-md-9">
-		<h2>Contact us</h2>
-		<p>Where to find us and how to get there?</p>
-
+		<div class="hero">
+			<img alt="" src="/system/assets/images/wide/skyscrapers.jpg">
+			<div class="overlay overlay-tl ribbon">
+				<h1>Location</h1>		
+			</div>
+		</div>
 		<div class="container-fluid">
 			<div id="location-tile" class="row">
 				<div class="col-sm-6">
@@ -43,11 +46,7 @@ section: Elements
 				</div>
 				<div class="col-sm-6">
 					<div class="tile">
-
 						<div class="vcard">
-							<h3 class="org">Sally Ride Science</h3>
-							<a href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom">Get directions with Google Maps</a>
-
 							<h4><i class="fa fa-map-marker"></i> Address</h4>
 							<div class="adr">
 								<p class="street-address">221B Baker Street</p>
@@ -57,13 +56,15 @@ section: Elements
 								</p>
 								<p class="country-name">United Kingdom</p>
 							</div>
-
-							<h4><i class="fa fa-envelope"></i> Contact Details</h4>
-							<p>Sales Department: <a class="email" href="mailto:sales@company.com">sales@company.com</a></p>
-						  <p>Technical Support: <a class="email" href="mailto:support@company.com">support@company.com</a></p>
-							<div class="tel">Mobile Number: <a href="tel:+18185551212">+1 818 555 1212</a></div>
+							<a class="popup-iframe popup-mobile-ignore" href="//maps.google.com/maps?saddr=My+Location&amp;daddr=221B Baker Street, London, United Kingdom">Directions to this location</a><br>
+                            <a class="popup-iframe popup-mobile-ignore" href="//maps.google.com/maps?q=221B Baker Street, London, United Kingdom">View Large Map</a>
+                        	<h4><i class="fa fa-envelope"></i> Contact Details</h4>
+							<div class="h-card">
+								<p>Telephone: <a class="tel" href="tel:+44 1234 56789">+44 1234 56789</a></p>
+								<p>Fax: <a class="fax" href="fax:+44 9876 65432">+44 9876 65432</a></p>
+								<p>Email: <a class="email" href="mailto:contact@abcde.fg" property="s:email">contact@abcde.fg</a></p> 				       
+							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>
