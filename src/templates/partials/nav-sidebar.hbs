@@ -2,7 +2,6 @@
 	<ul class='nav nav-sidebar'>
 		{{#each  pages }} 
 			{{#is data.section ../section}} 
-
 				<li{{#is ../../page.dest this.dest}} class="active"{{/is}}>
 					<a href="{{relative ../../page.dest this.dest}}">{{data.title}}</a> 
 				</li>
