@@ -95,14 +95,10 @@
   	<script src="/bower_components/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
   	<script src="/system/assets/scripts/bootstrap-select.min.js"></script>
     <!-- endbuild -->
-    <!-- build:js(src) /system/assets/scripts/discover-min.js -->
-    <script src="/system/assets/scripts/discover-min.js"></script>
-    <!-- endbuild -->
 
     <script>
       $(document).ready(function() {
         $('.selectpicker').selectpicker();
-
         $('.loader .loader-img').one('load', function() {
           $(this).closest('.loader').find('.loader-overlay').remove();
           $(this).closest('.loader').removeClass('loader');
@@ -124,6 +120,10 @@
 
   	{{!-- Examples --}}
   	<script src="/system/assets/scripts/examples/loader.js"></script>
+    <!-- endbuild -->
+	
+    <!-- build:js(src) /system/assets/scripts/discover-min.js -->
+    <script src="/system/assets/scripts/discover-min.js"></script>
     <!-- endbuild -->
 
     {{> analytics }}
