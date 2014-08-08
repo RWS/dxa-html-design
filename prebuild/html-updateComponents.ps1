@@ -98,8 +98,7 @@ function PublishPage($pageWebdavUrl, $targetUri){
     Write-Host "Published page to target: " $targetUri
 
 }
-function UpdateMultimediaComponent($componentWebdavUrl, $binaryLocation){
-    
+function UpdateMultimediaComponent($componentWebdavUrl, $binaryLocation){    
     $core = get-CoreServiceClient("Service")
     $readOptions = New-Object Tridion.ContentManager.CoreService.Client.ReadOptions
     $mmComp = $core.Read($componentWebdavUrl, $readOptions)
@@ -126,8 +125,48 @@ function UpdateMultimediaComponent($componentWebdavUrl, $binaryLocation){
     
     Write-Host "Updated MM Component"
 }
+function IncreaseDesignVersion($componentWebdavUrl){
+    $core = get-CoreServiceClient("Service")
+    $readOptions = New-Object Tridion.ContentManager.CoreService.Client.ReadOptions
+    $comp = $core.Read($componentWebdavUrl, $readOptions)
+    
+    $begin = "<version>"
+    $end = "</version>"
+    $regex = $begin + "(?<content>.*)" + $end
+
+    # read current version, increase and save back    
+    $content = $comp.Content    
+    if ($content -match $regex)
+    {
+        # version format vX.YY, lets get the last value and increase that
+        $version = $matches["content"]
+        $pos = $version.IndexOf('.') + 1
+        $prefix = $version.Substring(0, $pos)
+        $value = $version.Substring($pos)
+        Write-Verbose "HTML Design current version: $version"
+
+        $xmlToReplace = $begin + $version + $end
+        $version = $prefix + (1 + $value)
+        $xmlNew = $begin + $version + $end
+
+        Write-Host "Updating HTML Design version..."
+        $comp = $core.CheckOut($comp.Id, $false, $readOptions)
+        $content = $content.Replace($xmlToReplace, $xmlNew)   
+        $comp.Content = $content         
+        $comp = $core.Save($comp, $readOptions)
+        $comp = $core.CheckIn($comp.Id, $true, $null, $readOptions)
+        Write-Host "Done"
+
+        Write-Host "Updated Configuration Component with version $version"
+    }
+    else
+    {
+       Write-Warning "Can't find version in $componentWebdavUrl."
+    }
+}
 
 UpdateMultimediaComponent "/webdav/100 Master/Building Blocks/Modules/Core/Admin/HTML Design.zip" $designZip 
+IncreaseDesignVersion "/webdav/100 Master/Building Blocks/Settings/Core/Site Manager/HTML Design Configuration.xml"
 PublishPage "/webdav/400 Site/Home/_System/Publish HTML Design.tpg" "tcm:0-1-65538"
 PublishPage "/webdav/400 Example Site/Home/_System/Publish HTML Design.tpg" "tcm:0-1-65538"
 
