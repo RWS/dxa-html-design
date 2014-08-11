@@ -25,10 +25,10 @@ component: navbar
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav utility-nav">
             <li{{#if this.isCurrentPage}} class="active"{{/if}}>
-              <a href="#">3<sup>rd</sup> Party Products</a>
+              <a href="/3rd-party-products.html">3<sup>rd</sup> Party Products</a>
             </li>
             <li{{#if this.isCurrentPage}} class="active"{{/if}}>
-              <a href="#">Build it!</a>
+              <a href="/build.html">Build it!</a>
             </li>
           </ul>
           <select class="selectpicker" data-width="auto">
@@ -39,31 +39,32 @@ component: navbar
             <option value="uk" data-href="//uk.wikipedia.com/">Ukrainian</option>
           </select>
           <ul class="nav navbar-nav main-nav">
-            <li{{#is section 'Home'}} class="active"{{/is}}>
+            <li{{#is section 'root'}} class="active"{{/is}}>
               <a href="/index.html">Home</a>
             </li>
             <li{{#is section 'Layouts'}} class="active"{{/is}}>
               <a href="/layouts/index.html">Layouts</a>
             </li>
+            <li{{#is section 'Content Types'}} class="active"{{/is}}>
+              <a href="/content-types/index.html">Content Types</a>
+            </li>
             <li{{#is section 'Lists'}} class="active"{{/is}}>
               <a href="/lists/index.html">Lists</a>
-            </li>
-            <li{{#is section 'Elements'}} class="active"{{/is}}>
-              <a href="/elements/index.html">Elements</a>
             </li>
             <li{{#is section 'Features'}} class="active"{{/is}}>
               <a href="/features/index.html">Features</a>
             </li>
-            <li{{#is section 'Features'}} class="active"{{/is}}>
-              <a href="/examples/article.html">Examples</a>
-            </li>
+			{{#is section 'Beta'}}
+			{{> mega-nav }}
+			{{/is}}
           </ul>
-
+		  {{#is section 'Beta'}}
           <form class='navbar-form navbar-right'>
               <div class="form-group">
                   <input type="text" class="form-control" placeholder="Search">
               </div>
           </form>
+		  {{/is}}
         </div>
       </div>
     </div>

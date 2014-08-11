@@ -170,16 +170,16 @@ module.exports = function(grunt) {
                 expand: true,
                 dot: true,
                 cwd: '<%= config.src %>',
-                dest: '<%= config.dist %>/system/',
+                dest: '<%= config.dist %>',
                 src: [
-                    '/assets/images/**/*.{webp,gif}',
-                    '/assets/fonts/*',
-                    '/assets/less/**/*',
-                    '/assets/scripts/PIE.htc',
-                    '/assets/scripts/theme-customiser.js'
+                    //'system/assets/less/**/*',
+                    //'system/assets/scripts/PIE.htc',
+                    //'system/assets/scripts/theme-customiser.js'
                     //'bower_components/bootstrap/less/**/*',
                     //'bower_components/less.js/dist/less-1.7.0.min.js',
                     //'bower_components/font-awesome/less/**/*'
+                    'system/assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
+                    'system/assets/fonts/*'
                 ]
             },
             {

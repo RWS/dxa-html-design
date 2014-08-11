@@ -93,14 +93,14 @@ module.exports = function(grunt) {
                 expand: true,
                 dot: true,
                 cwd: '<%= config.src %>',
-                dest: '<%= config.dist %>/system/',
+                dest: '<%= config.dist %>',
                 src: [
 				    // ignore all images (unless we really need some)
-                    //'/assets/images/**/*.{webp,gif}',
-                    '/assets/fonts/*',
-                    '/assets/less/**/*',
-                    '/assets/scripts/PIE.htc',
-                    '/assets/scripts/theme-customiser.js',
+                    //'system/assets/images/**/*.{webp,gif}',
+                    //'system/assets/less/**/*',
+                    //'system/assets/scripts/PIE.htc',
+                    //'system/assets/scripts/theme-customiser.js',
+					'/assets/fonts/*'
                 ]
             },
             {
