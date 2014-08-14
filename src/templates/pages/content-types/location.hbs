@@ -22,7 +22,7 @@ section: Content Types
 		<div class="container-fluid">
 			<div id="location-tile" class="row">
 				<div class="col-sm-6">
-					<div id="map-canvas" style="height:300px;"></div>
+					<div id="map-id" class="map-canvas" style="height:300px;"></div>
 					<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxId4iD_j_G73gjgHZwb8NPcCVs24Mm4g"></script>
 					<script type="text/javascript">
 					  function initialize() {
@@ -32,13 +32,12 @@ section: Content Types
 					      center: myLatlng,
 					      zoom: 13
 					    };
-					    var map = new google.maps.Map(document.getElementById("map-canvas"),
-					      mapOptions);
+					    var map = new google.maps.Map(document.getElementById("map-id"), mapOptions);
 
 					    var marker = new google.maps.Marker({
 							  position: myLatlng,
 							  map: map,
-							  title:"Company Headquarters"
+							  title: "Company Headquarters"
 							});
 					  }
 					  google.maps.event.addDomListener(window, 'load', initialize);
