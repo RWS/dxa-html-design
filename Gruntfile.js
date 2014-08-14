@@ -263,12 +263,16 @@ module.exports = function(grunt) {
     },
     cssmin: {
         dist: {
-            files: {
-                '<%= config.dist %>/system/assets/css/main.css': [
-                    '.tmp/css/**/*.css',
-                    '<%= config.src %>/css/**/*.css'
-                ]
-            }
+            //files: {
+            //    '<%= config.dist %>/system/assets/css/main.css': [
+            //        '.tmp/css/**/*.css',
+            //        '<%= config.src %>/css/**/*.css'
+            //    ]
+            //}
+			css: {
+				src: '<%= config.dist %>/system/assets/css/main.css',
+				dest: '<%= config.dist %>/system/assets/css/main.css'
+			}
         }
     },
     rev: {
@@ -342,7 +346,7 @@ module.exports = function(grunt) {
     //'htmlmin',
     'useminPrepare',
     'concat',
-    //'cssmin',
+    'cssmin',
     'imagemin',
     'uglify',
     'copy',

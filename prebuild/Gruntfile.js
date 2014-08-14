@@ -149,12 +149,10 @@ module.exports = function(grunt) {
     },
     cssmin: {
         dist: {
-            files: {
-                '<%= config.dist %>/system/assets/css/main.css': [
-                    '.tmp/css/**/*.css',
-                    '<%= config.src %>/css/**/*.css'
-                ]
-            }
+			css: {
+				src: '<%= config.dist %>/system/assets/css/main.css',
+				dest: '<%= config.dist %>/system/assets/css/main.css'
+			}
         }
     }
   });
@@ -167,6 +165,7 @@ module.exports = function(grunt) {
     'less:dist',
     'useminPrepare',
     'concat',
+    'cssmin',
     'uglify',
     'copy',
     'usemin',
