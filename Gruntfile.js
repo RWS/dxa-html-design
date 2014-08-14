@@ -173,11 +173,11 @@ module.exports = function(grunt) {
                 dest: '<%= config.dist %>',
                 src: [
                     //'system/assets/less/**/*',
-                    //'system/assets/scripts/PIE.htc',
                     //'system/assets/scripts/theme-customiser.js'
                     //'bower_components/bootstrap/less/**/*',
                     //'bower_components/less.js/dist/less-1.7.0.min.js',
                     //'bower_components/font-awesome/less/**/*'
+                    'system/assets/scripts/PIE.htc',
                     'system/assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
                     'system/assets/fonts/*'
                 ]
