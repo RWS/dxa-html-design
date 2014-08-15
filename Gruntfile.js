@@ -173,11 +173,11 @@ module.exports = function(grunt) {
                 dest: '<%= config.dist %>',
                 src: [
                     //'system/assets/less/**/*',
-                    //'system/assets/scripts/PIE.htc',
                     //'system/assets/scripts/theme-customiser.js'
                     //'bower_components/bootstrap/less/**/*',
                     //'bower_components/less.js/dist/less-1.7.0.min.js',
                     //'bower_components/font-awesome/less/**/*'
+                    'system/assets/scripts/PIE.htc',
                     'system/assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
                     'system/assets/fonts/*'
                 ]
@@ -263,12 +263,16 @@ module.exports = function(grunt) {
     },
     cssmin: {
         dist: {
-            files: {
-                '<%= config.dist %>/system/assets/css/main.css': [
-                    '.tmp/css/**/*.css',
-                    '<%= config.src %>/css/**/*.css'
-                ]
-            }
+            //files: {
+            //    '<%= config.dist %>/system/assets/css/main.css': [
+            //        '.tmp/css/**/*.css',
+            //        '<%= config.src %>/css/**/*.css'
+            //    ]
+            //}
+			css: {
+				src: '<%= config.dist %>/system/assets/css/main.css',
+				dest: '<%= config.dist %>/system/assets/css/main.css'
+			}
         }
     },
     rev: {
@@ -342,7 +346,7 @@ module.exports = function(grunt) {
     //'htmlmin',
     'useminPrepare',
     'concat',
-    //'cssmin',
+    'cssmin',
     'imagemin',
     'uglify',
     'copy',
