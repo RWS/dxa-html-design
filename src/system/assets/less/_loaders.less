@@ -1,4 +1,4 @@
-.loader-overlay{
+.loader-overlay, .loading-panel {
 	position: absolute;
 	top: -@loader-margin;
 	left: -@loader-margin;
@@ -28,5 +28,14 @@
 		background: none !important;
 		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(rgba(red(@loader-bg-color), green(@loader-bg-color), blue(@loader-bg-color), alpha(@loader-bg-color))),endColorstr=argb(rgba(red(@loader-bg-color), green(@loader-bg-color), blue(@loader-bg-color), alpha(@loader-bg-color))));
 		zoom: 1;
+	}
+}
+
+
+.loading-panel {
+	display: none;
+
+	.is-loading > & {
+		display: block;
 	}
 }
