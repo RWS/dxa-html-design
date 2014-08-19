@@ -139,8 +139,14 @@
 			}
 		}
 
-		& > .teaser-heading > a {
-			color: @teaser-link-color;
+		& > .teaser-heading {
+			white-space: nowrap;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+
+			& > a {
+				color: @teaser-link-color;
+			}
 		}
 
 		& > .teaser-description {
