@@ -201,3 +201,6 @@ else {
 
 $core.dispose()
 #Write-Output "Done"
+if (!$continue) {
+    exit 1
+}
