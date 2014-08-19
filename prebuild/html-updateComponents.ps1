@@ -45,7 +45,7 @@ function InitUpdater {
     }
 }
 
-function get-CoreServiceClient {
+function Get-CoreServiceClient {
     param(
         [parameter(Mandatory=$false)]
         [AllowNull()]
@@ -86,49 +86,62 @@ function get-CoreServiceClient {
 		}
 	}
 }
+
 function PublishPage($pageWebdavUrl, $targetUri){
-    $core = get-CoreServiceClient("Service")
-    $readOptions = New-Object Tridion.ContentManager.CoreService.Client.ReadOptions
-    $page = $core.Read($pageWebdavUrl, $readOptions)
+    $page = $core.Read($pageWebdavUrl, $defaultReadOptions)
     $pi = New-Object Tridion.ContentManager.CoreService.Client.PublishInstructionData
     $pi.ResolveInstruction = New-Object Tridion.ContentManager.CoreService.Client.ResolveInstructionData
     $pi.RenderInstruction = New-Object Tridion.ContentManager.CoreService.Client.RenderInstructionData
-    $res = $core.Publish(@($page.Id), $pi, @($targetUri), $null, $readOptions)
+    $res = $core.Publish(@($page.Id), $pi, @($targetUri), $null, $defaultReadOptions)
 
     Write-Host "Published page to target: " $targetUri
-
 }
+
 function UpdateMultimediaComponent($componentWebdavUrl, $binaryLocation){    
-    $core = get-CoreServiceClient("Service")
-    $readOptions = New-Object Tridion.ContentManager.CoreService.Client.ReadOptions
-    $mmComp = $core.Read($componentWebdavUrl, $readOptions)
+    $mmComp = $core.Read($componentWebdavUrl, $defaultReadOptions)
     $binaryFilename = $mmComp.BinaryContent.Filename
     $mmType = $mmComp.BinaryContent.MultimediaType
     Write-Host $binaryFilename
-    $uploadService = get-CoreServiceClient -type Upload
+    $uploadService = Get-CoreServiceClient -type Upload
 	try {
 		$packageStream = [IO.File]::OpenRead($binaryLocation)
 		$tempPath = $uploadService.UploadBinaryContent($binaryFilename, $packageStream)
 	}
+    catch [Exception] {
+        Write-Error $_.Exception.Message
+    }
 	finally {
 		if ($packageStream -ne $null){
 			$packageStream.Dispose()	
 		}
+		if ($uploadService -ne $null){
+			$uploadService.Dispose()	
+		}
 	}
-    $mmComp = $core.CheckOut($mmComp.Id, $false, $readOptions)
-    $mmComp.BinaryContent = New-Object Tridion.ContentManager.CoreService.Client.BinaryContentData
-    $mmComp.BinaryContent.UploadFromFile = $tempPath
-    $mmComp.BinaryContent.Filename = $binaryFilename
-    $mmComp.BinaryContent.MultimediaType = $mmType
-    $mmComp = $core.Save($mmComp, $readOptions)
-    $mmComp = $core.CheckIn($mmComp.Id, $true, $null, $readOptions)
-    
-    Write-Host "Updated MM Component"
+
+    try {
+        $mmComp = $core.CheckOut($mmComp.Id, $false, $defaultReadOptions)
+        $mmComp.BinaryContent = New-Object Tridion.ContentManager.CoreService.Client.BinaryContentData
+        $mmComp.BinaryContent.UploadFromFile = $tempPath
+        $mmComp.BinaryContent.Filename = $binaryFilename
+        $mmComp.BinaryContent.MultimediaType = $mmType
+        $mmComp = $core.Save($mmComp, $defaultReadOptions)
+        $mmComp = $core.CheckIn($mmComp.Id, $true, $null, $defaultReadOptions)
+        Write-Host "Updated MM Component"
+    }
+    catch [Exception] {
+        Write-Error $_.Exception.Message
+        if ($mmComp -ne $null -and $mmComp.LockInfo.LockType -eq "CheckedOut") {
+            Write-Host "Undo checkout"
+            $mmComp = $core.UndoCheckOut($mmComp.Id, $false, $defaultReadOptions)
+        }
+        return $false
+    }
+    return $true
 }
+
 function IncreaseDesignVersion($componentWebdavUrl){
-    $core = get-CoreServiceClient("Service")
-    $readOptions = New-Object Tridion.ContentManager.CoreService.Client.ReadOptions
-    $comp = $core.Read($componentWebdavUrl, $readOptions)
+    $comp = $core.Read($componentWebdavUrl, $defaultReadOptions)
     
     $begin = "<version>"
     $end = "</version>"
@@ -150,11 +163,11 @@ function IncreaseDesignVersion($componentWebdavUrl){
         $xmlNew = $begin + $version + $end
 
         Write-Host "Updating HTML Design version..."
-        $comp = $core.CheckOut($comp.Id, $false, $readOptions)
+        $comp = $core.CheckOut($comp.Id, $false, $defaultReadOptions)
         $content = $content.Replace($xmlToReplace, $xmlNew)   
         $comp.Content = $content         
-        $comp = $core.Save($comp, $readOptions)
-        $comp = $core.CheckIn($comp.Id, $true, $null, $readOptions)
+        $comp = $core.Save($comp, $defaultReadOptions)
+        $comp = $core.CheckIn($comp.Id, $true, $null, $defaultReadOptions)
         Write-Host "Done"
 
         Write-Host "Updated Configuration Component with version $version"
@@ -165,13 +178,26 @@ function IncreaseDesignVersion($componentWebdavUrl){
     }
 }
 
-UpdateMultimediaComponent "/webdav/100 Master/Building Blocks/Modules/Core/Admin/HTML Design.zip" $designZip 
-IncreaseDesignVersion "/webdav/100 Master/Building Blocks/Settings/Core/Site Manager/HTML Design Configuration.xml"
-PublishPage "/webdav/400 Site/Home/_System/Publish HTML Design.tpg" "tcm:0-1-65538"
-PublishPage "/webdav/400 Example Site/Home/_System/Publish HTML Design.tpg" "tcm:0-1-65538"
+# Create core service client and default read options
+$core = Get-CoreServiceClient "Service"
+$defaultReadOptions = New-Object Tridion.ContentManager.CoreService.Client.ReadOptions
 
-Start-Sleep -s 100
+# uploading the large zipfile can fail, so see if we need to update the version and publish the pages first
+$continue = UpdateMultimediaComponent "/webdav/100 Master/Building Blocks/Modules/Core/Admin/HTML Design.zip" $designZip
+if ($continue) {
+    IncreaseDesignVersion "/webdav/100 Master/Building Blocks/Settings/Core/Site Manager/HTML Design Configuration.xml"
+    PublishPage "/webdav/400 Site/Home/_System/Publish HTML Design.tpg" "tcm:0-1-65538"
+    PublishPage "/webdav/400 Example Site/Home/_System/Publish HTML Design.tpg" "tcm:0-1-65538"
 
-# Recycle application pools
-Import-Module WebAdministration
-"Staging (Stable demo version)", "Staging (GIT version)" | % { (Get-Item "IIS:\Sites\$_"| Select-Object applicationPool).applicationPool } | % { Restart-WebAppPool $_ }
+    Start-Sleep -s 100
+
+    # Recycle application pools
+    Import-Module WebAdministration
+    "Staging (Stable demo version)", "Staging (GIT version)" | % { (Get-Item "IIS:\Sites\$_"| Select-Object applicationPool).applicationPool } | % { Restart-WebAppPool $_ }
+}
+else {
+    Write-Warning "Failed to update the HTML design Component!"
+}
+
+$core.dispose()
+#Write-Output "Done"
