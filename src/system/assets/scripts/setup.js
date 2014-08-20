@@ -29,11 +29,14 @@
  */
 $(document).ready(function() {
 	$('.selectpicker').selectpicker();
-	$('.loader .loader-img').one('load', function() {
-	  $(this).closest('.loader').find('.loader-overlay').remove();
-	  $(this).closest('.loader').removeClass('loader');
-	}).each(function() {
-	  if (this.complete) $(this).load();
+	
+	//set the height of images, so layout looks good even if images are slow to load
+	$("img[data-aspect]").each(function(){
+		var aspect = $(this).attr("data-aspect");
+		if (aspect>0)
+		{
+			$(this).height($(this).width()/aspect);
+		}
 	});
 
 	// Javascript to enable link to tab
