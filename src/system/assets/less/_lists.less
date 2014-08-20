@@ -1,8 +1,11 @@
 
 .list-gallery{
 	&:extend(.list-inline all);
-	li{
+
+	& > li {
 		margin-bottom: @line-height-computed / 2;
+		display: block !important;
+		padding-right: 0 !important;
 	}
 }
 
@@ -36,5 +39,13 @@
 		color: @gray-dark;
 		display: inline-block;
 		margin-left: 10px;
+	}
+}
+
+// For small and larger screens
+@media screen and (min-width: @screen-xs) {
+	.list-gallery > li {
+		display: inline-block !important;
+		padding-right: 5px !important;
 	}
 }
