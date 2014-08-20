@@ -32,10 +32,13 @@ $(document).ready(function() {
 	
 	//set the height of images, so layout looks good even if images are slow to load
 	$("img[data-aspect]").each(function(){
-		var aspect = $(this).attr("data-aspect");
-		if (aspect>0)
+		if ($(this).is(':visible'))
 		{
-			$(this).height($(this).width()/aspect);
+			var aspect = $(this).attr("data-aspect");
+			if (aspect>0)
+			{
+				$(this).height($(this).width()/aspect);
+			}
 		}
 	});
 
