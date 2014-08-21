@@ -23,6 +23,15 @@
       window.console[m[i]] = function() {};
     }    
   } 
+  
+	window.onload = function () { 
+	//remove fixed heights set for images while they loaded to preserve layout
+	$("img[data-height-fixed]").each(function(){
+		$(this).height("");
+		$(this).removeAttr("data-height-fixed");
+	});
+}
+  
 })();
 /**
  * Initialize routines
@@ -67,10 +76,3 @@ $(document).ready(function() {
 		window.location.hash = e.target[e.target.selectedIndex].dataset.target.replace("#", "#" + prefix);
 	});
 });
-window.onload = function () { 
-	//remove fixed heights set for images while they loaded to preserve layout
-	$("img[data-height-fixed]").each(function(){
-		$(this).height("");
-		$(this).removeAttr("data-height-fixed");
-	});
-}
