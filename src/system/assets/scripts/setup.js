@@ -41,6 +41,7 @@ $(document).ready(function() {
 			if (!isNaN(aspect) && aspect>0 && width>120)
 			{
 				$(this).height(Math.round(width/aspect));
+				$(this).attr("data-height-fixed","true");
 			}
 		}
 	});
@@ -66,3 +67,10 @@ $(document).ready(function() {
 		window.location.hash = e.target[e.target.selectedIndex].dataset.target.replace("#", "#" + prefix);
 	});
 });
+window.onload = function () { 
+	//remove fixed heights set for images while they loaded to preserve layout
+	$("img[data-height-fixed]").each(function(){
+		$(this).height("");
+		$(this).removeAttr("data-height-fixed");
+	});
+}
