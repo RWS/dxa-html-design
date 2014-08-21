@@ -35,9 +35,9 @@ $(document).ready(function() {
 		if ($(this).is(':visible'))
 		{
 			var aspect = $(this).attr("data-aspect");
-			if (aspect>0)
+			if (!isNaN(aspect) && aspect>0)
 			{
-				$(this).height($(this).width()/aspect);
+				$(this).height(Math.round($(this).width()/aspect));
 			}
 		}
 	});
