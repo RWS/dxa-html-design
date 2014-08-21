@@ -35,9 +35,12 @@ $(document).ready(function() {
 		if ($(this).is(':visible'))
 		{
 			var aspect = $(this).attr("data-aspect");
-			if (!isNaN(aspect) && aspect>0)
+			var width = $(this).width();
+			//there is a strange intermittent issue where item width is misrepresented (as a small number)
+			//so as a workaround we skip images with small widths (these should load quickly in any case)
+			if (!isNaN(aspect) && aspect>0 && width>120)
 			{
-				$(this).height(Math.round($(this).width()/aspect));
+				$(this).height(Math.round(width/aspect));
 			}
 		}
 	});
