@@ -34,4 +34,15 @@
 		window.location.href = $(e.target[e.target.selectedIndex]).data('href');
 	});
 
+	// Handles all meganav links to fit dropdown menu in content box
+	/* BETA version
+	$('.mega-nav-link').hover(function(){
+		var megaNavOffset = $(this).position(),
+			megaNavWidth = $(this).find('.mega-nav').get(0).scrollWidth,
+			contentWidth = $('.page-border').width();
+
+		$(this).find('.mega-nav').css('left', Math.round(contentWidth - (megaNavOffset.left + megaNavWidth)));
+	});
+	*/
+
 })(jQuery);
