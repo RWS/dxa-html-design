@@ -138,19 +138,19 @@
 	.mega-nav-content{
 		background: @mega-nav-bg;
 		padding: @grid-gutter-width / 2;
-		border: @mega-nav-border;
-		.box-shadow(3px 3px 3px 0px #ccc);
 	}
 }
 
-@media (min-width: @screen-xs-min){
+@media screen and (min-width: @screen-xs-min) {
 
-	.mega-nav-link{
+	.mega-nav-link {
 
 		&:hover, &.show-menu {
-			outline: @mega-nav-border;
+			border: @mega-nav-border;
+			border-bottom: none;
 
-			& > a{
+			& > a {
+				
 				position: relative;
 				display: block;
 
@@ -163,19 +163,19 @@
 					height: 8px;
 					background: #fff;
 				}
+
+				&:hover {
+
+				}
 			}
 
 			.mega-nav{
 				display: block;
+				border: @mega-nav-border;
+				.box-shadow(3px 3px 3px 0px #ccc);
 			}
 		}
-
-		& > a:hover{
-			border-color: transparent !important;
-			outline: @mega-nav-border;
-		}
 	}
-
 }
 
 .nav-tabs{
