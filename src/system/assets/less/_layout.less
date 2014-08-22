@@ -30,14 +30,6 @@ body {
     width: 100%;
 }
 
-.navbar-header .selectpicker {
-    display: block;
-}
-
-.navbar-collapse .selectpicker {
-    display: none;
-}
-
 .map-canvas {
     margin: 15px 0;
 }
@@ -57,13 +49,10 @@ body {
         font-size: @font-size-sm;
     }
 
-    .navbar-header .selectpicker {
-        display: none;
-    }
-
-    .navbar-collapse .selectpicker {
-        display: block;
-    }
+    .bootstrap-select {
+		float: right !important;
+		margin: 8px;
+	}
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -118,8 +107,8 @@ h4.overlay {
 
     .carousel &{
         top: @line-height-computed;
-        left: 10%;
-		right: 10%;
+        left: @carousel-control-width;
+		right: @carousel-control-width;
     }
 }
 
@@ -129,7 +118,7 @@ h4.overlay {
 
     .carousel &{
         top: @line-height-computed;
-        right: 10%;
+        right: @carousel-control-width;
     }
 }
 
@@ -139,7 +128,7 @@ h4.overlay {
 
     .carousel &{
         bottom: @line-height-computed;
-        left: 10%;
+        left: @carousel-control-width;
     }
 }
 
@@ -149,7 +138,7 @@ h4.overlay {
 
     .carousel &{
         bottom: @line-height-computed;
-        right: 10%;
+        right: @carousel-control-width;
     }
 }
 
