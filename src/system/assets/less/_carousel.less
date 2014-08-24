@@ -20,11 +20,25 @@
 
 	.carousel-indicators {
 		margin-bottom: 0;
-		bottom:5px;
+		bottom:0px;
 	}
 
+	/* small screens are assumed to be touchscreens so carousel can be swiped and does not need controls*/
 	.carousel-control {
-		width: @carousel-control-width;
+		display:none;
+	}
+	
+	
+	/* Medium devices (desktops, 940px and up) */
+	@media (min-width: @screen-md) {
+		.carousel-control {
+			width: 7%;
+			display:block;
+		}
+		.carousel-indicators {
+			margin-bottom: 0;
+			bottom:10px;
+		}
 	}
 
 	.carousel-inner > .item > img, .carousel-inner > .item > a > img {
