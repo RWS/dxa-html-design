@@ -35,6 +35,9 @@ component: navbar
             <li{{#is section 'root'}} class="active"{{/is}}>
               <a href="/index.html">Home</a>
             </li>
+            {{#is section 'Beta'}}
+      {{> mega-nav }}
+      {{/is}}
             <li{{#is section 'Layouts'}} class="active"{{/is}}>
               <a href="/layouts/index.html">Layouts</a>
             </li>
