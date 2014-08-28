@@ -14,6 +14,12 @@ body {
 .page-row {
   display: table-row !important;
   height: 0;
+  height: 1px !important\9;
+}
+
+// Fix for iPhone form controls zooming
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+    font-size: 16px !important;
 }
  
 .page-row-expanded {
