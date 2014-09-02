@@ -38,7 +38,7 @@
  */
 $(document).ready(function() {
 	$('.selectpicker').selectpicker();
-	
+
 	//set the height of images, so layout looks good even if images are slow to load
 	$("img[data-aspect]").each(function(){
 		if ($(this).is(':visible'))
@@ -53,5 +53,17 @@ $(document).ready(function() {
 				$(this).attr("data-height-fixed","true");
 			}
 		}
+	});
+
+	// Fix for collapsing carousel when we haven't picture for slide
+	$('.carousel').each(function(){
+		var max_height = 0;
+
+		$(this).find('img[data-aspect]').each(function(){
+			if ($(this).height() > max_height)
+				max_height = $(this).height();
+		});
+
+		$(this).height(max_height);
 	});
 });
