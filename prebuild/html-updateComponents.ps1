@@ -3,7 +3,16 @@ param (
     [string]$htmlDist,
 
     # Set this to the saintjohn dev cms url
-    [string]$cmsUrl = "http://localhost/"
+    [string]$cmsUrl = "http://localhost/",
+
+    # Set this to the publication target type id of the staging target
+    [string]$targetType = "tcm:0-1-65538",
+
+    # Comma separated list of (website) publication names that need the HTML design to be published after the update
+    [string]$publications = "400 Site,400 Example Site",
+
+    # Comma separated list of IIS websites that need to be restarted after publishing the HTML design
+    [string]$sites = "Staging (Stable demo version),Staging (GIT version)"
 )
 
 #Terminate script on first occured exception
@@ -13,7 +22,9 @@ trap {
 }
 
 # Initialization
-$tempFolder = Join-Path $env:TEMP "TSI_html\"
+#$tempFolder = Join-Path $env:TEMP "TRI_html\"
+$tempDrive = Split-Path $env:TEMP -Qualifier
+$tempFolder = Join-Path $tempDrive "_t"
 if (!(Test-Path $tempFolder)) {
     New-Item -ItemType Directory -Path $tempFolder | Out-Null
 }
@@ -28,10 +39,15 @@ $tempDesignZip = Join-Path $tempFolder "html-design.zip"
 if (Test-Path $tempDesignZip) {
     Remove-Item $tempDesignZip | Out-Null
 }
+# Copy files to a short path location
+$tempHtmlDist = Join-Path $tempFolder "s"
+robocopy $htmlDist $tempHtmlDist /E | Out-Null
 Add-Type -Assembly System.IO.Compression.FileSystem
 $compressionLevel = [System.IO.Compression.CompressionLevel]::Optimal
-[System.IO.Compression.ZipFile]::CreateFromDirectory($htmlDist,$tempDesignZip, $compressionLevel, $false)
+#[System.IO.Compression.ZipFile]::CreateFromDirectory($htmlDist, $tempDesignZip, $compressionLevel, $false)
+[System.IO.Compression.ZipFile]::CreateFromDirectory($tempHtmlDist, $tempDesignZip, $compressionLevel, $false)
 Copy-Item $tempDesignZip $designZip -Force
+Remove-Item $tempFolder -Force -Recurse | Out-Null
 
 function InitUpdater {
     if (-not $global:UpdaterIsInitialized) {
@@ -186,14 +202,19 @@ $defaultReadOptions = New-Object Tridion.ContentManager.CoreService.Client.ReadO
 $continue = UpdateMultimediaComponent "/webdav/100 Master/Building Blocks/Modules/Core/Admin/HTML Design.zip" $designZip
 if ($continue) {
     IncreaseDesignVersion "/webdav/100 Master/Building Blocks/Settings/Core/Site Manager/HTML Design Configuration.xml"
-    PublishPage "/webdav/400 Site/Home/_System/Publish HTML Design.tpg" "tcm:0-1-65538"
-    PublishPage "/webdav/400 Example Site/Home/_System/Publish HTML Design.tpg" "tcm:0-1-65538"
+    $array = $publications.Split(',', [System.StringSplitOptions]::RemoveEmptyEntries)
+    foreach ($pub in $array) {
+        PublishPage "/webdav/$pub/Home/_System/Publish HTML Design.tpg" $targetType
+    }
 
     Start-Sleep -s 100
 
     # Recycle application pools
     Import-Module WebAdministration
-    "Staging (Stable demo version)", "Staging (GIT version)" | % { (Get-Item "IIS:\Sites\$_"| Select-Object applicationPool).applicationPool } | % { Restart-WebAppPool $_ }
+    $array = $sites.Split(',', [System.StringSplitOptions]::RemoveEmptyEntries)
+    foreach ($site in $array) {
+        $site | % { (Get-Item "IIS:\Sites\$_"| Select-Object applicationPool).applicationPool } | % { Restart-WebAppPool $_ }
+    }
 }
 else {
     Write-Warning "Failed to update the HTML design Component!"
