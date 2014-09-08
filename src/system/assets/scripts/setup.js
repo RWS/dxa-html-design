@@ -66,4 +66,19 @@ $(document).ready(function() {
 
 		$(this).height(max_height);
 	});
+
+	/*$('#rating > i').hover(function(e){
+		var currentStarOpen = $(e.target).hasClass('fa-star-o');
+
+		// Save star state
+		$(e.target).data('star', currentStarOpen ? 'fa-star-o' : 'fa-star');
+
+		if (currentStarOpen) {
+ 				$(e.target).removeClass('fa-star-o').addClass('fa-star');
+		}
+	}, function(e) {
+		if ($(e.target).data('star') == 'fa-star-o') {
+			$(e.target).removeClass('fa-star').addClass('fa-star-o');
+		}
+	});*/
 });
