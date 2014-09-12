@@ -141,7 +141,7 @@ module.exports = function(grunt) {
         }
     },
     usemin: {
-        html: ['<%= config.dist %>/{,*/}*.html'],
+        //html: ['<%= config.dist %>/{,*/}*.html'],
         css: ['<%= config.dist %>/system/assets/css/**/*.css'],
         options: {
             dirs: ['<%= config.dist %>']
