@@ -293,9 +293,13 @@ module.exports = function(grunt) {
             relaxerror: ['Bad value X-UA-Compatible for attribute http-equiv on element meta.'] //ignores these errors
         },
         files: {
-            src: ['<%= config.dist %>/examples/*.html',
-                  '<%= config.dist %>/ajax/*.html',
-                  '<%= config.dist %>/index.html']
+            src: [//'<%= config.dist %>/ajax/*.html',
+				  '<%= config.dist %>/beta/*.html',
+				  '<%= config.dist %>/content-types/*.html',
+				  '<%= config.dist %>/features/*.html',
+				  '<%= config.dist %>/layouts/*.html',
+				  '<%= config.dist %>/lists/*.html',
+				  '<%= config.dist %>/*.html']
         }
     }
 
