@@ -2,6 +2,9 @@ param (
     # Path to the html distributive
     [string]$htmlDist,
 
+    # Path to the build distributive
+    [string]$buildDist,
+
     # Set this to the saintjohn dev cms url
     [string]$cmsUrl = "http://localhost/",
 
@@ -22,7 +25,6 @@ trap {
 }
 
 # Initialization
-#$tempFolder = Join-Path $env:TEMP "TRI_html\"
 $tempDrive = Split-Path $env:TEMP -Qualifier
 $tempFolder = Join-Path $tempDrive "_t"
 if (!(Test-Path $tempFolder)) {
@@ -31,22 +33,40 @@ if (!(Test-Path $tempFolder)) {
 if (!(Test-Path $htmlDist)) {
     $htmlDist = Join-Path $ScriptDir "..\html\"
 }
+if (!(Test-Path $buildDist)) {
+    $buildDist = Join-Path $ScriptDir "..\files\"
+}
 $dllsFolder = Join-Path (Split-Path $MyInvocation.MyCommand.Path) "ImportExport\"
 $designZip = Join-Path $htmlDist "html-design.zip"
+$buildZip = Join-Path $htmlDist "build-files.zip"
 
-# Prepare package
+# Prepare packages
 $tempDesignZip = Join-Path $tempFolder "html-design.zip"
 if (Test-Path $tempDesignZip) {
     Remove-Item $tempDesignZip | Out-Null
 }
+$tempBuildZip = Join-Path $tempFolder "build-files.zip"
+if (Test-Path $tempBuildZip) {
+    Remove-Item $tempBuildZip | Out-Null
+}
+
 # Copy files to a short path location
 $tempHtmlDist = Join-Path $tempFolder "s"
 robocopy $htmlDist $tempHtmlDist /E | Out-Null
+$tempBuildDist = Join-Path $tempFolder "f"
+robocopy $buildDist $tempBuildDist /E | Out-Null
+
+# Create zip files
 Add-Type -Assembly System.IO.Compression.FileSystem
 $compressionLevel = [System.IO.Compression.CompressionLevel]::Optimal
-#[System.IO.Compression.ZipFile]::CreateFromDirectory($htmlDist, $tempDesignZip, $compressionLevel, $false)
 [System.IO.Compression.ZipFile]::CreateFromDirectory($tempHtmlDist, $tempDesignZip, $compressionLevel, $false)
+[System.IO.Compression.ZipFile]::CreateFromDirectory($tempBuildDist, $tempBuildZip, $compressionLevel, $false)
+
+# Copy zip files to their desired location
 Copy-Item $tempDesignZip $designZip -Force
+Copy-Item $tempBuildZip $buildZip -Force
+
+# Cleanup temp folder
 Remove-Item $tempFolder -Force -Recurse | Out-Null
 
 function InitUpdater {
@@ -201,6 +221,12 @@ $defaultReadOptions = New-Object Tridion.ContentManager.CoreService.Client.ReadO
 # uploading the large zipfile can fail, so see if we need to update the version and publish the pages first
 $continue = UpdateMultimediaComponent "/webdav/100 Master/Building Blocks/Modules/Core/Admin/HTML Design.zip" $designZip
 if ($continue) {
+    $continue = UpdateMultimediaComponent "/webdav/100 Master/Building Blocks/Modules/Core/Admin/Build Files.zip" $buildZip
+}
+else {
+    Write-Warning "Failed to update the HTML Design Component!"
+}
+if ($continue) {
     IncreaseDesignVersion "/webdav/100 Master/Building Blocks/Settings/Core/Site Manager/HTML Design Configuration.xml"
     $array = $publications.Split(',', [System.StringSplitOptions]::RemoveEmptyEntries)
     foreach ($pub in $array) {
@@ -217,7 +243,7 @@ if ($continue) {
     }
 }
 else {
-    Write-Warning "Failed to update the HTML design Component!"
+    Write-Warning "Failed to update the Build Files Component!"
 }
 
 $core.dispose()
