@@ -7,6 +7,8 @@
  * Licensed under the MIT license.
  */
 
+ // note: this file (and changes to it) will be ignored by the html design build in the cms
+ 
 'use strict';
 
 var LIVERELOAD_PORT = 35729;
