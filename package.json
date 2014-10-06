@@ -1,18 +1,23 @@
 {
-  "name": "SDL-Template",
-  "description": "Assemble, build and validate whitelabel HTML design",
-  "version": "0.1.0",
-  "homepage": "",
+  "name": "Whitelabel-HTML-Design",
+  "description": "Assemble, build and validate whitelabel HTML design (note: this file, and changes to it, will be ignored by the html design build in the cms)",
+  "version": "1.0.0",
+  "homepage": "https://github.com/bkoopman/tri",
   "author": {
-    "name": "Chris Rowe",
-    "url": "http://github.com/rolos79/"
+    "name": "Bart Koopman",
+	"email": "bkoopman@sdl.com"
   },
+  "contributors": [{
+    "name": "Chris Rowe",
+    "email": "chris@webcoda.co.uk",
+    "url": "http://github.com/rolos79/"
+  }],
   "repository": {
     "type": "git",
     "url": ""
   },
   "bugs": {
-    "url": ""
+    "url": "https://github.com/bkoopman/tri/issues"
   },
   "engines": {
     "node": ">=0.8"

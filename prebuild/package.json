@@ -1,11 +1,11 @@
 {
-  "name": "SDL-Template-CMS",
+  "name": "Whitelabel-HTML-Design-CMS",
   "description": "Build from CMS",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "homepage": "",
   "author": {
     "name": "Bart Koopman",
-    "url": "https://github.com/bkoopman"
+    "url": "http://github.com/bkoopman"
   },
   "repository": {
     "type": "git",

@@ -1,10 +1,10 @@
 {
-  "name": "SDL-Template-CMS",
-  "version": "0.0.1",
+  "name": "Whitelabel-HTML-Design-CMS",
+  "version": "1.0.0",
   "authors": [
     "Bart Koopman <bkoopman@sdl.com>"
   ],
-  "description": "Build from CMS",
+  "description": "Add dependencies for grunt build from CMS",
   "license": "",
   "private": true,
   "ignore": [
