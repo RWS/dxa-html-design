@@ -227,9 +227,9 @@ else {
     Write-Warning "Failed to update the HTML Design Component!"
 }
 if ($continue) {
-    IncreaseDesignVersion "/webdav/100 Master/Building Blocks/Settings/Core/Site Manager/HTML Design Configuration.xml"
     $array = $publications.Split(',', [System.StringSplitOptions]::RemoveEmptyEntries)
     foreach ($pub in $array) {
+        IncreaseDesignVersion "/webdav/$pub/Building Blocks/Settings/Core/Site Manager/HTML Design Configuration.xml"
         PublishPage "/webdav/$pub/Home/_System/Publish HTML Design.tpg" $targetType
     }
 
