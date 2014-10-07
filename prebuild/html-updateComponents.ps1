@@ -179,38 +179,46 @@ function UpdateMultimediaComponent($componentWebdavUrl, $binaryLocation){
 function IncreaseDesignVersion($componentWebdavUrl){
     $comp = $core.Read($componentWebdavUrl, $defaultReadOptions)
     
-    $begin = "<version>"
-    $end = "</version>"
-    $regex = $begin + "(?<content>.*)" + $end
-
-    # read current version, increase and save back    
-    $content = $comp.Content    
-    if ($content -match $regex)
+    # only deal with local or localized components
+    if (-not $comp.BluePrintInfo.IsShared)
     {
-        # version format vX.YY, lets get the last value and increase that
-        $version = $matches["content"]
-        $pos = $version.IndexOf('.') + 1
-        $prefix = $version.Substring(0, $pos)
-        $value = $version.Substring($pos)
-        Write-Verbose "HTML Design current version: $version"
+        $begin = "<version>"
+        $end = "</version>"
+        $regex = $begin + "(?<content>.*)" + $end
 
-        $xmlToReplace = $begin + $version + $end
-        $version = $prefix + (1 + $value)
-        $xmlNew = $begin + $version + $end
+        # read current version, increase and save back    
+        $content = $comp.Content    
+        if ($content -match $regex)
+        {
+            # version format vX.YY, lets get the last value and increase that
+            $version = $matches["content"]
+            $pos = $version.IndexOf('.') + 1
+            $prefix = $version.Substring(0, $pos)
+            $value = $version.Substring($pos)
+            Write-Verbose "HTML Design current version: $version"
 
-        Write-Host "Updating HTML Design version..."
-        $comp = $core.CheckOut($comp.Id, $false, $defaultReadOptions)
-        $content = $content.Replace($xmlToReplace, $xmlNew)   
-        $comp.Content = $content         
-        $comp = $core.Save($comp, $defaultReadOptions)
-        $comp = $core.CheckIn($comp.Id, $true, $null, $defaultReadOptions)
-        Write-Host "Done"
+            $xmlToReplace = $begin + $version + $end
+            $version = $prefix + (1 + $value)
+            $xmlNew = $begin + $version + $end
 
-        Write-Host "Updated Configuration Component with version $version"
+            Write-Host "Updating HTML Design version..."
+            $comp = $core.CheckOut($comp.Id, $false, $defaultReadOptions)
+            $content = $content.Replace($xmlToReplace, $xmlNew)   
+            $comp.Content = $content         
+            $comp = $core.Save($comp, $defaultReadOptions)
+            $comp = $core.CheckIn($comp.Id, $true, $null, $defaultReadOptions)
+            Write-Host "Done"
+
+            Write-Host "Updated Configuration Component with version $version"
+        }
+        else
+        {
+           Write-Warning "Can't find version in $componentWebdavUrl."
+        }
     }
     else
     {
-       Write-Warning "Can't find version in $componentWebdavUrl."
+        Write-Verbose "$componentWebdavUrl is shared."
     }
 }
 
@@ -227,8 +235,10 @@ else {
     Write-Warning "Failed to update the HTML Design Component!"
 }
 if ($continue) {
+    IncreaseDesignVersion "/webdav/100 Master/Building Blocks/Settings/Core/Site Manager/HTML Design Configuration.xml"
     $array = $publications.Split(',', [System.StringSplitOptions]::RemoveEmptyEntries)
     foreach ($pub in $array) {
+        # increase version if localized
         IncreaseDesignVersion "/webdav/$pub/Building Blocks/Settings/Core/Site Manager/HTML Design Configuration.xml"
         PublishPage "/webdav/$pub/Home/_System/Publish HTML Design.tpg" $targetType
     }
