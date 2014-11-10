@@ -25,6 +25,22 @@
   } 
   
 	window.onload = function () { 
+	
+	// Fix for collapsing carousel when we haven't picture for slide
+	$('.carousel').each(function(){
+		var max_height = 0;
+
+		$(this).find('img[data-aspect]').each(function(){
+			if ($(this).height() > max_height)
+				max_height = $(this).height();
+		});
+		//intermittent issues with 0 or small height, so only set the height if its bigger than 50px
+		if (height > 50)
+		{
+			$(this).height(max_height);
+		}
+	});
+	
 	//remove fixed heights set for images while they loaded to preserve layout
 	$("img[data-height-fixed]").each(function(){
 		$(this).height("");
@@ -53,18 +69,6 @@ $(document).ready(function() {
 				$(this).attr("data-height-fixed","true");
 			}
 		}
-	});
-
-	// Fix for collapsing carousel when we haven't picture for slide
-	$('.carousel').each(function(){
-		var max_height = 0;
-
-		$(this).find('img[data-aspect]').each(function(){
-			if ($(this).height() > max_height)
-				max_height = $(this).height();
-		});
-
-		$(this).height(max_height);
 	});
 
 	/*$('#rating > i').hover(function(e){
