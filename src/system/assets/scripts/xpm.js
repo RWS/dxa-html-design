@@ -1,8 +1,11 @@
 /**
 * XPM specific functions
 */
-if (typeof Tridion.Web.UI.SiteEdit != "undefined") {
-	console.log("in XPM");
-} else {
-	console.log("not in XPM");
-}
+$(document).ready(function() {
+	if (typeof Tridion.Web.UI.SiteEdit != "undefined") {
+		window.console.log("in XPM");
+		
+	} else {
+		window.console.log("not in XPM");
+	}
+});
