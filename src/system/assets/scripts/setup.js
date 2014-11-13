@@ -35,7 +35,7 @@
 				max_height = $(this).height();
 		});
 		//intermittent issues with 0 or small height, so only set the height if its bigger than 50px
-		if (height > 50)
+		if ($(this).height > 50)
 		{
 			$(this).height(max_height);
 		}
