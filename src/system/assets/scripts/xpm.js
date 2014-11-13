@@ -2,7 +2,7 @@
 * XPM specific functions
 */
 $(document).ready(function() {
-	if (typeof Tridion.Web.UI.SiteEdit != "undefined") {
+	if (typeof Tridion != "undefined" && typeof Tridion.Web.UI.SiteEdit != "undefined") {
 		window.console.log("in XPM");
 		
 	} else {
