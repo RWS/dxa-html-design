@@ -1,21 +1,34 @@
 /**
 * XPM specific functions
 */
-
-(function( $ ) {
-    $.fn.checkIfInXpm = function() {
+(function($) {
+	// initialize global variable
+	SDL_ENV.isInXpm = false;
+	
+	// check and set global variable
+	$.fn.checkIfInXpm = function() {	
+		// check via availability of Tridion objects
 		if (typeof Tridion != "undefined" && typeof Tridion.Web.UI.SiteEdit != "undefined") {
-			window.console.log("in XPM");
+			console.log("in XPM");
+			SDL_ENV.isInXpm = true;
 		} else {
-			window.console.log("not in XPM");
+			console.log("not in XPM");
+			SDL_ENV.isInXpm = false;
 		}
-    }; 
-}( jQuery ));
+	}; 
+
+	// recheck if global is false
+	$.fn.isInXpm = function() {
+		if (!SDL_ENV.isInXpm) {
+			$().checkIfInXpm();			
+		}
+		return SDL_ENV.isInXpm;
+	};
+}(jQuery));
 
 $(document).ready(function() {
-	// wait 5 seconds after document ready and check if we are in XPM
+	// wait 5 seconds after document ready (to complete XPM load) and check if we are in XPM (setting global variable)
 	setTimeout(function() {
-		$("html").checkIfInXpm();
+		$().checkIfInXpm();
 	}, 5000);
 });
-
