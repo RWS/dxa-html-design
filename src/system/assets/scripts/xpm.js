@@ -11,9 +11,13 @@
 		if (typeof Tridion != "undefined" && typeof Tridion.Web.UI.SiteEdit != "undefined") {
 			console.log("in XPM");
 			SDL_ENV.isInXpm = true;
+			// display xpm buttons
+			$(".xpm-button").show();
 		} else {
 			console.log("not in XPM");
 			SDL_ENV.isInXpm = false;
+			// hide xpm buttons
+			$(".xpm-button").hide();
 		}
 	}; 
 
