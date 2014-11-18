@@ -11,23 +11,20 @@
 		if (typeof Tridion != "undefined" && typeof Tridion.Web.UI.SiteEdit != "undefined") {
 			console.log("in XPM");
 			SDL_ENV.isInXpm = true;
+			
 			// display xpm buttons
 			$(".xpm-button").show();
+			
+			// pause automatic scrolling of carousels
+			$(".carousel").carousel("pause" );
 		} else {
 			console.log("not in XPM");
 			SDL_ENV.isInXpm = false;
+			
 			// hide xpm buttons
 			$(".xpm-button").hide();
 		}
 	}; 
-
-	// recheck if global is false
-	$.fn.isInXpm = function() {
-		if (!SDL_ENV.isInXpm) {
-			$().checkIfInXpm();			
-		}
-		return SDL_ENV.isInXpm;
-	};
 }(jQuery));
 
 $(document).ready(function() {
