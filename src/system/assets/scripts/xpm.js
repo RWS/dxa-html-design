@@ -16,7 +16,7 @@
 			$(".xpm-button").show();
 			
 			// pause automatic scrolling of carousels
-			$(".carousel").carousel("pause" );
+			$(".carousel").carousel("pause");
 		} else {
 			console.log("not in XPM");
 			SDL_ENV.isInXpm = false;
