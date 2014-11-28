@@ -5,13 +5,15 @@
   "homepage": "https://github.com/bkoopman/tri",
   "author": {
     "name": "Bart Koopman",
-	"email": "bkoopman@sdl.com"
+    "email": "bkoopman@sdl.com"
   },
-  "contributors": [{
-    "name": "Chris Rowe",
-    "email": "chris@webcoda.co.uk",
-    "url": "http://github.com/rolos79/"
-  }],
+  "contributors": [
+    {
+      "name": "Chris Rowe",
+      "email": "chris@webcoda.co.uk",
+      "url": "http://github.com/rolos79/"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": ""

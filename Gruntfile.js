@@ -303,8 +303,7 @@ module.exports = function(grunt) {
 				  '<%= config.dist %>/lists/*.html',
 				  '<%= config.dist %>/*.html']
         }
-    }
-
+    },
   });
 
   grunt.loadNpmTasks('assemble');
