@@ -19,7 +19,9 @@
         <OldOutputDirectory>C:\Standard Implementation\Distribution</OldOutputDirectory>
         
         <!-- Tools -->
-        <PowerShellx64>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</PowerShellx64>
+        <PowerShellx64 Condition="'$(PROCESSOR_ARCHITECTURE)' == 'x86' AND '$(PROCESSOR_ARCHITEW6432)' != ''">C:\Windows\Sysnative\WindowsPowerShell\v1.0\powershell.exe</PowerShellx64>
+        <PowerShellx64 Condition="'$(PROCESSOR_ARCHITECTURE)' == 'x86' AND '$(PROCESSOR_ARCHITEW6432)' == ''">C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</PowerShellx64>
+        <PowerShellx64 Condition="'$(PROCESSOR_ARCHITECTURE)' != 'x86'">C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</PowerShellx64>
 	</PropertyGroup>
 
 
