@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.5">
+
+    <PropertyGroup>
+        <!-- Input parameters -->
+        <CD01Host>saintjohn03.ams.dev</CD01Host>
+
+        <ProjectDirectory>$(MSBuildProjectDirectory)</ProjectDirectory>
+        <DesignDirectory>$(ProjectDirectory)\design</DesignDirectory>
+        <WhitelabelDirectory>$(ProjectDirectory)\whitelabel</WhitelabelDirectory>
+	</PropertyGroup>
+
+
+	<!-- =============================================================================================================================================  -->
+	<Target Name="Build">
+		<Message Text="Start build..." Importance="high" />
+
+        <CallTarget Targets="PrepareBuild"/>
+        <CallTarget Targets="PackageBuild"/>
+        <CallTarget Targets="DeployOutput"/>
+    </Target>
+
+    <!-- =============================================================================================================================================  -->
+    <Target Name="PrepareBuild">
+        <Message Text="Preparing build..." Importance="high" />
+        
+        <RemoveDir Directories="$(DesignDirectory)"/>
+        <MakeDir Directories="$(DesignDirectory)"/>
+        <ItemGroup>
+            <RootFiles Include="$(ProjectDirectory)\*.*"/>
+            <SrcFiles Include="$(ProjectDirectory)\src\**\*.*"/>
+        </ItemGroup>
+        <Copy SourceFiles="@(RootFiles)" DestinationFolder="$(DesignDirectory)"/>
+        <Copy SourceFiles="@(SrcFiles)" DestinationFolder="$(DesignDirectory)\src\%(RecursiveDir)"/>
+    </Target>
+
+    <!-- =============================================================================================================================================  -->
+    <Target Name="PackageBuild">
+        <Message Text="Running build commands..." Importance="high" />
+
+        <Exec Command="npm install --color=false" WorkingDirectory="$(DesignDirectory)" />
+        <Exec Command="bower install --color=false" WorkingDirectory="$(DesignDirectory)" />
+        <Exec Command="grunt build --no-color" WorkingDirectory="$(DesignDirectory)" />
+
+        <Message Text="Grunt HTML Validation Report (in JSON format)" Importance="high" />
+        <Exec Command="type validation-report.json" WorkingDirectory="$(DesignDirectory)" />
+    </Target>
+
+    <!-- =============================================================================================================================================  -->
+    <Target Name="DeployOutput">
+        <Message Text="Creating output with host '$(CD01Host)'..." Importance="high" />
+
+        <ItemGroup>
+            <HostDistFiles Include="\\$(CD01Host)\wwwroot\8.0 html-design\dist\*.*"/>
+            <DistFiles Include="$(DesignDirectory)\dist\**\*.*"/>
+        </ItemGroup>
+        <Delete Files="@(HostDistFiles)"/>
+        <Copy SourceFiles="@(DistFiles)" DestinationFolder="\\$(CD01Host)\wwwroot\8.0 html-design\dist\%(RecursiveDir)"/>
+
+        <RemoveDir Directories="$(WhitelabelDirectory)"/>
+        <MakeDir Directories="$(WhitelabelDirectory)"/>
+        <ItemGroup>
+            <WhitelabelFiles Include="$(DesignDirectory)\dist\**\*.*"/>
+        </ItemGroup>
+        <Copy SourceFiles="@(WhitelabelFiles)" DestinationFolder="$(DesignDirectory)\%(RecursiveDir)"/>
+    </Target>
+</Project>
