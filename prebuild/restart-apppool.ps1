@@ -6,10 +6,10 @@ param (
     [string]$adminUserName = "global\srv-cmbuild",
 
     # Set this to the saintjohn dev cms url
-    [string]$adminUserPass = "srv_tridion-cm",
+    [string]$adminUserPass = "srv_tridion_cm",
 
     # Comma separated list of IIS websites that need to be restarted after publishing the HTML design
-    [string]$sites = "Staging (Stable demo version),Staging (GIT version)"
+    [string]$sites = "8.0 Staging (Stable demo version),8.0 Staging (GIT version)"
 )
 
 $pass = ConvertTo-SecureString $adminUserPass -AsPlainText -Force

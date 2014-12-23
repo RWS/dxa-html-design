@@ -14,6 +14,9 @@
         <FilesDirectory>$(ProjectDirectory)\files</FilesDirectory>
         
         <OldOutputDirectory>C:\Standard Implementation\Distribution</OldOutputDirectory>
+        
+        <!-- Tools -->
+        <PowerShellx64>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</PowerShellx64>
 	</PropertyGroup>
 
 
@@ -75,9 +78,9 @@
         
         <Delete Files="$(FilesDirectory)\html-updateComponents.ps1"/>
 
-        <Exec Command="powershell.exe -file prebuild\html-updateComponents.ps1 &quot;$(HtmlDirectory)&quot; &quot;$(FilesDirectory)&quot; &quot;$(CmsUrl)&quot; &quot;$(TargetType)&quot; &quot;$(Publications)&quot; &quot;&quot;" WorkingDirectory="$(ProjectDirectory)" />
+        <Exec Command="&quot;$(PowerShellx64)&quot; -file prebuild\html-updateComponents.ps1 &quot;$(HtmlDirectory)&quot; &quot;$(FilesDirectory)&quot; &quot;$(CmsUrl)&quot; &quot;$(TargetType)&quot; &quot;$(Publications)&quot; &quot;&quot;" WorkingDirectory="$(ProjectDirectory)" />
         
-        <Exec Command="powershell.exe -file prebuild\restart-apppool.ps1 &quot;$(CD01Host)&quot; &quot;global\srv-cmbuild&quot; &quot;srv_tridion_cm&quot; &quot;$(Sites)&quot;" WorkingDirectory="$(ProjectDirectory)" />
+        <Exec Command="&quot;$(PowerShellx64)&quot; -file prebuild\restart-apppool.ps1 &quot;$(CD01Host)&quot; &quot;global\srv-cmbuild&quot; &quot;srv_tridion_cm&quot; &quot;$(Sites)&quot;" WorkingDirectory="$(ProjectDirectory)" />
     </Target>
 
     <!-- =============================================================================================================================================  -->
