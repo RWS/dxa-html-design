@@ -14,8 +14,10 @@
 
         <ProjectDirectory>$(MSBuildProjectDirectory)</ProjectDirectory>
         <HtmlDirectory>$(ProjectDirectory)\html</HtmlDirectory>
-        <FilesDirectory>$(ProjectDirectory)\files</FilesDirectory>
-        
+        <!--<FilesDirectory>$(ProjectDirectory)\files</FilesDirectory>-->
+		<!-- attempting a shorter path -->
+        <FilesDirectory>C:\_f</FilesDirectory>
+		
         <OldOutputDirectory>C:\Standard Implementation\Distribution</OldOutputDirectory>
         
         <!-- Tools -->
