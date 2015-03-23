@@ -8,7 +8,7 @@
 	// check and set global variable
 	$.fn.checkIfInXpm = function() {	
 		// check via availability of Tridion objects
-		if (typeof Tridion != "undefined" && typeof Tridion.Web.UI.SiteEdit != "undefined") {
+		if (typeof Tridion != "undefined" && (typeof Tridion.Web.UI.SiteEdit != "undefined" || Tridion.Constants.IsInXPM)) {
 			console.log("in XPM");
 			SDL_ENV.isInXpm = true;
 			
