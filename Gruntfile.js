@@ -358,7 +358,7 @@ module.exports = function(grunt) {
     //'rev',
     'usemin',
     //'htmlmin',
-    'validation'
+    //'validation'
   ]);
 
   grunt.registerTask('default', [
