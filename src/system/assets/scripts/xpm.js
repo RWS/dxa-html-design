@@ -17,7 +17,7 @@
 }(jQuery));
 
 $(document).ready(function() {
-	// wait 5 seconds after document ready (to complete XPM load) and check if we are in XPM (setting global variable)
+	// wait 5 seconds after document ready (to complete XPM load) and check if we are in XPM
 	setTimeout(function() {
 		if ($().isInXpm()) {
 			// display xpm buttons
