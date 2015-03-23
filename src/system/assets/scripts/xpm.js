@@ -2,34 +2,29 @@
 * XPM specific functions
 */
 (function($) {
-	// initialize global variable
-	SDL_ENV.isInXpm = false;
-	
-	// check and set global variable
-	$.fn.checkIfInXpm = function() {	
+	// check whether in xpm
+	$.fn.isInXpm = function() {	
+		var isInXpm = false;
 		// check via availability of Tridion objects
-		if (typeof Tridion != "undefined" && (typeof Tridion.Web.UI.SiteEdit != "undefined" || Tridion.Constants.IsInXPM)) {
-			console.log("in XPM");
-			SDL_ENV.isInXpm = true;
-			
-			// display xpm buttons
-			$(".xpm-button").show();
-			
-			// pause automatic scrolling of carousels
-			$(".carousel").carousel("pause");
-		} else {
-			console.log("not in XPM");
-			SDL_ENV.isInXpm = false;
-			
-			// hide xpm buttons
-			$(".xpm-button").hide();
+		if (typeof Tridion != "undefined") {
+			if (Tridion.Type.resolveNamespace("Tridion.Web.UI.SiteEdit.Page") || Tridion.Type.resolveNamespace("Tridion.Web.UI.Editors.XPMCore.Controls.Page")) {
+				isInXpm = true;
+			}
 		}
-	}; 
+		console.log("in XPM: " + isInXpm);
+		return isInXpm;
+	};
 }(jQuery));
 
 $(document).ready(function() {
 	// wait 5 seconds after document ready (to complete XPM load) and check if we are in XPM (setting global variable)
 	setTimeout(function() {
-		$().checkIfInXpm();
+		if ($().isInXpm()) {
+			// display xpm buttons
+			$(".xpm-button").show();
+			
+			// pause automatic scrolling of carousels
+			$(".carousel").carousel("pause");
+		}
 	}, 5000);
 });
