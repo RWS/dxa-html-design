@@ -42,10 +42,12 @@
         <Exec Command="bower install --color=false" WorkingDirectory="$(DesignDirectory)" />
         <Exec Command="grunt build --no-color" WorkingDirectory="$(DesignDirectory)" />
 
-		<!-- disabled validation output because validation service is too slow so validation is disabled 
-        <Message Text="Grunt HTML Validation Report (in JSON format)" Importance="high" />
-        <Exec Command="type validation-report.json" WorkingDirectory="$(DesignDirectory)" />
-		-->
+        <Choose>
+		    <When Condition="Exists('validation-report.json')">
+                <Message Text="Grunt HTML Validation Report (in JSON format)" Importance="high" />
+                <Exec Command="type validation-report.json" WorkingDirectory="$(DesignDirectory)" />
+			</When>	
+        <Choose>
     </Target>
 
     <!-- =============================================================================================================================================  -->
