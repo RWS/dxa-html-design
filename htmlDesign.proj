@@ -43,7 +43,7 @@
         <Exec Command="grunt build --no-color" WorkingDirectory="$(DesignDirectory)" />
 
         <Choose>
-		    <When Condition="Exists('validation-report.json')">
+		    <When Condition="Exists('$(DesignDirectory)\validation-report.json')">
                 <Message Text="Grunt HTML Validation Report (in JSON format)" Importance="high" />
                 <Exec Command="type validation-report.json" WorkingDirectory="$(DesignDirectory)" />
 			</When>	
