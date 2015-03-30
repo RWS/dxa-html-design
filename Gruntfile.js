@@ -292,6 +292,7 @@ module.exports = function(grunt) {
     validation: {
         options: {
             reset: grunt.option('reset') || false,
+			//serverUrl: 'http://10.100.101.193/w3c-validator/check',
             relaxerror: ['Bad value X-UA-Compatible for attribute http-equiv on element meta.'] //ignores these errors
         },
         files: {
@@ -358,7 +359,7 @@ module.exports = function(grunt) {
     //'rev',
     'usemin',
     //'htmlmin',
-    //'validation'
+    'validation'
   ]);
 
   grunt.registerTask('default', [
