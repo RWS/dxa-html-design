@@ -47,7 +47,7 @@
                 <Message Text="Grunt HTML Validation Report (in JSON format)" Importance="high" />
                 <Exec Command="type validation-report.json" WorkingDirectory="$(DesignDirectory)" />
 			</When>	
-        <Choose>
+        </Choose>
     </Target>
 
     <!-- =============================================================================================================================================  -->
