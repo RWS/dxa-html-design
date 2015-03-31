@@ -42,8 +42,8 @@
         <Exec Command="bower install --color=false" WorkingDirectory="$(DesignDirectory)" />
         <Exec Command="grunt build --no-color" WorkingDirectory="$(DesignDirectory)" />
 
-        <Message Text="Grunt HTML Validation Report (in JSON format)" Importance="high" Condition=" Exists('$(DesignDirectory)\validation-report.json') " />
-        <Exec Command="type validation-report.json" WorkingDirectory="$(DesignDirectory)" Condition=" Exists('$(DesignDirectory)\validation-report.json') " />
+        <Message Text="Grunt HTML Validation Report" Importance="high" Condition=" Exists('$(DesignDirectory)\validation-report.json') " />
+        <Exec Command="JsonReport validation-report.json" WorkingDirectory="$(DesignDirectory)" Condition=" Exists('$(DesignDirectory)\validation-report.json') " />
     </Target>
 
     <!-- =============================================================================================================================================  -->
