@@ -84,6 +84,7 @@
         <Exec Command="bower install --color=false" WorkingDirectory="$(FilesDirectory)" />
         
         <Delete Files="$(FilesDirectory)\html-updateComponents.ps1"/>
+        <Delete Files="$(FilesDirectory)\restart-apppool.ps1"/>
 
         <Exec Command="&quot;$(PowerShellx64)&quot; -file prebuild\html-updateComponents.ps1 &quot;$(HtmlDirectory)&quot; &quot;$(FilesDirectory)&quot; &quot;$(CmsUrl)&quot; &quot;$(TargetType)&quot; &quot;$(InternalPublications)&quot; &quot;&quot;" WorkingDirectory="$(ProjectDirectory)" />
         
