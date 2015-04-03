@@ -62,10 +62,17 @@ module.exports = function(grunt) {
         dist: {
             files: [{
                 dot: true,
+				// leave css and scripts content, allowing modules to add files directly here
                 src: [
                     '.tmp',
                     '<%= config.dist %>/*',
                     '!<%= config.dist %>/.git*',
+                    '!<%= config.dist %>/system/**',
+                    '<%= config.dist %>/system/*',
+                    '!<%= config.dist %>/system/assets/**',
+                    '<%= config.dist %>/system/assets/*',
+                    '!<%= config.dist %>/system/assets/css/**',
+                    '!<%= config.dist %>/system/assets/scripts/**',
                 ]
             }]
         },
