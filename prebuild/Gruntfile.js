@@ -31,14 +31,14 @@ module.exports = function(grunt) {
         partials: '<%= config.src %>/templates/partials/**/*.hbs',
         files: {
           '.tmp/': [
-            '<%= config.src %>/templates/pages/index.hbs'
+            '<%= config.src %>/templates/pages/*.hbs'
           ]
         }
       },
       dist:{
         cwd: '<%= config.src %>/templates/pages/',
         expand: true,
-        src: 'index.hbs',
+        src: '*.hbs',
         dest: '<%= config.dist %>/'
       },
     },
@@ -50,11 +50,14 @@ module.exports = function(grunt) {
           modifyVars: {
           }
         },
-        files: {
-          ".tmp/system/assets/css/main.css": "<%= config.src %>/system/assets/less/main.less",
-          ".tmp/system/assets/css/icons.css": "<%= config.src %>/system/assets/less/icons.less",
-          ".tmp/system/assets/css/bootstrap-select.css": "<%= config.src %>/system/assets/less/bootstrap-select.less"
-        }
+        files: [{
+			expand: true,
+			cwd: '<%= config.src %>/system/assets/less',
+			// compile each LESS component excluding those starting with an underscore
+			src: ['*.less', '!_*.less'],
+			dest: '.tmp/system/assets/css/',
+			ext: '.css'
+		}]
       }
     },
 
@@ -142,7 +145,7 @@ module.exports = function(grunt) {
     },
 	
     useminPrepare: {
-        html: '<%= config.dist %>/index.html',
+        html: '<%= config.dist %>/*.html',
         options: {
             dest: '<%= config.dist %>'
         }
