@@ -1,21 +1,21 @@
 param (
-    # Path to the html distributive
-    [string]$server = "saintjohn03.ams.dev",
+    # The name of the server hosting the apppools
+    [string]$server = "saintjohn01",
 
-    # Path to the build distributive
+    # Administrator user name
     [string]$adminUserName = "global\srv-cmbuild",
 
-    # Set this to the saintjohn dev cms url
+    # Administrator password
     [string]$adminUserPass = "srv_tridion_cm",
 
-    # Comma separated list of IIS websites that need to be restarted after publishing the HTML design
-    [string]$sites = "8.0 Staging (Stable demo version),8.0 Staging (GIT version)"
+    # Comma separated list of IIS websites that need to be restarted 
+    [string]$sites = "Staging (Stable demo version),Staging (GIT version)"
 )
 
 $pass = ConvertTo-SecureString $adminUserPass -AsPlainText -Force
 $credentials = new-object -typename System.Management.Automation.PSCredential -argumentlist $adminUserName, $pass
 
-Write-Host "Recycling application pools of '$sites' websites"
+Write-Host "Recycling application pools of '$sites' websites on '$server'"
 
 Invoke-Command -ComputerName $server -ScriptBlock { 
     Import-Module WebAdministration

@@ -1,26 +1,23 @@
 param (
     # Path to the html distributive
-    [string]$htmlDist,
+    [string]$htmlDist = "..\html",
 
     # Path to the build distributive
-    [string]$buildDist,
+    [string]$buildDist = "C:\_f",
 
     # Set this to the saintjohn dev cms url
-    [string]$cmsUrl = "http://localhost/",
+    [string]$cmsUrl = "http://saintjohn01.ams.dev/",
 
     # Set this to the publication target type id of the staging target
     [string]$targetType = "tcm:0-1-65538",
 
     # Comma separated list of (website) publication names that need the HTML design to be published after the update
-    [string]$publications = "400 Site,400 Example Site",
-
-    # Comma separated list of IIS websites that need to be restarted after publishing the HTML design
-    [string]$sites = "Staging (Stable demo version),Staging (GIT version)"
+    [string]$publications = "400 Example Site"
 )
 
 #Terminate script on first occured exception
 trap {
-    Write-Error $_.Exception.Message
+    Write-Error $_.Exception
     return 1
 }
 
@@ -30,12 +27,7 @@ $tempFolder = Join-Path $tempDrive "_t"
 if (!(Test-Path $tempFolder)) {
     New-Item -ItemType Directory -Path $tempFolder | Out-Null
 }
-if (!(Test-Path $htmlDist)) {
-    $htmlDist = Join-Path $ScriptDir "..\html\"
-}
-if (!(Test-Path $buildDist)) {
-    $buildDist = Join-Path $ScriptDir "..\files\"
-}
+
 $dllsFolder = Join-Path (Split-Path $MyInvocation.MyCommand.Path) "ImportExport\"
 $designZip = Join-Path $htmlDist "html-design.zip"
 $buildZip = Join-Path $htmlDist "build-files.zip"
@@ -241,15 +233,6 @@ if ($continue) {
         # increase version if localized
         IncreaseDesignVersion "/webdav/$pub/Building Blocks/Settings/Core/Site Manager/HTML Design Configuration.xml"
         PublishPage "/webdav/$pub/Home/_System/Publish HTML Design.tpg" $targetType
-    }
-
-    Start-Sleep -s 100
-
-    # Recycle application pools
-    Import-Module WebAdministration
-    $array = $sites.Split(',', [System.StringSplitOptions]::RemoveEmptyEntries)
-    foreach ($site in $array) {
-        $site | % { (Get-Item "IIS:\Sites\$_"| Select-Object applicationPool).applicationPool } | % { Restart-WebAppPool $_ }
     }
 }
 else {

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.5">
 
-    <PropertyGroup>
-        <!-- Input parameters -->
-        <CD01Host>saintjohn03.ams.dev</CD01Host>
+  <PropertyGroup>
+    <!-- Input parameters -->
+    <CdTestDeployLocation>\\saintjohn01.ams.dev\C$\inetpub\wwwroot\html-design</CdTestDeployLocation>
 
-        <ProjectDirectory>$(MSBuildProjectDirectory)</ProjectDirectory>
-        <DesignDirectory>$(ProjectDirectory)\design</DesignDirectory>
-        <WhitelabelDirectory>$(ProjectDirectory)\whitelabel</WhitelabelDirectory>
-	</PropertyGroup>
+    <ProjectDirectory>$(MSBuildProjectDirectory)</ProjectDirectory>
+    <DesignDirectory>$(ProjectDirectory)\design</DesignDirectory>
+    <WhitelabelDirectory>$(ProjectDirectory)\whitelabel</WhitelabelDirectory>
+  </PropertyGroup>
 
 
-	<!-- =============================================================================================================================================  -->
-	<Target Name="Build">
-		<Message Text="Start build..." Importance="high" />
+  <!-- =============================================================================================================================================  -->
+  <Target Name="Build">
+    <Message Text="Start build..." Importance="high" />
 
         <CallTarget Targets="PrepareBuild"/>
         <CallTarget Targets="PackageBuild"/>
@@ -48,14 +48,14 @@
 
     <!-- =============================================================================================================================================  -->
     <Target Name="DeployOutput">
-        <Message Text="Creating output with host '$(CD01Host)'..." Importance="high" />
+        <Message Text="Deploying to '$(CdTestDeployLocation)'..." Importance="high" />
 
         <ItemGroup>
-            <HostDistFiles Include="\\$(CD01Host)\wwwroot\8.0 html-design\dist\*.*"/>
+            <HostDistFiles Include="$(CdTestDeployLocation)\dist\*.*"/>
             <DistFiles Include="$(DesignDirectory)\dist\**\*.*"/>
         </ItemGroup>
         <Delete Files="@(HostDistFiles)"/>
-        <Copy SourceFiles="@(DistFiles)" DestinationFolder="\\$(CD01Host)\wwwroot\8.0 html-design\dist\%(RecursiveDir)"/>
+        <Copy SourceFiles="@(DistFiles)" DestinationFolder="$(CdTestDeployLocation)\dist\%(RecursiveDir)"/>
 
         <RemoveDir Directories="$(WhitelabelDirectory)"/>
         <MakeDir Directories="$(WhitelabelDirectory)"/>
