@@ -301,7 +301,9 @@ module.exports = function(grunt) {
         options: {
             reset: grunt.option('reset') || false,
 			//serverUrl: 'http://10.100.101.193/w3c-validator/check',
-            relaxerror: ['Bad value X-UA-Compatible for attribute http-equiv on element meta.'] //ignores these errors
+			//serverUrl: 'https://validator.w3.org/nu/',
+            relaxerror: ['Bad value X-UA-Compatible for attribute http-equiv on element meta.',
+			             'This interface to HTML5 document checking is deprecated.'] //ignores these errors
         },
         files: {
             src: [//'<%= config.dist %>/ajax/*.html',
