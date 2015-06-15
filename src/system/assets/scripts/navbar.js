@@ -35,14 +35,17 @@
 	});
 
 	// Handles all meganav links to fit dropdown menu in content box
-	/* BETA version
+
 	$('.mega-nav-link').hover(function(){
 		var megaNavOffset = $(this).position(),
-			megaNavWidth = $(this).find('.mega-nav').get(0).scrollWidth,
-			contentWidth = $('.page-border').width();
+			megaNavWidth = $(this).find('.mega-nav').get(0).offsetWidth,
+			contentWidth = $('.page-border').width(),
+			megaNavOverflow = Math.round((contentWidth - (megaNavOffset.left + megaNavWidth)) - 1);
 
-		$(this).find('.mega-nav').css('left', Math.round(contentWidth - (megaNavOffset.left + megaNavWidth)));
+		if (megaNavOverflow < -1) {
+			$(this).find('.mega-nav').css('left', megaNavOverflow);
+		}
 	});
-	*/
+	
 
 })(jQuery);

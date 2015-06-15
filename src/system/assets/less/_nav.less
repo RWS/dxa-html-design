@@ -72,7 +72,6 @@
 			& >  li > a,
 			& > li.active > a{
 				position: relative;
-				z-index: 101;
 				&:hover,
 				&:focus{
 					background: transparent;
@@ -127,14 +126,16 @@
 
 .mega-nav-link {
 	position: relative !important;
+	border: 1px solid transparent;
+	border-bottom: none;
 }
 
 .mega-nav{
 	position: absolute;
 	display: none;
 	left: -1px;
-	width: 500px;
-	z-index: 100;
+	width: 455px;
+	z-index: 104;
 
 	.mega-nav-content{
 		background: @mega-nav-bg;
@@ -159,14 +160,11 @@
 					content: " ";
 					position: absolute;
 					bottom: -4px;
-					left: 0;
-					right: 0;
+					left: 0px;
+					right: 0px;
 					height: 8px;
 					background: #fff;
-				}
-
-				&:hover {
-
+					z-index: 105;
 				}
 			}
 
@@ -201,4 +199,9 @@
 		padding: 0 15px;
 		line-height: 40px;
 	}
+}
+
+.navbar-form {
+	margin-top: 0;
+	margin-bottom: 0;
 }

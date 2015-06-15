@@ -1,10 +1,11 @@
 {
-  "name": "SDL Template",
-  "version": "0.0.0",
+  "name": "Whitelabel-HTML-Design",
+  "version": "1.0.0",
   "authors": [
-    "Chris Rowe <chris@webcoda.co.uk>"
+	{ "name": "Chris Rowe", "email": "chris@webcoda.co.uk" },
+	{ "name": "Bart Koopman", "email": "bkoopman@sdl.com" }
   ],
-  "description": "Add dependencies for grunt build",
+  "description": "Add dependencies for grunt build (note: this file, and changes to it, will be ignored by the html design build in the cms)",
   "license": "",
   "private": true,
   "ignore": [

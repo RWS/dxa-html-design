@@ -27,3 +27,6 @@ validation-status.json
 *.sln
 *.suo
 *.ps1
+
+design/
+html/

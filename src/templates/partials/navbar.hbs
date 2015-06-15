@@ -1,65 +1,79 @@
 ---
 component: navbar
 ---
-
 <header id="page-header" class="navbar navbar-default">
-  <div class="container-fluid page-border">
-    <div class="row">
-      <div class="col-xs-12" role="navigation">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <i class="fa fa-bars"></i>
-          </button>
-          <a class="navbar-logo" href="/" title="{{ site.title }}">
-            <img src="/system/assets/images/logo.png" alt="{{ site.title }} Logo">
-          </a>
-        </div>
+	<!-- xpm edit button for header -->
+	<div class="xpm-button">
+		<a href="/system/include/header" title="Edit Header" class="fa-stack fa-lg">
+			<i class="fa fa-square fa-stack-2x"></i>
+			<i class="fa fa-pencil fa-inverse fa-stack-1x"></i>
+		</a>
+	</div>
+	<!-- xpm back button -->
+	<div class="xpm-button">
+		<a href="javascript:history.back()" title="Go Back" class="fa-stack fa-lg">
+			<i class="fa fa-square fa-stack-2x"></i>
+			<i class="fa fa-arrow-left fa-inverse fa-stack-1x"></i>
+		</a>
+	</div>
+	
+	<div class="container-fluid page-border">
+		<div class="row">
+			<div class="col-xs-12" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<i class="fa fa-bars"></i>
+					</button>
+					<a class="navbar-logo" href="/" title="{{ site.title }}">
+						<img src="/system/assets/images/logo.png" alt="{{ site.title }} Logo">
+					</a>
+				</div>
 
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav utility-nav">
-            <li{{#if this.isCurrentPage}} class="active"{{/if}}>
-              <a href="/3rd-party-products.html">3<sup>rd</sup> Party Products</a>
-            </li>
-            <li{{#if this.isCurrentPage}} class="active"{{/if}}>
-              <a href="/build.html">Build it!</a>
-            </li>
-          </ul>
-          <select class="selectpicker" data-width="auto">
-            <option value="en" data-href="//en.wikipedia.com/">English</option>
-            <option value="nl" data-href="//nl.wikipedia.com/">Dutch</option>
-            <option value="fr" data-href="//fr.wikipedia.com/">French</option>
-            <option value="de" data-href="//de.wikipedia.com/">German</option>
-            <option value="uk" data-href="//uk.wikipedia.com/">Ukrainian</option>
-          </select>
-          <ul class="nav navbar-nav main-nav">
-            <li{{#is section 'root'}} class="active"{{/is}}>
-              <a href="/index.html">Home</a>
-            </li>
-            <li{{#is section 'Layouts'}} class="active"{{/is}}>
-              <a href="/layouts/index.html">Layouts</a>
-            </li>
-            <li{{#is section 'Content Types'}} class="active"{{/is}}>
-              <a href="/content-types/index.html">Content Types</a>
-            </li>
-            <li{{#is section 'Lists'}} class="active"{{/is}}>
-              <a href="/lists/index.html">Lists</a>
-            </li>
-            <li{{#is section 'Features'}} class="active"{{/is}}>
-              <a href="/features/index.html">Features</a>
-            </li>
-			{{#is section 'Beta'}}
-			{{> mega-nav }}
-			{{/is}}
-          </ul>
-		  {{#is section 'Beta'}}
-          <form class='navbar-form navbar-right'>
-              <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
-              </div>
-          </form>
-		  {{/is}}
-        </div>
-      </div>
-    </div>
-  </div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav utility-nav">
+						<li{{#if this.isCurrentPage}} class="active"{{/if}}>
+							<a href="/3rd-party-products.html">3<sup>rd</sup> Party Products</a>
+						</li>
+						<li{{#if this.isCurrentPage}} class="active"{{/if}}>
+							<a href="/build.html">Build it!</a>
+						</li>
+					</ul>
+					<select class="selectpicker" data-width="auto">
+						<option value="en" data-href="//en.wikipedia.com/">English</option>
+						<option value="nl" data-href="//nl.wikipedia.com/">Dutch</option>
+						<option value="fr" data-href="//fr.wikipedia.com/">French</option>
+						<option value="de" data-href="//de.wikipedia.com/">German</option>
+						<option value="uk" data-href="//uk.wikipedia.com/">Ukrainian</option>
+					</select>
+					<ul class="nav navbar-nav main-nav">
+						<li{{#is section 'root'}} class="active"{{/is}}>
+							<a href="/index.html">Home</a>
+						</li>
+						{{#is section 'Beta'}}
+							{{> mega-nav }}
+						{{/is}}
+						<li{{#is section 'Layouts'}} class="active"{{/is}}>
+							<a href="/layouts/index.html">Layouts</a>
+						</li>
+						<li{{#is section 'Content Types'}} class="active"{{/is}}>
+							<a href="/content-types/index.html">Content Types</a>
+						</li>
+						<li{{#is section 'Lists'}} class="active"{{/is}}>
+							<a href="/lists/index.html">Lists</a>
+						</li>
+						<li{{#is section 'Features'}} class="active"{{/is}}>
+							<a href="/features/index.html">Features</a>
+						</li>
+					</ul>
+					{{#is section 'Beta'}}
+						<form class="navbar-form navbar-right">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Search">
+							</div>
+						</form>
+					{{/is}}
+				</div>
+			</div>
+		</div>
+	</div>
 </header>

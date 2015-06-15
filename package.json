@@ -1,18 +1,25 @@
 {
-  "name": "SDL-Template",
-  "description": "Assemble, build and validate whitelabel HTML design",
-  "version": "0.1.0",
-  "homepage": "",
+  "name": "Whitelabel-HTML-Design",
+  "description": "Assemble, build and validate whitelabel HTML design (note: this file, and changes to it, will be ignored by the html design build in the cms)",
+  "version": "1.0.0",
+  "homepage": "https://github.com/bkoopman/tri",
   "author": {
-    "name": "Chris Rowe",
-    "url": "http://github.com/rolos79/"
+    "name": "Bart Koopman",
+    "email": "bkoopman@sdl.com"
   },
+  "contributors": [
+    {
+      "name": "Chris Rowe",
+      "email": "chris@webcoda.co.uk",
+      "url": "http://github.com/rolos79/"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": ""
   },
   "bugs": {
-    "url": ""
+    "url": "https://github.com/bkoopman/tri/issues"
   },
   "engines": {
     "node": ">=0.8"
@@ -39,7 +46,7 @@
     "grunt-contrib-less": "~0.10.0",
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-contrib-watch": "~0.5.3",
-    "grunt-html-validation": "^0.1.17",
+    "grunt-html-validation": "^0.1.18",
     "grunt-mocha": "~0.4.1",
     "grunt-open": "~0.2.0",
     "grunt-preprocess": "~4.0.0",

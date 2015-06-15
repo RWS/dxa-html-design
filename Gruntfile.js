@@ -7,6 +7,8 @@
  * Licensed under the MIT license.
  */
 
+ // note: this file (and changes to it) will be ignored by the html design build in the cms
+ 
 'use strict';
 
 var LIVERELOAD_PORT = 35729;
@@ -121,10 +123,14 @@ module.exports = function(grunt) {
       server: {
         options: {
         },
-        files: {
-          ".tmp/system/assets/css/main.css": "<%= config.src %>/system/assets/less/main.less",
-          ".tmp/system/assets/css/icons.css": "<%= config.src %>/system/assets/less/icons.less"
-        }
+        files: [{
+			expand: true,
+			cwd: '<%= config.src %>/system/assets/less',
+			// compile each LESS component excluding those starting with an underscore
+			src: ['*.less', '!_*.less'],
+			dest: '.tmp/system/assets/css/',
+			ext: '.css'
+		}]
       },
       dist: {
         options: {
@@ -134,10 +140,14 @@ module.exports = function(grunt) {
             //bgColor: 'red'
           }
         },
-        files: {
-          ".tmp/system/assets/css/main.css": "<%= config.src %>/system/assets/less/main.less",
-          ".tmp/system/assets/css/icons.css": "<%= config.src %>/system/assets/less/icons.less"
-        }
+        files: [{
+			expand: true,
+			cwd: '<%= config.src %>/system/assets/less',
+			// compile each LESS component excluding those starting with an underscore
+			src: ['*.less', '!_*.less'],
+			dest: '.tmp/system/assets/css/',
+			ext: '.css'
+		}]
       }
     },
 
@@ -216,7 +226,7 @@ module.exports = function(grunt) {
     },
 
     useminPrepare: {
-        html: '<%= config.dist %>/index.html',
+        html: '<%= config.dist %>/*.html',
         options: {
             // where tranformed css/js is put
             dest: '<%= config.dist %>'
@@ -290,15 +300,21 @@ module.exports = function(grunt) {
     validation: {
         options: {
             reset: grunt.option('reset') || false,
-            relaxerror: ['Bad value X-UA-Compatible for attribute http-equiv on element meta.'] //ignores these errors
+			//serverUrl: 'http://10.100.101.193/w3c-validator/check',
+			//serverUrl: 'https://validator.w3.org/nu/',
+            relaxerror: ['Bad value X-UA-Compatible for attribute http-equiv on element meta.',
+			             'This interface to HTML5 document checking is deprecated.'] //ignores these errors
         },
         files: {
-            src: ['<%= config.dist %>/examples/*.html',
-                  '<%= config.dist %>/ajax/*.html',
-                  '<%= config.dist %>/index.html']
+            src: [//'<%= config.dist %>/ajax/*.html',
+				  '<%= config.dist %>/beta/*.html',
+				  '<%= config.dist %>/content-types/*.html',
+				  '<%= config.dist %>/features/*.html',
+				  '<%= config.dist %>/layouts/*.html',
+				  '<%= config.dist %>/lists/*.html',
+				  '<%= config.dist %>/*.html']
         }
-    }
-
+    },
   });
 
   grunt.loadNpmTasks('assemble');

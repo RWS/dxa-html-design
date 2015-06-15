@@ -51,7 +51,17 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 					</div>
 					<figure>
-						<iframe width="960" height="720" src="//www.youtube.com/embed/2YBtspm8j8M" style="border:none;" allowfullscreen></iframe>
+						<!--
+							Videos can be embedded directly via an iframe, but you can also show an alternate first frame 
+							picture with a play button instead, which when clicked, will load the actual video.
+							<iframe width="960" height="720" src="//www.youtube.com/embed/2YBtspm8j8M" style="border:none;" allowfullscreen></iframe>
+						-->
+                        <div class="embed-video">
+							<img src="/system/assets/images/teaser/wall.jpg" alt="">
+							<button type="button" data-video="2YBtspm8j8M">
+								<i class="fa fa-play-circle"></i>
+							</button>
+						</div> 
 						<figcaption>Figure caption without center alignment</figcaption>
 					</figure>
 				</div> 
@@ -82,6 +92,41 @@ consequat. <img class="center-block" src="/system/assets/images/teaser/map.jpg" 
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p></div>
 				</div>
+			</div>
+			<div id="rating">
+	<h3>3.4</h3>
+	<i class="fa fa-star">
+		<i class="fa fa-star">
+			<i class="fa fa-star">
+				<i class="fa fa-star-o">
+					<i class="fa fa-star-o"></i>
+				</i>		
+			</i>	
+		</i>
+	</i>
+	<p><i class="fa fa-user"></i>128 total</p>
+</div>
+
+			<div id="comments">
+				<form action="#" method="post">
+					<div class="col-sm-4">
+				    	<div class="form-group">
+				    		<label for="username">Name</label>
+							<input type="text" class="form-control" id="username" name="username">
+						</div>
+						<div class="form-group">
+							<label for="email">E-mail</label>
+							<input type="email" class="form-control" id="email" name="email">
+						</div>
+						<div class="form-group">
+							<label for="comment">Comment</label>
+						    <textarea id="comment" class="form-control" name="comment"></textarea>   
+					    </div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-default">Submit</button>
+						</div>
+					</div>
+				</form>
 			</div>
 		</article>
 	</div>

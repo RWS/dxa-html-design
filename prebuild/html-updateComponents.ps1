@@ -1,52 +1,64 @@
 param (
     # Path to the html distributive
-    [string]$htmlDist,
+    [string]$htmlDist = "..\html",
+
+    # Path to the build distributive
+    [string]$buildDist = "C:\_f",
 
     # Set this to the saintjohn dev cms url
-    [string]$cmsUrl = "http://localhost/",
+    [string]$cmsUrl = "http://saintjohn01.ams.dev/",
 
     # Set this to the publication target type id of the staging target
     [string]$targetType = "tcm:0-1-65538",
 
     # Comma separated list of (website) publication names that need the HTML design to be published after the update
-    [string]$publications = "400 Site,400 Example Site",
-
-    # Comma separated list of IIS websites that need to be restarted after publishing the HTML design
-    [string]$sites = "Staging (Stable demo version),Staging (GIT version)"
+    [string]$publications = "400 Example Site"
 )
 
 #Terminate script on first occured exception
 trap {
-    Write-Error $_.Exception.Message
+    Write-Error $_.Exception
     return 1
 }
 
 # Initialization
-#$tempFolder = Join-Path $env:TEMP "TRI_html\"
 $tempDrive = Split-Path $env:TEMP -Qualifier
 $tempFolder = Join-Path $tempDrive "_t"
 if (!(Test-Path $tempFolder)) {
     New-Item -ItemType Directory -Path $tempFolder | Out-Null
 }
-if (!(Test-Path $htmlDist)) {
-    $htmlDist = Join-Path $ScriptDir "..\html\"
-}
+
 $dllsFolder = Join-Path (Split-Path $MyInvocation.MyCommand.Path) "ImportExport\"
 $designZip = Join-Path $htmlDist "html-design.zip"
+$buildZip = Join-Path $htmlDist "build-files.zip"
 
-# Prepare package
+# Prepare packages
 $tempDesignZip = Join-Path $tempFolder "html-design.zip"
 if (Test-Path $tempDesignZip) {
     Remove-Item $tempDesignZip | Out-Null
 }
+$tempBuildZip = Join-Path $tempFolder "build-files.zip"
+if (Test-Path $tempBuildZip) {
+    Remove-Item $tempBuildZip | Out-Null
+}
+
 # Copy files to a short path location
 $tempHtmlDist = Join-Path $tempFolder "s"
 robocopy $htmlDist $tempHtmlDist /E | Out-Null
+$tempBuildDist = Join-Path $tempFolder "f"
+robocopy $buildDist $tempBuildDist /E | Out-Null
+
+# Create zip files
 Add-Type -Assembly System.IO.Compression.FileSystem
 $compressionLevel = [System.IO.Compression.CompressionLevel]::Optimal
-#[System.IO.Compression.ZipFile]::CreateFromDirectory($htmlDist, $tempDesignZip, $compressionLevel, $false)
 [System.IO.Compression.ZipFile]::CreateFromDirectory($tempHtmlDist, $tempDesignZip, $compressionLevel, $false)
+[System.IO.Compression.ZipFile]::CreateFromDirectory($tempBuildDist, $tempBuildZip, $compressionLevel, $false)
+
+# Copy zip files to their desired location
 Copy-Item $tempDesignZip $designZip -Force
+Copy-Item $tempBuildZip $buildZip -Force
+
+# Cleanup temp folder
 Remove-Item $tempFolder -Force -Recurse | Out-Null
 
 function InitUpdater {
@@ -159,38 +171,46 @@ function UpdateMultimediaComponent($componentWebdavUrl, $binaryLocation){
 function IncreaseDesignVersion($componentWebdavUrl){
     $comp = $core.Read($componentWebdavUrl, $defaultReadOptions)
     
-    $begin = "<version>"
-    $end = "</version>"
-    $regex = $begin + "(?<content>.*)" + $end
-
-    # read current version, increase and save back    
-    $content = $comp.Content    
-    if ($content -match $regex)
+    # only deal with local or localized components
+    if (-not $comp.BluePrintInfo.IsShared)
     {
-        # version format vX.YY, lets get the last value and increase that
-        $version = $matches["content"]
-        $pos = $version.IndexOf('.') + 1
-        $prefix = $version.Substring(0, $pos)
-        $value = $version.Substring($pos)
-        Write-Verbose "HTML Design current version: $version"
+        $begin = "<version>"
+        $end = "</version>"
+        $regex = $begin + "(?<content>.*)" + $end
 
-        $xmlToReplace = $begin + $version + $end
-        $version = $prefix + (1 + $value)
-        $xmlNew = $begin + $version + $end
+        # read current version, increase and save back    
+        $content = $comp.Content    
+        if ($content -match $regex)
+        {
+            # version format vX.YY, lets get the last value and increase that
+            $version = $matches["content"]
+            $pos = $version.IndexOf('.') + 1
+            $prefix = $version.Substring(0, $pos)
+            $value = $version.Substring($pos)
+            Write-Verbose "HTML Design current version: $version"
 
-        Write-Host "Updating HTML Design version..."
-        $comp = $core.CheckOut($comp.Id, $false, $defaultReadOptions)
-        $content = $content.Replace($xmlToReplace, $xmlNew)   
-        $comp.Content = $content         
-        $comp = $core.Save($comp, $defaultReadOptions)
-        $comp = $core.CheckIn($comp.Id, $true, $null, $defaultReadOptions)
-        Write-Host "Done"
+            $xmlToReplace = $begin + $version + $end
+            $version = $prefix + (1 + $value)
+            $xmlNew = $begin + $version + $end
 
-        Write-Host "Updated Configuration Component with version $version"
+            Write-Host "Updating HTML Design version..."
+            $comp = $core.CheckOut($comp.Id, $false, $defaultReadOptions)
+            $content = $content.Replace($xmlToReplace, $xmlNew)   
+            $comp.Content = $content         
+            $comp = $core.Save($comp, $defaultReadOptions)
+            $comp = $core.CheckIn($comp.Id, $true, $null, $defaultReadOptions)
+            Write-Host "Done"
+
+            Write-Host "Updated Configuration Component with version $version"
+        }
+        else
+        {
+           Write-Warning "Can't find version in $componentWebdavUrl."
+        }
     }
     else
     {
-       Write-Warning "Can't find version in $componentWebdavUrl."
+        Write-Verbose "$componentWebdavUrl is shared."
     }
 }
 
@@ -201,23 +221,22 @@ $defaultReadOptions = New-Object Tridion.ContentManager.CoreService.Client.ReadO
 # uploading the large zipfile can fail, so see if we need to update the version and publish the pages first
 $continue = UpdateMultimediaComponent "/webdav/100 Master/Building Blocks/Modules/Core/Admin/HTML Design.zip" $designZip
 if ($continue) {
+    $continue = UpdateMultimediaComponent "/webdav/100 Master/Building Blocks/Modules/Core/Admin/Build Files.zip" $buildZip
+}
+else {
+    Write-Warning "Failed to update the HTML Design Component!"
+}
+if ($continue) {
     IncreaseDesignVersion "/webdav/100 Master/Building Blocks/Settings/Core/Site Manager/HTML Design Configuration.xml"
     $array = $publications.Split(',', [System.StringSplitOptions]::RemoveEmptyEntries)
     foreach ($pub in $array) {
+        # increase version if localized
+        IncreaseDesignVersion "/webdav/$pub/Building Blocks/Settings/Core/Site Manager/HTML Design Configuration.xml"
         PublishPage "/webdav/$pub/Home/_System/Publish HTML Design.tpg" $targetType
-    }
-
-    Start-Sleep -s 100
-
-    # Recycle application pools
-    Import-Module WebAdministration
-    $array = $sites.Split(',', [System.StringSplitOptions]::RemoveEmptyEntries)
-    foreach ($site in $array) {
-        $site | % { (Get-Item "IIS:\Sites\$_"| Select-Object applicationPool).applicationPool } | % { Restart-WebAppPool $_ }
     }
 }
 else {
-    Write-Warning "Failed to update the HTML design Component!"
+    Write-Warning "Failed to update the Build Files Component!"
 }
 
 $core.dispose()
