@@ -3,7 +3,7 @@
 
   <PropertyGroup>
     <!-- Input parameters -->
-    <CdTestDeployLocation>\\saintjohn01.ams.dev\C$\inetpub\wwwroot\html-design</CdTestDeployLocation>
+    <CdTestDeployLocation>\\saintjohn03.ams.dev\c$\inetpub\wwwroot\7.1_html-design</CdTestDeployLocation>
 
     <ProjectDirectory>$(MSBuildProjectDirectory)</ProjectDirectory>
     <DesignDirectory>$(ProjectDirectory)\design</DesignDirectory>

@@ -10,7 +10,7 @@
         <InternalPublications Condition="'$(Publications)' != ''">$(Publications.Replace('+', ' '))</InternalPublications>
         <InternalSites Condition="'$(Sites)' == ''">Staging (Stable demo version),Staging (GIT version)</InternalSites>
         <InternalSites Condition="'$(Sites)' != ''">$(Sites.Replace('+', ' '))</InternalSites>
-        <CD01Host>saintjohn01.ams.dev</CD01Host>
+        <CD01Host>saintjohn03.ams.dev</CD01Host>
 
         <ProjectDirectory>$(MSBuildProjectDirectory)</ProjectDirectory>
         <HtmlDirectory>$(ProjectDirectory)\html</HtmlDirectory>
@@ -94,7 +94,7 @@
 
       <Exec Command="&quot;$(PowerShellx64)&quot; -file prebuild\html-updateComponents.ps1 &quot;$(HtmlDirectory)&quot; &quot;$(FilesDirectory)&quot; &quot;$(CmsUrl)&quot; &quot;$(TargetType)&quot; &quot;$(InternalPublications)&quot;" WorkingDirectory="$(ProjectDirectory)" />
 
-      <!--TODO: saintjohn01 is not properly configured for WinRM yet (?)
+      <!--TODO: saintjohn03 is not properly configured for WinRM yet (?)
       <Exec Command="&quot;$(PowerShellx64)&quot; -file prebuild\restart-apppool.ps1 &quot;$(CD01Host)&quot; &quot;global\srv-cmbuild&quot; &quot;srv_tridion_cm&quot; &quot;$(InternalSites)&quot;" WorkingDirectory="$(ProjectDirectory)" />
       -->
 
