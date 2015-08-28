@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Complex Article | SDL Tridion Reference Implementation HTML Design</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    
+    <link rel="stylesheet" href="/dxa-html-design/system/assets/css/main.css">
+
+    <script src="/dxa-html-design/system/assets/scripts/header.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="/dxa-html-design/system/assets/scripts/ie.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="info-bar" class="page-row">
+      <!--[if lt IE 8]>
+        <div id="incompability" class="container-fluid page-border">
+	<div class="row">
+		<div class="col-sm-9">
+			<div class="h4">Old browser</div>
+			<p>We are sorry, but your browser is too old and some parts of this site might looks or works incorrectly. Update your browser to new one.</p>
+		</div>
+		<div class="col-sm-3">
+			<ul class="nav nav-cookie">
+				<li>
+					<a id="incompability-hide" href="#"><i class="fa fa-check-circle"></i> Continue</a>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-cog"></i> Update browser</a>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-question-circle"></i> Help me</a>
+				</li>
+			</ul>
+		</div>
+	</div>	
+</div>
+      <![endif]-->
+      <div id="cookie" class="container-fluid page-border">
+	<div class="row">
+		<div class="col-sm-9">
+			<div class="h4">Cookies</div>
+			<p>We use cookies to ensure that we give you the best experience on our website. If you continue without changing your settings, we'll assume that you are happy to receive all cookies on this website. However, if you would like to, you can change your cookie settings at any time.</p>
+		</div>
+		<div class="col-sm-3">
+			<ul class="nav nav-cookie">
+				<li>
+					<a id="cookie-hide" href="#"><i class="fa fa-check-circle"></i> Continue</a>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-cog"></i> Change settings</a>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-question-circle"></i> Find out more</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+    </div>
+
+	
+<header id="page-header" class="navbar navbar-default">
+	<!-- xpm edit button for header -->
+	<div class="xpm-button">
+		<a href="/dxa-html-design/system/include/header" title="Edit Header" class="fa-stack fa-lg">
+			<i class="fa fa-square fa-stack-2x"></i>
+			<i class="fa fa-pencil fa-inverse fa-stack-1x"></i>
+		</a>
+	</div>
+	<!-- xpm back button -->
+	<div class="xpm-button">
+		<a href="javascript:history.back()" title="Go Back" class="fa-stack fa-lg">
+			<i class="fa fa-square fa-stack-2x"></i>
+			<i class="fa fa-arrow-left fa-inverse fa-stack-1x"></i>
+		</a>
+	</div>
+	
+	<div class="container-fluid page-border">
+		<div class="row">
+			<div class="col-xs-12" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<i class="fa fa-bars"></i>
+					</button>
+					<a class="navbar-logo" href="/dxa-html-design/" title="SDL Tridion Reference Implementation HTML Design">
+						<img src="/dxa-html-design/system/assets/images/logo.png" alt="SDL Tridion Reference Implementation HTML Design Logo">
+					</a>
+				</div>
+
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav utility-nav">
+						<li>
+							<a href="/dxa-html-design/3rd-party-products.html">3<sup>rd</sup> Party Products</a>
+						</li>
+						<li>
+							<a href="/dxa-html-design/build.html">Build it!</a>
+						</li>
+					</ul>
+					<select class="selectpicker" data-width="auto">
+						<option value="en" data-href="/dxa-html-design//en.wikipedia.com/">English</option>
+						<option value="nl" data-href="/dxa-html-design//nl.wikipedia.com/">Dutch</option>
+						<option value="fr" data-href="/dxa-html-design//fr.wikipedia.com/">French</option>
+						<option value="de" data-href="/dxa-html-design//de.wikipedia.com/">German</option>
+						<option value="uk" data-href="/dxa-html-design//uk.wikipedia.com/">Ukrainian</option>
+					</select>
+					<ul class="nav navbar-nav main-nav">
+						<li>
+							<a href="/dxa-html-design/index.html">Home</a>
+						</li>
+						
+						<li>
+							<a href="/dxa-html-design/layouts/index.html">Layouts</a>
+						</li>
+						<li class="active">
+							<a href="/dxa-html-design/content-types/index.html">Content Types</a>
+						</li>
+						<li>
+							<a href="/dxa-html-design/lists/index.html">Lists</a>
+						</li>
+						<li>
+							<a href="/dxa-html-design/features/index.html">Features</a>
+						</li>
+					</ul>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+	<main class="page-row page-row-expanded" role="main">
+		<div class="container-fluid page-border">
+			
+<ol class="breadcrumb">
+	<li><a href="/dxa-html-design/"><i class="fa fa-home"> <span class="sr-only">Home</span></i></a></li>
+	<li><a href="/dxa-html-design/">Content Types</a></li>
+	<li class="active">Complex Article</li>
+</ol>
+<div class='share-buttons clearfix'>
+	Share: 
+	<ul>
+		<li class='share-facebook'>
+			<a href='#'>
+				<i class="fa fa-facebook"></i>
+			</a>
+		</li>
+		<li class='share-twitter'>
+			<a href='#'>
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+		<li class='share-google-plus'>
+			<a href='#'>
+				<i class="fa fa-google-plus"></i>
+			</a>
+		</li>
+		<li class='share-email'>
+			<a href='#'>
+				<i class="fa fa-envelope"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+<div class="row">
+	<div class="col-sm-12 col-md-3">
+		<nav>
+	<ul class="nav nav-sidebar">
+		 
+			
+		 
+			
+		 
+			
+		 
+			
+		 
+			
+		 
+			
+		 
+			
+		 
+			 
+				<li>
+					<a href="article.html">Simple Article</a> 
+				</li>
+			
+		 
+			 
+				<li class="active">
+					<a href="complex-article.html">Complex Article</a> 
+				</li>
+			
+		 
+			 
+				<li>
+					<a href="index.html">Index</a> 
+				</li>
+			
+		 
+			 
+				<li>
+					<a href="location.html">Location</a> 
+				</li>
+			
+		 
+			 
+				<li>
+					<a href="teasers.html">Teasers</a> 
+				</li>
+			
+		 
+			
+		 
+			
+		 
+			
+		 
+			
+		 
+			
+		 
+			
+		 
+			
+		 
+			
+		 
+			
+		 
+			
+		 
+			
+		 
+			
+		 
+			
+		 
+			
+		 
+			
+		 
+			
+		
+	</ul>
+</nav>
+	</div>
+	<div class="col-sm-12 col-md-9">
+		<article class='rich-text'>
+			<div class="hero">
+				<img alt="" src="/dxa-html-design/system/assets/images/wide/map.jpg">
+				<div class="overlay overlay-tl ribbon">
+					<h1>Complex Article</h1>		
+				</div>
+			</div>
+			<div class="meta">
+				Friday, July 4, 2014
+			</div>
+			<div class='content'>
+				<div>
+					<h3>Complex article contents</h3>
+					<div>
+					<p>Articles can have a header image, as above, and also can contain richer content in the content blocks, which are separated into optional elements: Subheading, body text, media and media caption.</p>
+					</div>
+				</div>
+				<div>
+					<h3>Images with captions</h3>
+					<div><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+					<figure>
+						<img src="/dxa-html-design/system/assets/images/large/bridge.jpg"/>
+						<figcaption class='text-center'><strong>Figure Caption (.text-center)</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua.</figcaption>
+					</figure>
+				</div>
+				<div>
+					<h3>Youtube videos</h3>
+					<div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					</div>
+					<figure>
+						<!--
+							Videos can be embedded directly via an iframe, but you can also show an alternate first frame 
+							picture with a play button instead, which when clicked, will load the actual video.
+							<iframe width="960" height="720" src="/dxa-html-design//www.youtube.com/embed/2YBtspm8j8M" style="border:none;" allowfullscreen></iframe>
+						-->
+                        <div class="embed-video">
+							<img src="/dxa-html-design/system/assets/images/teaser/wall.jpg" alt="">
+							<button type="button" data-video="2YBtspm8j8M">
+								<i class="fa fa-play-circle"></i>
+							</button>
+						</div> 
+						<figcaption>Figure caption without center alignment</figcaption>
+					</figure>
+				</div> 
+				<div>
+					<h3>Other formatting options</h3>
+					<div><p><img class="pull-left" src="/dxa-html-design/system/assets/images/teaser/balloons.jpg" alt="Floating left image">You can align inline elements with <strong>pull-left</strong>, <strong>pull-right</strong> and <strong>center-block</strong> classes. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat</p>
+					<p><img class="pull-right" src="/dxa-html-design/system/assets/images/teaser/blueprint.jpg" alt="Floating left image">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. <img class="center-block" src="/dxa-html-design/system/assets/images/teaser/map.jpg" alt="Floating left image">Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p></div>
+				</div>
+			</div>
+			<div id="rating">
+	<h3>3.4</h3>
+	<i class="fa fa-star">
+		<i class="fa fa-star">
+			<i class="fa fa-star">
+				<i class="fa fa-star-o">
+					<i class="fa fa-star-o"></i>
+				</i>		
+			</i>	
+		</i>
+	</i>
+	<p><i class="fa fa-user"></i>128 total</p>
+</div>
+
+			<div id="comments">
+				<form action="#" method="post">
+					<div class="col-sm-4">
+				    	<div class="form-group">
+				    		<label for="username">Name</label>
+							<input type="text" class="form-control" id="username" name="username">
+						</div>
+						<div class="form-group">
+							<label for="email">E-mail</label>
+							<input type="email" class="form-control" id="email" name="email">
+						</div>
+						<div class="form-group">
+							<label for="comment">Comment</label>
+						    <textarea id="comment" class="form-control" name="comment"></textarea>   
+					    </div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-default">Submit</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</article>
+	</div>
+</div>
+		</div>
+	</main>
+	<footer id="page-footer" class="page-row">
+		<!-- xpm edit button for footer -->
+		<div class="xpm-button">
+			<a href="/dxa-html-design/system/include/footer" title="Edit Footer" class="fa-stack fa-lg">
+				<i class="fa fa-square fa-stack-2x"></i>
+				<i class="fa fa-pencil fa-inverse fa-stack-1x"></i>
+			</a>
+		</div>
+		<!-- xpm back button -->
+		<div class="xpm-button">
+			<a href="javascript:history.back()" title="Go Back" class="fa-stack fa-lg">
+				<i class="fa fa-square fa-stack-2x"></i>
+				<i class="fa fa-arrow-left fa-inverse fa-stack-1x"></i>
+			</a>
+		</div>
+		
+		<div class="container-fluid page-border">
+			<div class="row">
+				<div class="col-sm-4 col-md-3">
+					<div class="h4">Layouts</div>
+					<ul class="list-unstyled">
+						<li>
+							<a href="/dxa-html-design/layouts/section.html">Section Page</a>
+						</li>
+						<li>
+							<a href="/dxa-html-design/layouts/content.html">Content Page</a>
+						</li>
+						<li>
+							<a href="/dxa-html-design/layouts/content-no-nav.html">Content Page (No Nav)</a>
+						</li>
+					</ul>
+				</div>
+				<div class='col-sm-4 col-md-3'>
+					<div class='h4'>Content Types</div>
+					<ul class="list-unstyled">
+						<li>
+							<a href="/dxa-html-design/content-types/teasers.html">Teasers</a>
+						</li>
+						<li>
+							<a href="/dxa-html-design/content-types/article.html">Articles</a>
+						</li>
+						<li>
+							<a href="/dxa-html-design/content-types/location.html">Location</a>
+						</li>
+					</ul>
+				</div>
+				<div class='col-sm-4 col-md-3'>
+					<div class='h4'>Lists</div>
+					<ul class="list-unstyled">
+						<li>
+							<a href="/dxa-html-design/lists/carousel.html">Carousel</a>
+						</li>
+						<li>
+							<a href="/dxa-html-design/lists/paged.html">Paged List</a>
+						</li>
+						<li>
+							<a href="/dxa-html-design/lists/accordion.html">Accordion</a>
+						</li>
+						<li>
+							<a href="/dxa-html-design/lists/tabs.html">Tabs</a>
+						</li>
+						  <li>
+							<a href="/dxa-html-design/lists/gallery.html">Image Gallery</a>
+						  </li>
+					</ul>
+				</div>
+				<div class='col-sm-12 col-md-3'>
+					<div class='icon-list'>
+						<a href='#' class="fa-stack fa-lg">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-twitter fa-stack-1x"></i>
+						</a>
+						<a href='#' class="fa-stack fa-lg">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-facebook fa-stack-1x"></i>
+						</a>
+						<a href='#' class="fa-stack fa-lg">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-linkedin fa-stack-1x"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+			<hr/>
+			<ul class='list-inline text-center'>
+				<li>
+					<small>&copy; Copyright 2014</small>
+				</li>
+				<li>
+					<small><a href="/dxa-html-design/beta/index.html">Beta Features</a></small>
+				</li>
+			</ul>	
+		</div>
+	</footer>
+	<script src="/dxa-html-design/system/assets/scripts/main.js"></script>
+
+	
+	<script src="/dxa-html-design/system/assets/scripts/xpm.js"></script>
+	
+	<script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-XXXXX-X');ga('send','pageview');
+</script>
+  </body>
+</html>

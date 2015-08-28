@@ -1,0 +1,1 @@
+(function(a){a.fn.isInXpm=function(){var a=!1;return"undefined"!=typeof Tridion&&(Tridion.Type.resolveNamespace("Tridion.Web.UI.SiteEdit.Page")||Tridion.Type.resolveNamespace("Tridion.Web.UI.Editors.XPMCore.Controls.Page"))&&(a=!0),a}})(jQuery),$(document).ready(function(){setTimeout(function(){$().isInXpm()&&($(".xpm-button").show(),$(".carousel").carousel("pause"))},5e3)});
