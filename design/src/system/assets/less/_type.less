@@ -1,0 +1,65 @@
+
+
+h1, 
+h2,
+h3,
+h4,
+h5,
+h6{
+	&+.meta{
+		margin-top: -(@line-height-computed / 2);
+	}
+}
+
+.glow{
+	z-index: 1;
+	text-shadow: 0 0 3px @glow-bg-color;
+	color: @glow-color;
+
+	small{
+		color: @glow-color;
+	}
+
+	.no-textshadow{
+		filter: progid:DXImageTransform.Microsoft.Glow(color=@glow-bg-color);
+	}
+}
+
+.page-header-top{
+	margin-top: 0;
+}
+
+.ribbon {
+    color: @ribbon-color;
+	background: transparent\9;
+	background: @ribbon-bg-color;
+	h1,h2
+	{
+		font-size:1.4em;
+		margin-bottom:0px;
+	}
+	&:nth-child(n) {
+		filter: none;
+	}
+
+	.lt-ie9 & {
+		background: none !important;
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(rgba(red(@ribbon-bg-color), green(@ribbon-bg-color), blue(@ribbon-bg-color), alpha(@ribbon-bg-color))),endColorstr=argb(rgba(red(@ribbon-bg-color), green(@ribbon-bg-color), blue(@ribbon-bg-color), alpha(@ribbon-bg-color))));
+		zoom: 1;
+	}	
+}
+
+@media screen and (min-width: @screen-xs) {
+	.ribbon {
+		position: absolute;
+		z-index: 1;
+		padding: 3%;
+		margin: 0;
+		h1,h2
+		{
+			font-size:30px;
+			margin-bottom:10px;
+		}
+	}
+}
+

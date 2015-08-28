@@ -1,0 +1,133 @@
+---
+title: Complex Article
+section: Content Types
+---
+{{> breadcrumb }}
+{{> share-buttons}}
+<div class="row">
+	<div class="col-sm-12 col-md-3">
+		{{> nav-sidebar }}
+	</div>
+	<div class="col-sm-12 col-md-9">
+		<article class='rich-text'>
+			<div class="hero">
+				<img alt="" src="/system/assets/images/wide/map.jpg">
+				<div class="overlay overlay-tl ribbon">
+					<h1>Complex Article</h1>		
+				</div>
+			</div>
+			<div class="meta">
+				Friday, July 4, 2014
+			</div>
+			<div class='content'>
+				<div>
+					<h3>Complex article contents</h3>
+					<div>
+					<p>Articles can have a header image, as above, and also can contain richer content in the content blocks, which are separated into optional elements: Subheading, body text, media and media caption.</p>
+					</div>
+				</div>
+				<div>
+					<h3>Images with captions</h3>
+					<div><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+					<figure>
+						<img src="/system/assets/images/large/bridge.jpg"/>
+						<figcaption class='text-center'><strong>Figure Caption (.text-center)</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua.</figcaption>
+					</figure>
+				</div>
+				<div>
+					<h3>Youtube videos</h3>
+					<div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					</div>
+					<figure>
+						<!--
+							Videos can be embedded directly via an iframe, but you can also show an alternate first frame 
+							picture with a play button instead, which when clicked, will load the actual video.
+							<iframe width="960" height="720" src="//www.youtube.com/embed/2YBtspm8j8M" style="border:none;" allowfullscreen></iframe>
+						-->
+                        <div class="embed-video">
+							<img src="/system/assets/images/teaser/wall.jpg" alt="">
+							<button type="button" data-video="2YBtspm8j8M">
+								<i class="fa fa-play-circle"></i>
+							</button>
+						</div> 
+						<figcaption>Figure caption without center alignment</figcaption>
+					</figure>
+				</div> 
+				<div>
+					<h3>Other formatting options</h3>
+					<div><p><img class="pull-left" src="/system/assets/images/teaser/balloons.jpg" alt="Floating left image">You can align inline elements with <strong>pull-left</strong>, <strong>pull-right</strong> and <strong>center-block</strong> classes. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat</p>
+					<p><img class="pull-right" src="/system/assets/images/teaser/blueprint.jpg" alt="Floating left image">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. <img class="center-block" src="/system/assets/images/teaser/map.jpg" alt="Floating left image">Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p></div>
+				</div>
+			</div>
+			<div id="rating">
+	<h3>3.4</h3>
+	<i class="fa fa-star">
+		<i class="fa fa-star">
+			<i class="fa fa-star">
+				<i class="fa fa-star-o">
+					<i class="fa fa-star-o"></i>
+				</i>		
+			</i>	
+		</i>
+	</i>
+	<p><i class="fa fa-user"></i>128 total</p>
+</div>
+
+			<div id="comments">
+				<form action="#" method="post">
+					<div class="col-sm-4">
+				    	<div class="form-group">
+				    		<label for="username">Name</label>
+							<input type="text" class="form-control" id="username" name="username">
+						</div>
+						<div class="form-group">
+							<label for="email">E-mail</label>
+							<input type="email" class="form-control" id="email" name="email">
+						</div>
+						<div class="form-group">
+							<label for="comment">Comment</label>
+						    <textarea id="comment" class="form-control" name="comment"></textarea>   
+					    </div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-default">Submit</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</article>
+	</div>
+</div>

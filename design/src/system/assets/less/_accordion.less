@@ -1,0 +1,27 @@
+/*
+====================================================================
+Accordion styles
+====================================================================
+*/
+
+.panel-group .panel {
+	border-radius: @accordion-border-radius;
+}
+
+.panel-default {
+	border-color: @accordion-border-color;
+
+	> .panel-heading {
+		border-radius: @accordion-border-radius;
+		color: @accordion-font-color;
+		cursor: pointer;
+		
+		&:hover {
+			border-color: @accordion-background-color-hover;
+		}
+
+		& + .panel-collapse .panel-body {
+			border-top: 5px solid @accordion-background-color-hover;
+		}
+	}
+}

@@ -1,0 +1,37 @@
+
+.share-buttons{
+	text-align: right;
+	margin-bottom: (@line-height-computed / 2);
+	color: @gray-light;
+
+	ul{
+		display: inline-block;
+		margin: 0 0 5px 0;
+		padding: 0;
+
+		li{
+			list-style: none;
+			display: inline-block;
+			margin: 0 1px;
+		}
+
+		a{
+			display: inline-block;
+			background: @gray-lighter;
+			padding: 4px 5px;
+			min-width: @font-size-base * 2;
+			text-align: center;
+			color: @text-color;
+
+			&:hover, &:focus{
+				color: #FFF;
+			}
+		}
+
+		.share-facebook, .share-twitter, .share-google-plus, .share-email{
+			a:hover, a:focus{
+				background: @brand-primary;
+			}
+		}
+	}
+}

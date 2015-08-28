@@ -1,0 +1,52 @@
+/*
+=========================================================================
+Sticky footer                        (http://ryanfait.com/sticky-footer/)                                       
+=========================================================================
+*/
+* {
+    margin: 0;
+}
+
+#page-footer {
+	background: @page-footer-bg-color;
+	color: @page-footer-color;
+
+	.container-fluid {
+		padding: @page-footer-vertical-padding;
+	}
+
+	a {
+		color: @page-footer-link-color;
+	}
+
+	.icon-list {
+		text-align: center;
+	}
+
+	.fa-stack {
+		.fa-stack-2x {
+			color: @page-footer-icon-stack-bg-color;
+		}
+
+		.fa-stack-1x {
+			color: @page-footer-icon-stack-color;
+		}
+	}
+
+	a.fa-stack {
+		&:hover, &:focus {
+			.fa-stack-2x {
+				color: @link-color;
+			}
+
+			.fa-stack-1x{
+				color: #fff;
+			}
+		}
+	}
+	
+	// dropdown in footer should keep its own color
+	.dropdown-menu > li > a {
+		color: @dropdown-link-color;
+	}
+}

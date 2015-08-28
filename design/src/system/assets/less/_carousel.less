@@ -1,0 +1,55 @@
+
+.carousel {
+	background: @brand-primary;
+	margin-bottom: @line-height-computed;
+
+	.carousel-icon-left,
+	.carousel-icon-right {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 5;
+		display: block;
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
+		margin-left: -15px;
+		margin-top: -15px;
+		font-size: 2rem;
+	}
+
+	.carousel-indicators {
+		margin-bottom: 0;
+		bottom:0px;
+	}
+
+	/* small screens are assumed to be touchscreens so carousel can be swiped and does not need controls*/
+	.carousel-control {
+		display:none;
+	}
+	
+	
+	/* Medium devices (desktops, 940px and up) */
+	@media (min-width: @screen-md) {
+		.carousel-control {
+			width: 7%;
+			display:block;
+		}
+		.carousel-indicators {
+			margin-bottom: 0;
+			bottom:10px;
+		}
+	}
+
+	.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+		max-width: 100%;
+		width: 100%;
+	}
+	h1, h2, h3, h4
+	{
+		margin-top:0px;
+	}
+	& h4.ribbon {
+		color: #fff;
+	}
+}

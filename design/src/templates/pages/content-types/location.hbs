@@ -1,0 +1,72 @@
+---
+title: Location
+section: Content Types
+---
+
+<div class="row">
+	<div class="col-sm-12">
+		{{> breadcrumb }}
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-12 col-md-3">
+		{{> nav-sidebar }}
+	</div>
+	<div class="col-sm-12 col-md-9">
+		<div class="hero">
+			<img alt="" src="/system/assets/images/wide/skyscrapers.jpg">
+			<div class="overlay overlay-tl ribbon">
+				<h1>Location</h1>		
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div id="location-tile" class="row">
+				<div class="col-sm-6">
+					<div id="map-id" class="map-canvas" style="height:300px;"></div>
+					<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxId4iD_j_G73gjgHZwb8NPcCVs24Mm4g"></script>
+					<script type="text/javascript">
+					  function initialize() {
+					  	var myLatlng = new google.maps.LatLng(51.52381,-0.158441);
+							
+					    var mapOptions = {
+					      center: myLatlng,
+					      zoom: 13
+					    };
+					    var map = new google.maps.Map(document.getElementById("map-id"), mapOptions);
+
+					    var marker = new google.maps.Marker({
+							  position: myLatlng,
+							  map: map,
+							  title: "Company Headquarters"
+							});
+					  }
+					  google.maps.event.addDomListener(window, 'load', initialize);
+					</script>
+				</div>
+				<div class="col-sm-6">
+					<div class="tile">
+						<div class="vcard">
+							<h4><i class="fa fa-map-marker"></i> Address</h4>
+							<div class="adr">
+								<p class="street-address">221B Baker Street</p>
+								<p>
+									<span class="locality">London</span>,
+									<span class="postal-code">91316</span>
+								</p>
+								<p class="country-name">United Kingdom</p>
+							</div>
+							<a class="popup-iframe popup-mobile-ignore" href="//maps.google.com/maps?saddr=My+Location&amp;daddr=221B+Baker+Street,+London,+United+Kingdom">Directions to this location</a><br>
+                            <a class="popup-iframe popup-mobile-ignore" href="//maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom">View Large Map</a>
+                        	<h4><i class="fa fa-envelope"></i> Contact Details</h4>
+							<div class="h-card">
+								<p>Telephone: <a class="tel" href="tel:+44123456789">+44 1234 56789</a></p>
+								<p>Fax: <a class="fax" href="fax:+44987665432">+44 9876 65432</a></p>
+								<p>Email: <a class="email" href="mailto:contact@abcde.fg" property="s:email">contact@abcde.fg</a></p> 				       
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

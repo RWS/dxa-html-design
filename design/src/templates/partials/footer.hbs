@@ -1,0 +1,131 @@
+	<footer id="page-footer" class="page-row">
+		<!-- xpm edit button for footer -->
+		<div class="xpm-button">
+			<a href="/system/include/footer" title="Edit Footer" class="fa-stack fa-lg">
+				<i class="fa fa-square fa-stack-2x"></i>
+				<i class="fa fa-pencil fa-inverse fa-stack-1x"></i>
+			</a>
+		</div>
+		<!-- xpm back button -->
+		<div class="xpm-button">
+			<a href="javascript:history.back()" title="Go Back" class="fa-stack fa-lg">
+				<i class="fa fa-square fa-stack-2x"></i>
+				<i class="fa fa-arrow-left fa-inverse fa-stack-1x"></i>
+			</a>
+		</div>
+		
+		<div class="container-fluid page-border">
+			<div class="row">
+				<div class="col-sm-4 col-md-3">
+					<div class="h4">Layouts</div>
+					<ul class="list-unstyled">
+						<li>
+							<a href="/layouts/section.html">Section Page</a>
+						</li>
+						<li>
+							<a href="/layouts/content.html">Content Page</a>
+						</li>
+						<li>
+							<a href="/layouts/content-no-nav.html">Content Page (No Nav)</a>
+						</li>
+					</ul>
+				</div>
+				<div class='col-sm-4 col-md-3'>
+					<div class='h4'>Content Types</div>
+					<ul class="list-unstyled">
+						<li>
+							<a href="/content-types/teasers.html">Teasers</a>
+						</li>
+						<li>
+							<a href="/content-types/article.html">Articles</a>
+						</li>
+						<li>
+							<a href="/content-types/location.html">Location</a>
+						</li>
+					</ul>
+				</div>
+				<div class='col-sm-4 col-md-3'>
+					<div class='h4'>Lists</div>
+					<ul class="list-unstyled">
+						<li>
+							<a href="/lists/carousel.html">Carousel</a>
+						</li>
+						<li>
+							<a href="/lists/paged.html">Paged List</a>
+						</li>
+						<li>
+							<a href="/lists/accordion.html">Accordion</a>
+						</li>
+						<li>
+							<a href="/lists/tabs.html">Tabs</a>
+						</li>
+						  <li>
+							<a href="/lists/gallery.html">Image Gallery</a>
+						  </li>
+					</ul>
+				</div>
+				<div class='col-sm-12 col-md-3'>
+					<div class='icon-list'>
+						<a href='#' class="fa-stack fa-lg">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-twitter fa-stack-1x"></i>
+						</a>
+						<a href='#' class="fa-stack fa-lg">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-facebook fa-stack-1x"></i>
+						</a>
+						<a href='#' class="fa-stack fa-lg">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-linkedin fa-stack-1x"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+			<hr/>
+			<ul class='list-inline text-center'>
+				<li>
+					<small>&copy; Copyright 2014</small>
+				</li>
+				<li>
+					<small><a href="/beta/index.html">Beta Features</a></small>
+				</li>
+			</ul>	
+		</div>
+	</footer>
+	<!-- build:js(src) /system/assets/scripts/main.js -->
+	<script src="/bower_components/jquery/dist/jquery.js"></script>     
+	<script src="/system/assets/scripts/setup.js"></script>
+	<script src="/system/assets/scripts/accordion.js"></script>
+	<script src="/bower_components/bootstrap/js/transition.js"></script>
+	<script src="/bower_components/bootstrap/js/collapse.js"></script>
+	<script src="/bower_components/bootstrap/js/carousel.js"></script>
+	<script src="/bower_components/bootstrap/js/tab.js"></script>
+	<script src="/bower_components/bootstrap/js/dropdown.js"></script>
+	<script src="/bower_components/fitvids/jquery.fitvids.js"></script>
+	<script src="/bower_components/jquery-touchswipe/jquery.touchSwipe.js"></script>
+	<script src="/bower_components/jquery-cookie/jquery.cookie.js"></script>
+	<script src="/bower_components/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+	<script src="/system/assets/scripts/bootstrap-select.min.js"></script>
+	
+	{{!-- Custom --}}
+	<script src="/system/assets/scripts/navbar.js"></script>
+	<script src="/system/assets/scripts/accordion.js"></script>
+	<script src="/system/assets/scripts/notification-bar.js"></script>
+	<script src="/system/assets/scripts/videos.js"></script>
+	<script src="/system/assets/scripts/carousel.js"></script>
+	<script src="/system/assets/scripts/popups.js"></script>
+	<script src="/system/assets/scripts/tabs.js"></script>
+	{{> module-scripts-footer }}
+	
+	{{!-- Examples --}}
+	<script src="/system/assets/scripts/examples/loader.js"></script>
+	<!-- endbuild -->
+
+	{{!-- XPM --}}
+	<!-- build:js(src) /system/assets/scripts/xpm.js -->
+	<script src="/system/assets/scripts/xpm.js"></script>
+	<!-- endbuild -->
+	
+	{{> analytics }}
+  </body>
+</html>

@@ -1,0 +1,36 @@
+
+// FitVids.js added class
+.fluid-width-video-wrapper{
+	margin-bottom: @line-height-computed;
+}
+
+.embed-video {
+	position: relative;
+	margin: 10px 0;
+	display: block;
+	
+	> iframe, > img {
+		max-width: 100%;
+		width: 100%;
+	}
+
+	> button {
+		background: transparent;
+		border: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: 0;
+		padding: 0;
+		font-size: 8em;
+		color: @brand-primary;
+		width: 100%;
+		outline: none;
+
+		&:hover {
+			text-shadow: 0px 3px 10px white;
+		}
+	}
+}

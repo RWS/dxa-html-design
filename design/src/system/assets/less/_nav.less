@@ -1,0 +1,207 @@
+.navbar {
+	border: 0;
+	border-bottom: 1px solid @navbar-default-border;
+}
+
+.navbar-logo img{
+	height: 80px;
+	margin-bottom: 10px;
+}
+
+.navbar-collapse{
+	position: relative;
+}
+
+.navbar-toggle {
+	margin-right: 0;
+}
+
+.navbar-collapse.in {
+  overflow-y: scroll;
+}
+
+@media (max-width: @grid-float-breakpoint-max){
+
+	.navbar-logo{
+		.navbar-vertical-align(@navbar-collapse-logo-height);
+		display: inline-block;
+		max-height: @navbar-collapse-logo-height;
+		max-width: @navbar-collapse-logo-width-max;
+		img{
+			max-height: @navbar-collapse-logo-height;
+			max-width: @navbar-collapse-logo-width-max;
+			margin-bottom: 0;
+		}
+	}
+
+	.navbar-collapse{
+		.navbar-nav{
+			border-top: 1px solid @navbar-default-border;
+
+			&:first-child{
+				border-top: none;
+			}
+		}
+	}
+	.navbar-default{
+		.navbar-form{
+			border-bottom-color: transparent;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+}
+
+@media (min-width: @screen-sm-min){
+	.utility-nav{
+		float: right;
+		margin-right: -@navbar-padding-horizontal;
+	}
+
+	.main-nav{
+		clear: both;
+		margin-left: -@navbar-padding-horizontal;
+		//position: relative;
+
+		&.navbar-right{
+			margin-left: 0;
+		}
+
+		.navbar-default & {
+
+			& >  li > a,
+			& > li.active > a{
+				position: relative;
+				&:hover,
+				&:focus{
+					background: transparent;
+				}
+			}
+		}
+	}
+}
+
+.nav-sidebar{
+
+	margin-bottom: @line-height-computed;
+	border-right: 1px solid @gray-lighter;
+
+	li{
+		border-bottom: 1px solid @nav-sidebar-border-color;
+
+		&:first-child{
+			border-top: 1px solid @nav-sidebar-border-color;
+		}
+
+		a{
+			padding-left: 15px - @nav-sidebar-border-width;
+			border-left: @nav-sidebar-border-width solid @nav-sidebar-border-color;
+			color: @nav-sidebar-color;
+		}
+
+		&.active a,
+		a:hover {
+			border-left: @nav-sidebar-border-width solid @nav-sidebar-color;
+		}
+
+		&.active a {
+			background: #f5f5f5 !important;
+			
+		}
+
+		a:hover,
+		a:focus {
+			background: transparent;
+		}
+	}
+	
+}
+
+// Mega Nav
+
+.mega-nav-link > a:hover + .mega-nav,
+.mega-nav-link > *:focus.mega-nav > a:focus {
+	height: auto;
+}
+
+.mega-nav-link {
+	position: relative !important;
+	border: 1px solid transparent;
+	border-bottom: none;
+}
+
+.mega-nav{
+	position: absolute;
+	display: none;
+	left: -1px;
+	width: 455px;
+	z-index: 104;
+
+	.mega-nav-content{
+		background: @mega-nav-bg;
+		padding: @grid-gutter-width / 2;
+	}
+}
+
+@media screen and (min-width: @screen-xs-min) {
+
+	.mega-nav-link {
+
+		&:hover, &.show-menu {
+			border: @mega-nav-border;
+			border-bottom: none;
+
+			& > a {
+				
+				position: relative;
+				display: block;
+
+				&:after{
+					content: " ";
+					position: absolute;
+					bottom: -4px;
+					left: 0px;
+					right: 0px;
+					height: 8px;
+					background: #fff;
+					z-index: 105;
+				}
+			}
+
+			.mega-nav{
+				display: block;
+				border: @mega-nav-border;
+				.box-shadow(3px 3px 3px 0px #ccc);
+			}
+		}
+	}
+}
+
+.nav-tabs{
+	margin-bottom: @line-height-computed / 2;
+}
+
+.tab-select{
+	margin-bottom: @line-height-computed / 2;
+}
+
+.navbar-header {
+	position: relative;
+	z-index: 100;
+}
+
+.bootstrap-select {
+	margin: 8px;
+}
+
+.navbar-nav > li {
+	& > a {
+		padding: 0 15px;
+		line-height: 40px;
+	}
+}
+
+.navbar-form {
+	margin-top: 0;
+	margin-bottom: 0;
+}

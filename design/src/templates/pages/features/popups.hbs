@@ -1,0 +1,87 @@
+---
+title: Popups
+section: Features
+---
+
+<div class="row">
+	<div class="col-sm-12">
+		{{> breadcrumb }}
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-12 col-md-3">
+		{{> nav-sidebar }}
+	</div>
+	<div class="col-sm-12 col-md-9">
+
+		<article class='rich-text'>
+
+			<h1>Popups</h1>
+
+			<p>Based upon <a href='http://dimsemenov.com/plugins/magnific-popup/'>jQuery Magnific Popup</a> with some added default classes for JavaScript free implementation.</p>
+
+			<div class='content'>
+				<h3>Single Popups</h3>
+				<ul>
+					<li>
+						<a class='popup-image'
+							href='/system/assets/images/large/bridge.jpg'>Large Single Image <small>(a.popup-image)</small></a>
+					</li>
+					<li>
+						<a class='popup-image' 
+							title="Image Caption"
+							href='/system/assets/images/large/bridge.jpg'>Large Single Image With Caption <small>(a.popup-image)</small></a>
+					</li>
+					<li>
+						<a class='popup-image' 
+							href='/system/assets/images/teaser/bridge.jpg'>Small Single Image <small>(a.popup-image)</small></a>
+					</li>
+					<li>
+						<a class='popup-iframe' 
+							href='https://www.youtube.com/watch?v=2YBtspm8j8M'>Single YouTube Video <small>(a.popup-iframe)</small></a>
+					</li>
+					<li>
+						<a class="popup-iframe" href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&amp;hl=en&amp;t=v&amp;hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom">Single Google Map <small>(a.popup-iframe)</small></a>
+					</li>
+					<li>
+						<a class='popup-inline' 
+							href='#inline1'>Single Inline Content <small>(a.popup-inline)</small></a>
+					</li>
+					<li>
+						<a class='popup-ajax' 
+							href='/ajax/popup.html'>Single Ajax Content <small>(a.popup-ajax)</small></a>
+					</li>
+				</ul>
+
+				<div id='inline1' class='popup-content mfp-hide'>
+					<h3>Some inline content <small>(.popup-content .mfp-hide)</small></h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<p>
+						<img src='http://lorempixel.com/120/120/sports/1/' alt=''>
+					</p>
+				</div>
+
+				<h3>Disable Popup on Mobile</h3>
+				<p>To work correctly you must reload the page after resizing the browser.</p>
+				<ul>
+					<li>
+						<a class='popup-image popup-mobile-ignore'
+							href='/system/assets/images/teaser/bridge.jpg'>Direct link to image on mobile <small>(a.popup-image.popup-mobile-ignore)</small></a>
+					</li>
+					<li>
+						<a class='popup-iframe popup-mobile-ignore'
+							href='https://www.youtube.com/watch?v=2YBtspm8j8M'>Direct link to video on mobile <small>(a.popup-iframe.popup-mobile-ignore)</small></a>
+					</li>
+				</ul>
+
+			</div>
+
+		</article>
+
+	</div>
+</div>

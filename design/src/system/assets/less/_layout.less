@@ -1,0 +1,219 @@
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+html, body {
+    font-size: @font-size-xs;
+    height: 100%;
+}
+
+body {
+    display: table;
+    width: 100%;
+}
+
+/* CSS-only solution for footer */
+.page-row {
+  display: table-row !important;
+  height: 0;
+  height: 1px !important\9;
+}
+
+select.selectpicker {
+    float: right;
+    display: none;
+}
+
+// Fix for iPhone form controls zooming
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+    font-size: 16px !important;
+}
+ 
+.page-row-expanded {
+    height: 100%;
+
+    & > .container-fluid {
+        margin: 15px auto;
+    }
+}
+
+/* For Google Maps */
+.static-map > img {
+    max-width: 100%;
+    width: 100%;
+}
+
+.map-canvas {
+    margin: 15px 0;
+}
+
+#location-tile {
+    background: @breadcrumb-bg;
+    margin-bottom: 15px;
+
+    > div.col-sm-6:first-child {
+        background: @brand-primary;
+    }
+}
+
+/* Small devices (tablets, 480px and up) */
+@media (min-width: @screen-sm) {
+    html, body {
+        font-size: @font-size-sm;
+    }
+
+    .bootstrap-select {
+		float: right !important;
+		margin: 8px;
+	}
+}
+
+/* Medium devices (desktops, 940px and up) */
+@media (min-width: @screen-md) {
+    html, body {
+        font-size: @font-size-md;
+    }
+}
+
+/* Large devices (large desktops, 1140px and up) */
+@media (min-width: @screen-lg) {
+    html, body {
+        font-size: @font-size-lg;
+    }
+
+    .page-border {
+        width: 1024px;
+        margin: 0 auto;
+    }
+}
+
+// Overlays
+.overlay-container {
+    position: relative;
+    margin-bottom: @line-height-computed / 2;
+    background: @gray-lighter;
+
+    img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.overlay {
+    position: absolute;
+    padding: @line-height-computed / 2;
+    margin: 0;
+    z-index: 5;
+}
+
+h4.overlay {
+    font-size: .8em;
+    padding: 2%;
+}
+
+.overlay-tl{
+    top: 0;
+    left: 0;
+
+    .carousel &{
+        top: 5%;
+        left: 7%;
+    }
+}
+
+.overlay-tr{
+    top: 0;
+    right: 0;
+
+    .carousel &{
+        top: 5%;
+        right: 7%;
+    }
+}
+
+.overlay-bl{
+    bottom: 0;
+    left: 0;
+
+    .carousel &{
+        bottom: 5%;
+        left: 7%;
+    }
+}
+
+.overlay-br{
+    bottom: 0;
+    right: 0;
+
+    .carousel &{
+        bottom: 5%;
+        right: 7%;
+    }
+}
+
+.overlay-cover{
+    bottom: 0;
+    right: 0;
+    top: 0;
+    left: 0;
+
+    .carousel &{
+        top: @line-height-computed;
+        left: @line-height-computed;
+        bottom: @line-height-computed;
+        right: @line-height-computed;
+    }
+}
+
+.overlay-top{
+    right: 0;
+    top: 0;
+    left: 0;
+
+    .carousel &{
+        top: @line-height-computed;
+        left: @line-height-computed;
+        right: @line-height-computed;
+    }
+}
+
+.overlay-bottom{
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    .carousel &{
+        bottom: @line-height-computed;
+        left: @line-height-computed;
+        right: @line-height-computed;
+    }
+}
+
+.hscroll{
+    overflow-x: auto;
+}
+
+.margin {
+    margin: 0 20px 20px;
+}
+
+
+// For very small screens
+@media screen and (max-width: @screen-sm-min) {
+    .container-fluid, .col-sm-12 {
+        padding: 0; 
+    }
+
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .breadcrumb {
+        border-radius: 0;
+    }
+
+
+
+}

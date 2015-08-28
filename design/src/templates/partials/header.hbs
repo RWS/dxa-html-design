@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{title}} | {{site.title}}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    {{!--
+      <link rel="stylesheet/less" type="text/css" href="/assets/less/main.less" />
+      <script src="/bower_components/less.js/dist/less-1.7.0.min.js"></script>
+    --}}
+    <!-- build:css({.tmp,src}) /system/assets/css/main.css -->
+      <link rel="stylesheet" type="text/css" href="/system/assets/css/main.css" />
+      <link rel="stylesheet" type="text/css" href="/bower_components/magnific-popup/dist/magnific-popup.css" />
+    <!-- endbuild -->
+
+    <!-- build:js(src) /system/assets/scripts/header.js -->
+      <script src="/bower_components/modernizr/modernizr.js"></script>
+      {{!-- discover-min.js is part of the SDL Tridion Context Engine --}}
+      <script src="/system/assets/scripts/discover-min.js"></script>
+	  {{> module-scripts-header}}
+    <!-- endbuild -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <!-- build:js(src) /system/assets/scripts/ie.js -->
+        <script src="/system/assets/scripts/html5shiv.min.js"></script>
+        <script src="/system/assets/scripts/respond.min.js"></script>
+      <!-- endbuild -->
+    <![endif]-->
+  </head>
+  <body>
+    <div id="info-bar" class="page-row">
+      <!--[if lt IE 8]>
+        {{> incompability-bar}}
+      <![endif]-->
+      {{> cookie-bar}}
+    </div>

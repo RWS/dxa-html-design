@@ -1,0 +1,30 @@
+#info-bar {
+	background: @cookie-bg;
+	color: @cookie-color;
+
+	& > div {
+		display: none;
+		padding-top: (@line-height-computed / 2);
+		padding-bottom: (@line-height-computed / 2);
+	}
+
+	.nav {
+		margin-top: @line-height-computed / 2;
+		a {
+			color: @cookie-link-color;
+			padding: @cookie-link-padding;
+		}
+
+		li {
+			&.active a,
+			a:hover,
+			a:focus {
+				background: lighten(@cookie-bg, 10%);
+			}
+		}
+	}
+}
+
+.lt-ie8 #info-bar {
+	display: block;
+}

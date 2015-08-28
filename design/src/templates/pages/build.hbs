@@ -1,0 +1,46 @@
+---
+title: Build It!
+section: root
+---
+<div class="row">
+	<div class="col-sm-12">
+		<article class="rich-text">
+			<div class="hero">
+				<img alt="" src="/system/assets/images/wide/bridge.jpg">
+				<div class="overlay overlay-tl ribbon">
+					<h1>Build the HTML Design</h1>
+				</div>
+			</div>
+			<div class="content">
+				<div>
+					<h2>Overview</h2>
+					<p>Building the HTML Design is a good way to explore the raw assets and understand how they are compiled/merged and minified. You will also see how you could customize and extend the CSS and JS.</p>
+					<p>The HTML Design comes with a Grunt Gruntfile.js which defines the build tasks. Bower is used to manage some of the included libraries. Grunt and Bower run on Node.js, so the first steps are to setup Node, Grunt and Bower on your development machine:</p>
+
+					<h2>First time setup</h2>
+					<ol>
+						<li>Install GIT (this is required by Bower)</li>
+						<li>Install <a href="http://nodejs.org">Node.js</a></li>
+						<li>Install <a href="http://gruntjs.com">Grunt</a> and <a href="http://bower.io">Bower</a> globally from the command prompt: </li>
+					</ol>
+					<pre>
+npm install -g grunt-cli
+npm install -g bower</pre>
+
+					<h2>Building the assets</h2>
+					<p>Now you are ready to compile the HTML design. Copy the contents of <strong>.\html\design\</strong> from the installation media, and open a command prompt in the root of the folder. You should then run the following commands:</p>
+					<pre>
+npm install
+bower install
+grunt build</pre>
+					<p>The compiled assets (HTML, CSS, JS) will now be found in the <strong>dist</strong> folder.</p>
+
+					<h2>Running locally</h2>
+					<p>You can also use Grunt to run the site locally, by changing the last command to:</p>
+					<pre>grunt serve</pre>
+					<p>A web server will be started on http://localhost:9000 and when you modify any of the source assets, they will be automatically rebuilt and the browser refreshed.</p>
+				</div>
+			</div>
+		</article>
+	</div>
+</div>

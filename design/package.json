@@ -1,0 +1,61 @@
+{
+  "name": "Whitelabel-HTML-Design",
+  "description": "Assemble, build and validate whitelabel HTML design (note: this file, and changes to it, will be ignored by the html design build in the cms)",
+  "version": "1.0.0",
+  "homepage": "https://github.com/bkoopman/tri",
+  "author": {
+    "name": "Bart Koopman",
+    "email": "bkoopman@sdl.com"
+  },
+  "contributors": [
+    {
+      "name": "Chris Rowe",
+      "email": "chris@webcoda.co.uk",
+      "url": "http://github.com/rolos79/"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": "https://github.com/bkoopman/tri/issues"
+  },
+  "engines": {
+    "node": ">=0.8"
+  },
+  "scripts": {
+    "test": "grunt assemble"
+  },
+  "devDependencies": {
+    "assemble": "~0.4.33",
+    "assemble-contrib-permalinks": "~0.3.6",
+    "assemble-contrib-sitemap": "*",
+    "connect-livereload": "~0.3.2",
+    "grunt": "~0.4.2",
+    "grunt-concurrent": "~0.3.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-compass": "~0.5.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-connect": "~0.6.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-cssmin": "~0.6.0",
+    "grunt-contrib-htmlmin": "~0.1.3",
+    "grunt-contrib-imagemin": "~0.2.0",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-less": "~0.10.0",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-html-validation": "^0.1.18",
+    "grunt-mocha": "~0.4.1",
+    "grunt-open": "~0.2.0",
+    "grunt-preprocess": "~4.0.0",
+    "grunt-rev": "~0.1.0",
+    "grunt-svgmin": "~0.2.0",
+    "grunt-usemin": "~0.1.12",
+    "load-grunt-tasks": "~0.1.0",
+    "time-grunt": "~0.2.7"
+  },
+  "licenses": [],
+  "keywords": []
+}

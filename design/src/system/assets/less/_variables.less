@@ -1,0 +1,106 @@
+// Bootstrap Overrides
+@import "../../../bower_components/bootstrap/less/variables.less";
+
+// Screen sizes
+@screen-lg: 1140px;
+@screen-md: 940px;
+@screen-sm: 480px;
+@screen-xs-max: (@screen-sm - 1);
+@screen-sm-max: (@screen-md - 1);
+@screen-md-max: (@screen-lg - 1);
+
+// Different base font sizes
+@font-size-xs: 14px;
+@font-size-sm: 15px;
+@font-size-md: 16px;
+@font-size-lg: 17px;
+
+
+
+@image-path: '/system/assets/images/';
+@navbar-default-bg: #FFF;
+@navbar-border-radius: 0;
+@brand-primary: #008a5a;
+
+//Font Awesome Overrides - path is relative to /css folder to allow for sites with base url not in root
+@fa-font-path:        "../fonts";
+
+// Custom Variables
+
+@carousel-control-width:45px;
+
+//Cookie bar
+@cookie-bg: @gray-dark;
+@cookie-color: contrast(@cookie-bg);
+@cookie-link-color: @brand-primary;
+@cookie-link-padding: 5px 10px;
+
+// Nav
+@navbar-default-link-active-border-color: @brand-primary;
+@navbar-link-active-border-width: 5px;
+@navbar-collapse-logo-height: 36px;
+@navbar-collapse-logo-width-max: 200px;
+
+@nav-sidebar-border-color: @navbar-default-link-active-bg;
+@nav-sidebar-border-width: @navbar-link-active-border-width;
+@nav-sidebar-color: @brand-primary;
+
+@mega-nav-bg: @body-bg;
+@mega-nav-border: 1px solid @navbar-default-link-active-border-color;
+
+// Footer
+@page-footer-height: 240px;
+@page-footer-bg-color: @gray-dark;
+@page-footer-color: @gray-lighter;
+@page-footer-link-color: @page-footer-color;
+@page-footer-vertical-padding: 20px;
+@page-footer-icon-stack-color: @page-footer-bg-color;
+@page-footer-icon-stack-bg-color: @page-footer-color;
+@page-footer-margin-top: @line-height-computed;
+
+// Type
+@ribbon-bg-color: rgba(0, 0, 0, 0.6);
+@ribbon-color: contrast(@ribbon-bg-color);
+
+@glow-color: #FFF;
+@glow-bg-color: fadeout(#000, 30%);
+
+// Loader
+@loader-bg-color: rgba(200, 200, 200, 0.5);
+@loader-margin: 0;
+@loader-content-opacity: 0.7;
+@spinner-width: 31px;
+@spinner-height: 32px;
+
+// Inputs
+@input-border-radius: 2px;
+@input-border-focus: @brand-primary;
+
+
+
+
+
+
+// Teasers
+@teaser-color: #fff;
+@teaser-bg-color: @brand-primary;
+@teaser-link-bg-color: rgba(0, 0, 0, 0.5);
+@teaser-link-color: @teaser-color;
+@teaser-padding: 8px;
+
+// Hero
+@hero-bg-color: @brand-primary;
+
+// Accordion
+@accordion-border-color: @navbar-default-border;
+@accordion-background-color: @theme-element-active-bg;
+@accordion-font-color: @brand-primary;
+@accordion-background-color-hover: @brand-primary;
+@accordion-background-color-active: @theme-element-active-bg;
+@accordion-border-radius: @theme-border-radius;
+
+
+// Theme variables
+@theme-border-radius: 0;
+@theme-element-bg: #fff;
+@theme-element-active-bg: #f5f5f5;

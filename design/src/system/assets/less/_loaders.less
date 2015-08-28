@@ -1,0 +1,41 @@
+.loader-overlay, .loading-panel {
+	position: absolute;
+	top: -@loader-margin;
+	left: -@loader-margin;
+	right: -@loader-margin;
+	bottom: -@loader-margin;
+	background: fade(@loader-bg-color, 100%) no-repeat;
+	background: @loader-bg-color no-repeat;
+	background-size: @spinner-width @spinner-height;
+	z-index: 2;
+
+	.no-rgba & {
+		.opacity(0.4);
+	}
+
+	.loader > & {
+		display: block;
+		.opacity(1);
+	}
+	
+	i.fa {
+		position: absolute;
+		left: 48%;
+		top: 48%;
+	}
+
+	.lt-ie9 & {
+		background: none !important;
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(rgba(red(@loader-bg-color), green(@loader-bg-color), blue(@loader-bg-color), alpha(@loader-bg-color))),endColorstr=argb(rgba(red(@loader-bg-color), green(@loader-bg-color), blue(@loader-bg-color), alpha(@loader-bg-color))));
+		zoom: 1;
+	}
+}
+
+
+.loading-panel {
+	display: none;
+
+	.is-loading > & {
+		display: block;
+	}
+}

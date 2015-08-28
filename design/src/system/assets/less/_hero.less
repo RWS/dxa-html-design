@@ -1,0 +1,63 @@
+.hero {
+    background: @hero-bg-color;
+    position: relative;
+    margin: 10px 0;
+    font-size: 12px;
+    overflow: hidden;
+
+    h1 {
+        color: #fff;
+        margin: 0;
+    }
+
+    a {
+        -webkit-transition: background-color .2s linear;
+        -moz-transition: background-color .2s linear;
+        -o-transition: background-color .2s linear;
+        transition: background-color .2s linear;
+    }
+
+    a:hover {
+        background: rgba(0,138,90,0.7);
+        text-decoration: none;
+        color: #fff;
+    }
+
+    img {
+        max-width: 100%;
+        width: 100%;
+        display: block;
+    }
+
+    .overlay-tl {
+        top: 20px;
+        left: 20px;
+    }
+
+    .overlay-tr {
+        top: 20px;
+        right: 20px;
+    }
+
+    .overlay-bl {
+        bottom: 20px;
+        left: 20px;
+    }
+
+    .overlay-br {
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+@media screen and (min-width: @screen-xs) {
+    .hero {
+        font-size: 13px;
+    }
+}
+
+@media screen and (min-width: @screen-md) {
+    .hero {
+        font-size: 14px;
+    }
+}
