@@ -1,0 +1,6 @@
+design/node_modules/
+design/src/bower_components/
+design/dist/
+design/.tmp/
+design/validation-report.json
+design/validation-status.json
