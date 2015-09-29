@@ -1,6 +1,6 @@
 param (
     # The name of the server hosting the apppools
-    [string]$server = "saintjohn01",
+    [string]$server = "saintjohn03",
 
     # Administrator user name
     [string]$adminUserName = "global\srv-cmbuild",
@@ -9,7 +9,7 @@ param (
     [string]$adminUserPass = "srv_tridion_cm",
 
     # Comma separated list of IIS websites that need to be restarted 
-    [string]$sites = "Staging (Stable demo version),Staging (GIT version)"
+    [string]$sites = "7.1 staging (stable),7.1 staging (git)"
 )
 
 $pass = ConvertTo-SecureString $adminUserPass -AsPlainText -Force
