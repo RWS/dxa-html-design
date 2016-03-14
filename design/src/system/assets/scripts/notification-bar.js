@@ -10,7 +10,7 @@
     },
     close: function(barId, cookie) {
       $('#' + barId).slideUp();
-      $.cookie(cookie, true, { path: '/' });
+      $.cookie(cookie, true, { path: '/', expires: 365 });
     },
     reset: function(cookie) {
       $.removeCookie(cookie, { path: '/' });
