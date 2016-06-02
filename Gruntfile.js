@@ -367,9 +367,9 @@ module.exports = function(grunt) {
     'uglify',
     'copy',
     //'rev',
-    'usemin',
+    'usemin'
     //'htmlmin',
-    'validation'
+    //'validation'
   ]);
 
   grunt.registerTask('default', [
