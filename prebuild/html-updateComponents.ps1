@@ -22,6 +22,9 @@ trap {
 }
 
 # Initialization
+if(-not $cmsUrl.EndsWith('/')) {
+    $cmsUrl += "/"
+}
 $tempDrive = Split-Path $env:TEMP -Qualifier
 $tempFolder = Join-Path $tempDrive "_t"
 if (!(Test-Path $tempFolder)) {
