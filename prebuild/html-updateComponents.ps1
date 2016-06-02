@@ -6,10 +6,10 @@ param (
     [string]$buildDist = "C:\_f",
 
     # Set this to the saintjohn dev cms url
-    [string]$cmsUrl = "http://saintjohn01.ams.dev/",
+    [string]$cmsUrl = "http://saintjohn11.ams.dev/",
 
     # Set this to the publication target type id of the staging target
-    [string]$targetType = "tcm:0-1-65538",
+    [string]$targetType = "tcm:0-6-65538",
 
     # Comma separated list of (website) publication names that need the HTML design to be published after the update
     [string]$publications = "400 Example Site"
