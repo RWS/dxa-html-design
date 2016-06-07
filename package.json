@@ -1,5 +1,5 @@
 {
-  "name": "Whitelabel-HTML-Design",
+  "name": "whitelabel-html-design",
   "description": "Assemble, build and validate whitelabel HTML design (note: this file, and changes to it, will be ignored by the html design build in the cms)",
   "version": "1.0.0",
   "homepage": "https://github.com/bkoopman/tri",
@@ -46,16 +46,16 @@
     "grunt-contrib-less": "~0.10.0",
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-contrib-watch": "~0.5.3",
-    "grunt-html-validation": "^0.1.18",
     "grunt-mocha": "~0.4.1",
     "grunt-open": "~0.2.0",
     "grunt-preprocess": "~4.0.0",
     "grunt-rev": "~0.1.0",
     "grunt-svgmin": "~0.2.0",
     "grunt-usemin": "~0.1.12",
+    "grunt-w3c-html-validation": "^0.1.8",
     "load-grunt-tasks": "~0.1.0",
     "time-grunt": "~0.2.7"
   },
-  "licenses": [],
+  "license": "Apache-2.0", 
   "keywords": []
 }

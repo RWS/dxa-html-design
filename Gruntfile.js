@@ -300,11 +300,11 @@ module.exports = function(grunt) {
     validation: {
         options: {
             reset: grunt.option('reset') || false,
-			//serverUrl: 'http://10.100.101.193/w3c-validator/check',
-			//serverUrl: 'https://validator.w3.org/nu/',
-            relaxerror: ['Bad value X-UA-Compatible for attribute http-equiv on element meta.',
-			             'This interface to HTML5 document checking is deprecated.'] //ignores these errors
-        },
+            relaxerror: ['Bad value X-UA-Compatible for attribute http-equiv on element meta.'], //ignores these errors
+			generateReport: true,
+			errorHTMLRootDir: "reports",
+			useTimeStamp: true        
+		},
         files: {
             src: [//'<%= config.dist %>/ajax/*.html',
 				  '<%= config.dist %>/beta/*.html',
@@ -318,7 +318,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('assemble');
-  grunt.loadNpmTasks('grunt-html-validation');
+  grunt.loadNpmTasks('grunt-w3c-html-validation');
 
   grunt.registerTask('serve', function(target){
     if (target === 'dist') {
@@ -367,9 +367,9 @@ module.exports = function(grunt) {
     'uglify',
     'copy',
     //'rev',
-    'usemin'
+    'usemin',
     //'htmlmin',
-    //'validation'
+    'validation'
   ]);
 
   grunt.registerTask('default', [

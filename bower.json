@@ -1,12 +1,12 @@
 {
-  "name": "Whitelabel-HTML-Design",
+  "name": "whitelabel-html-design",
   "version": "1.0.0",
   "authors": [
 	{ "name": "Chris Rowe", "email": "chris@webcoda.co.uk" },
 	{ "name": "Bart Koopman", "email": "bkoopman@sdl.com" }
   ],
   "description": "Add dependencies for grunt build (note: this file, and changes to it, will be ignored by the html design build in the cms)",
-  "license": "",
+  "license": "Apache-2.0",
   "private": true,
   "ignore": [
     "**/.*",
