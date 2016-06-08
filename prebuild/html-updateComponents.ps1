@@ -6,7 +6,7 @@ param (
     [string]$buildDist = "C:\_f",
 
     # Set this to the saintjohn dev cms url
-    [string]$cmsUrl = "http://saintjohn11.ams.dev/",
+    [string]$cmsUrl = "http://dxadevweb8.ams.dev/",
 
     # Set this to the publication target type id of the staging target
     [string]$targetType = "tcm:0-6-65538",
