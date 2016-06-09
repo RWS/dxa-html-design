@@ -68,7 +68,7 @@
     <Target Name="DeployOutput">
         <Message Text="Deploying output to '$(CmsUrl)'..." Importance="high" />
 
-      <Exec Command="&quot;$(PowerShellx64)&quot; -command .\prebuild\html-updateComponents.ps1 &quot;$(DesignDirectory)&quot; &quot;$(BuildFilesDirectory)&quot; &quot;$(CmsUrl)&quot; &quot;$(TargetType)&quot; &quot;'$(InternalPublications)'&quot;" 
+      <Exec Command="&quot;$(PowerShellx64)&quot; -command .\prebuild\html-updateComponents.ps1 &quot;'$(DesignDirectory)'&quot; &quot;'$(BuildFilesDirectory)'&quot; &quot;'$(CmsUrl)'&quot; &quot;'$(TargetType)'&quot; &quot;'$(InternalPublications)'&quot;" 
             WorkingDirectory="$(ProjectDirectory)" />
      </Target>
 </Project>
