@@ -27,23 +27,49 @@
         <RemoveDir Directories="$(DesignDirectory)"/>
         <MakeDir Directories="$(DesignDirectory)"/>
         <ItemGroup>
-            <RootFiles Include="$(ProjectDirectory)\*.*"/>
-            <SrcFiles Include="$(ProjectDirectory)\src\**\*.*"/>
+            <File Include="$(ProjectDirectory)\src\**\*.*">
+                <DestinationDir>$(DesignDirectory)\src</DestinationDir>
+            </File>
+            <File Include="$(ProjectDirectory)\.bowerrc">
+                <DestinationDir>$(DesignDirectory)</DestinationDir>
+            </File>
+            <File Include="$(ProjectDirectory)\bower.json">
+                <DestinationDir>$(DesignDirectory)</DestinationDir>
+            </File>
+            <File Include="$(ProjectDirectory)\package.json">
+                <DestinationDir>$(DesignDirectory)</DestinationDir>
+            </File>
+            <File Include="$(ProjectDirectory)\Gruntfile.js">
+                <DestinationDir>$(DesignDirectory)</DestinationDir>
+            </File>
+            <File Include="$(ProjectDirectory)\README.md">
+                <DestinationDir>$(DesignDirectory)</DestinationDir>
+            </File>
         </ItemGroup>
-        <Copy SourceFiles="@(RootFiles)" DestinationFolder="$(DesignDirectory)"/>
-        <Copy SourceFiles="@(SrcFiles)" DestinationFolder="$(DesignDirectory)\src\%(RecursiveDir)"/>
+        
+        <Copy SourceFiles="@(File)" DestinationFolder="%(DestinationDir)\%(RecursiveDir)" />        
+        
     </Target>
 
     <!-- =============================================================================================================================================  -->
     <Target Name="PackageBuild">
         <Message Text="Running build commands..." Importance="high" />
 
-        <Exec Command="npm install --color=false" WorkingDirectory="$(DesignDirectory)" />
-        <Exec Command="bower install --color=false" WorkingDirectory="$(DesignDirectory)" />
-        <Exec Command="grunt build --no-color" WorkingDirectory="$(DesignDirectory)" />
+        <Exec Command="npm install --color=false" WorkingDirectory="$(ProjectDirectory)" />
+        <Exec Command="bower install --color=false" WorkingDirectory="$(ProjectDirectory)" />
+        <Exec Command="grunt build --no-color" WorkingDirectory="$(ProjectDirectory)" />
 
-        <Message Text="Grunt HTML Validation Report" Importance="high" Condition=" Exists('$(DesignDirectory)\validation-report.json') " />
-        <Exec Command="JsonReport validation-report.json" WorkingDirectory="$(DesignDirectory)" Condition=" Exists('$(DesignDirectory)\validation-report.json') " />
+        <Message Text="Grunt HTML Validation Report" Importance="high" Condition=" Exists('$(ProjectDirectory)\validation-report.json') " />
+        <Exec Command="JsonReport validation-report.json" WorkingDirectory="$(ProjectDirectory)" Condition=" Exists('$(ProjectDirectory)\validation-report.json') " />
+
+        <!-- TODO: not really needed to copy to whitelabel here; can be taken care of in deploy.proj -->
+        <RemoveDir Directories="$(WhitelabelDirectory)"/>
+        <MakeDir Directories="$(WhitelabelDirectory)"/>
+        <ItemGroup>
+            <WhitelabelFiles Include="$(ProjectDirectory)\dist\**\*.*"/>
+        </ItemGroup>
+        <Copy SourceFiles="@(WhitelabelFiles)" DestinationFolder="$(WhitelabelDirectory)\%(RecursiveDir)"/>
+
     </Target>
 
     <!-- =============================================================================================================================================  -->
@@ -52,16 +78,10 @@
 
         <ItemGroup>
             <HostDistFiles Include="$(CdTestDeployLocation)\dist\*.*"/>
-            <DistFiles Include="$(DesignDirectory)\dist\**\*.*"/>
+            <DistFiles Include="$(ProjectDirectory)\dist\**\*.*"/>
         </ItemGroup>
         <Delete Files="@(HostDistFiles)"/>
         <Copy SourceFiles="@(DistFiles)" DestinationFolder="$(CdTestDeployLocation)\dist\%(RecursiveDir)"/>
 
-        <RemoveDir Directories="$(WhitelabelDirectory)"/>
-        <MakeDir Directories="$(WhitelabelDirectory)"/>
-        <ItemGroup>
-            <WhitelabelFiles Include="$(DesignDirectory)\dist\**\*.*"/>
-        </ItemGroup>
-        <Copy SourceFiles="@(WhitelabelFiles)" DestinationFolder="$(WhitelabelDirectory)\%(RecursiveDir)"/>
     </Target>
 </Project>
