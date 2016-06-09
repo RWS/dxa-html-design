@@ -24,7 +24,7 @@ var mountFolder = function (connect, dir) {
 // '<%= config.src %>/templates/pages/**/*.hbs'
 
 var yeomanConfig = {
-    src: 'src', 
+    src: 'src',
     dist: 'dist'
 };
 
@@ -80,7 +80,7 @@ module.exports = function(grunt) {
               ];
           }
         }
-      },
+      },	  
       dist: {
         options: {
             middleware: function (connect) {
@@ -315,9 +315,24 @@ module.exports = function(grunt) {
 				  '<%= config.dist %>/*.html']
         }
     },
+	
+	relativeRoot: {
+		dist: {
+			options: {
+				root: '<%= config.dist %>'
+			},
+			files: [{
+				expand: true,
+				cwd: '<%= relativeRoot.dist.options.root %>',
+				src: ['**/*.css', '**/*.html'],
+				dest: '<%= config.dist %>'
+			}]
+		}
+	}	
   });
 
   grunt.loadNpmTasks('assemble');
+  grunt.loadNpmTasks('grunt-relative-root');
   grunt.loadNpmTasks('grunt-w3c-html-validation');
 
   grunt.registerTask('serve', function(target){
@@ -370,6 +385,24 @@ module.exports = function(grunt) {
     'usemin',
     //'htmlmin',
     'validation'
+  ]);
+  
+  // build with relative paths for gh-pages branch
+  grunt.registerTask('ghpagesbuild', [
+    'clean:dist',
+    'assemble:dist',
+    'less:dist',
+    //'htmlmin',
+    'useminPrepare',
+    'concat',
+    'cssmin',
+    'imagemin',
+    'uglify',
+    'copy',
+    //'rev',
+    'usemin',
+	'relativeRoot',
+    //'htmlmin',
   ]);
 
   grunt.registerTask('default', [
