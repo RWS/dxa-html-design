@@ -8,7 +8,7 @@ The HTML Design comes with a Grunt `Gruntfile.js` which defines the build tasks.
 ## First time setup
 1. Install GIT (this is required by Bower)
 
-2. Install [Node.js](http://nodejs.org/)
+2. Install [Node.js](http://nodejs.org/) version 4. (i.e. v4.4.5 LTS, [Node v6 will not work](https://github.com/sdl/dxa-html-design/issues/8) )
 
 3. Install [Grunt](http://gruntjs.com/) and [Bower](http://bower.io/) globally from the command prompt:
 
