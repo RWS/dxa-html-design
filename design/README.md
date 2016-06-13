@@ -34,7 +34,11 @@ A web server will be started on <http://localhost:9000> and when you modify any 
 ## Modify the design
 The design uses [Bootstrap](http://getbootstrap.com/), which in turn uses [Less](http://lesscss.org/) to manage the CSS. This can be customized by for instance adding or changing standard Bootstrap variables in `.\system\assets\less\_variables.less` and then rebuilding with Grunt.
 
-After modification of the design (i.e. changing the contents of the `.\src\` folder), you should add the changed files to `html-design.zip`. Then you can upload this zip file in the CMS and republish the HTML design.
+After modification of the design (i.e. changing the contents of the `.\src\` folder), you can run the following command:
+
+    grunt package
+
+This will generate a html-design-_date_.zip file in the *dist-dxa* folder. You can upload this zip file in the CMS and republish the HTML design.
 
 ### Note
 Any changes made to the following files, will be ignored by the build process of the CMS:

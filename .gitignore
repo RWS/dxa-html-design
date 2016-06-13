@@ -4,3 +4,4 @@ design/dist/
 design/.tmp/
 design/validation-report.json
 design/validation-status.json
+design/dist-dxa/

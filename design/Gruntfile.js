@@ -315,6 +315,27 @@ module.exports = function(grunt) {
 				  '<%= config.dist %>/*.html']
         }
     },
+    compress: {
+     main: {
+        options: {
+          archive: function(){
+            var date = new Date();
+            var filename = "./dist-dxa/html-design-";
+            filename += date.getDay() + "-" + date.getMonth() + "-" + date.getFullYear() + '.zip';
+            return filename;
+          },
+        },
+      files: [
+          {
+            src: ['./src/**'],
+            filter: function(filepath) {
+              return filepath.indexOf('\\bower_components\\') == -1;
+            }
+          },
+          {src: ['./*'], filter: 'isFile'}, // includes files in path
+        ]
+      }
+    },
   });
 
   grunt.loadNpmTasks('assemble');
@@ -375,5 +396,12 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'build'
   ]);
+
+  grunt.loadNpmTasks('grunt-contrib-compress');
+
+  grunt.registerTask('package',function(obj){
+    console.log('packaging items to create a zip file');
+    grunt.task.run('compress');
+  });
 
 };
