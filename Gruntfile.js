@@ -316,6 +316,26 @@ module.exports = function(grunt) {
         }
     },
 	
+    compress: {
+        dist: {
+            options: {
+                archive: './zip/html-design-' + grunt.template.today('yyyy-mm-dd') + '.zip',
+				mode: 'zip'
+            },
+            files: [{
+                src: ['./src/**',  // include all sources
+				      '!./src/bower_components/**',  // exclude bower components
+					  './*',  // includes files in path
+					  './.bowerrc',  // include hidden .bowerrc
+					  '!./*.zip',  // exclude zip files
+					  '!./*.proj',  // exclude project files
+					  '!./*.exe',  // exclude executables
+					  '!./validation*.*'], // exclude validation reports 
+				filter: 'isFile'
+			}]
+        }
+    },
+ 
 	relativeRoot: {
 		dist: {
 			options: {
@@ -332,6 +352,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('assemble');
+  grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-relative-root');
   grunt.loadNpmTasks('grunt-w3c-html-validation');
 
@@ -386,7 +407,13 @@ module.exports = function(grunt) {
     //'htmlmin',
     'validation'
   ]);
-  
+
+  // package sources in html-design zip
+  grunt.registerTask('package', function(obj){
+    console.log('packaging items to create a zip file');
+    grunt.task.run('compress');
+  });
+ 
   // build with relative paths for gh-pages branch
   grunt.registerTask('ghpagesbuild', [
     'clean:dist',
