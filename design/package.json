@@ -1,8 +1,8 @@
 {
-  "name": "Whitelabel-HTML-Design",
+  "name": "whitelabel-html-design",
   "description": "Assemble, build and validate whitelabel HTML design (note: this file, and changes to it, will be ignored by the html design build in the cms)",
   "version": "1.0.0",
-  "homepage": "https://github.com/bkoopman/tri",
+  "homepage": "http://sdl.github.io/dxa-html-design",
   "author": {
     "name": "Bart Koopman",
     "email": "bkoopman@sdl.com"
@@ -19,7 +19,7 @@
     "url": ""
   },
   "bugs": {
-    "url": "https://github.com/bkoopman/tri/issues"
+    "url": "https://github.com/sdl/dxa-html-design/issues"
   },
   "engines": {
     "node": ">=0.8"
@@ -36,6 +36,7 @@
     "grunt-concurrent": "~0.3.0",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-compass": "~0.5.0",
+    "grunt-contrib-compress": "~1.3.0",	
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-connect": "~0.6.0",
     "grunt-contrib-copy": "~0.4.1",
@@ -46,16 +47,17 @@
     "grunt-contrib-less": "~0.10.0",
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-contrib-watch": "~0.5.3",
-    "grunt-html-validation": "^0.1.18",
     "grunt-mocha": "~0.4.1",
     "grunt-open": "~0.2.0",
     "grunt-preprocess": "~4.0.0",
     "grunt-rev": "~0.1.0",
+	"grunt-relative-root": "~0.5.0",
     "grunt-svgmin": "~0.2.0",
     "grunt-usemin": "~0.1.12",
+    "grunt-w3c-html-validation": "^0.1.8",
     "load-grunt-tasks": "~0.1.0",
     "time-grunt": "~0.2.7"
   },
-  "licenses": [],
+  "license": "Apache-2.0", 
   "keywords": []
 }

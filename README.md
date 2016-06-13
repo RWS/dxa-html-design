@@ -5,57 +5,57 @@ SDL Digital Experience Accelerator Whitelabel HTML Design
 
 About
 -----
-The SDL Digital Experience Accelerator (formerly known as the SDL Tridion Reference Implementation) is a reference implementation of SDL Tridion intended to help you create, design and publish an SDL Tridion-based Web site quickly.
+The SDL Digital Experience Accelerator (DXA) is a reference implementation of SDL Web 8 and SDL Tridion 2013 SP1 intended to help you create, design and publish an SDL Web/Tridion-based website quickly.
 
-You can find more details and a download of the entire release on https://community.sdl.com/developers/tridion_developer/m/mediagallery/852
+It is available for .NET and Java Web Applications and has a modular architecture consisting of a Framework and example web application providing core functionality and separate Modules for additional, optional functionality.
+
+This repository contains the source code of the DXA whitelabel HTML design to allow you to log issues, fork and submit pull requests in case you want to notify us of changes you would like to see. 
 
 
 Support
 ---------------
-The SDL Digital Experience Accelerator is intended as a toolkit to help the SDL Tridion community and is not an officially supported SDL Tridion product.
+The SDL Digital Experience Accelerator is intended as a toolkit to help the SDL Tridion community and is not an officially supported SDL product.
 
 If you encounter problems, reach out to the community: http://tridion.stackexchange.com/
 
 
-Sources
--------
-
-This repository contains the sources of the 1.1 DXA whitelabel HTML design to allow you to log issues, fork and submit pull requests in case you want to notify us of changes you would like to see. 
-
-
 Documentation
 -------------
-
-Documentation can be found online in the SDL doc portal, you can find details about this in the download on the SDL Community site.
+Documentation can be found online in the SDL documentation portal: http://docs.sdl.com/sdldxa
 
 
 Repositories
 ------------
-
 The following repositories with source code are available:
 
  - https://github.com/sdl/dxa-content-management - Core Template Building Blocks
  - https://github.com/sdl/dxa-html-design - Whitelabel HTML Design
- - https://github.com/sdl/dxa-modules - Modules
- - https://github.com/sdl/dxa-web-application-dotnet - .NET MVC web application
- - https://github.com/sdl/dxa-web-application-java - Java Spring MVC web application
+ - https://github.com/sdl/dxa-modules - Modules (.NET and Java)
+ - https://github.com/sdl/dxa-web-application-dotnet - ASP.NET MVC web application (incl. framework)
+ - https://github.com/sdl/dxa-web-application-java - Java Spring MVC web application (incl. framework)
 
 
-Branching model
----------------
+Branches and Contributions
+--------------------------
+We are using the following branching strategy:
 
-We intend to follow Gitflow (http://nvie.com/posts/a-successful-git-branching-model/) with the following main branches:
+ - master - Represents the latest stable version. This may be an pre-release version (tagged as "DXA x.y Sprint z"). Updated each development Sprint (approx. bi-weekly).
+ - develop - Represents the latest development version. Updated very frequently (typically nightly).
+ - release/x.y - Represents the x.y Release. If hotfixes are applicable, they will be applied to the appropriate release branch, so that the release branch actually represent the initial release plus hotfixes.
 
- - master - Stable 
- - develop - Unstable
- - release/x.y - Release version x.y
+All releases (including pre-releases) are Tagged. 
+ 
+If you wish to submit a Pull Request, it should normally be submitted on the develop branch, so it can be incorporated in the upcoming release.
+Fixes for really severe/urgent issues (which qualify as hotfixes) should be submitted as Pull Request on the appropriate release branch.
+Please always submit an Issue for the problem and indicate whether you think it qualifies as a hotfix; Pull Requests on release branches will only be accepted after agreement on the severity of the issue.
+Furthermore, Pull Requests on release branches are expected to be extensively tested.
 
-Please submit your pull requests on develop. In the near future we intend to push our changes to develop and master from our internal repositories, so you can follow our development process.
+Of course, it's also possible to report an Issue without associated Pull Requests.
 
 
 License
 -------
-Copyright (c) 2014-2015 SDL Group.
+Copyright (c) 2014-2016 SDL Group.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
