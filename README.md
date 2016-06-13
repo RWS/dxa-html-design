@@ -39,18 +39,20 @@ Branches and Contributions
 --------------------------
 We are using the following branching strategy:
 
- - master - Represents the latest stable version. This may be an pre-release version (tagged as "DXA x.y Sprint z"). Updated each development Sprint (approx. bi-weekly).
- - develop - Represents the latest development version. Updated very frequently (typically nightly).
- - release/x.y - Represents the x.y Release. If hotfixes are applicable, they will be applied to the appropriate release branch, so that the release branch actually represent the initial release plus hotfixes.
+ - `master` - Represents the latest stable version. This may be a pre-release version (tagged as `DXA x.y Sprint z`). Updated each development Sprint (approx. bi-weekly).
+ - `develop` - Represents the latest development version. Updated very frequently (typically nightly).
+ - `release/x.y` - Represents the x.y Release. If hotfixes are applicable, they will be applied to the appropriate release branch, so that the release branch actually represent the initial release plus hotfixes.
 
-All releases (including pre-releases) are Tagged. 
- 
-If you wish to submit a Pull Request, it should normally be submitted on the develop branch, so it can be incorporated in the upcoming release.
+All releases (including pre-releases and hotfix releases) are tagged. 
+
+If you wish to submit a Pull Request, it should normally be submitted on the `develop` branch, so it can be incorporated in the upcoming release.
+
 Fixes for really severe/urgent issues (which qualify as hotfixes) should be submitted as Pull Request on the appropriate release branch.
-Please always submit an Issue for the problem and indicate whether you think it qualifies as a hotfix; Pull Requests on release branches will only be accepted after agreement on the severity of the issue.
-Furthermore, Pull Requests on release branches are expected to be extensively tested.
 
-Of course, it's also possible to report an Issue without associated Pull Requests.
+Please always submit an Issue for the problem and indicate whether you think it qualifies as a hotfix; Pull Requests on release branches will only be accepted after agreement on the severity of the issue.
+Furthermore, Pull Requests on release branches are expected to be extensively tested by the submitter.
+
+Of course, it's also possible (and appreciated) to report an Issue without associated Pull Requests.
 
 
 License
