@@ -31,10 +31,10 @@ component: navbar
 
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav utility-nav">
-						<li{{#if this.isCurrentPage}} class="active"{{/if}}>
+						<li{{#is title "3rd Party Products"}} class="active"{{/is}}>
 							<a href="/3rd-party-products.html">3<sup>rd</sup> Party Products</a>
 						</li>
-						<li{{#if this.isCurrentPage}} class="active"{{/if}}>
+						<li{{#is title "Build It!"}} class="active"{{/is}}>
 							<a href="/build.html">Build it!</a>
 						</li>
 					</ul>
