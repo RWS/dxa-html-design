@@ -24,7 +24,7 @@ var mountFolder = function (connect, dir) {
 // '<%= config.src %>/templates/pages/**/*.hbs'
 
 var yeomanConfig = {
-    src: 'src', 
+    src: 'src',
     dist: 'dist'
 };
 
@@ -80,7 +80,7 @@ module.exports = function(grunt) {
               ];
           }
         }
-      },
+      },	  
       dist: {
         options: {
             middleware: function (connect) {
@@ -300,11 +300,11 @@ module.exports = function(grunt) {
     validation: {
         options: {
             reset: grunt.option('reset') || false,
-			//serverUrl: 'http://10.100.101.193/w3c-validator/check',
-			//serverUrl: 'https://validator.w3.org/nu/',
-            relaxerror: ['Bad value X-UA-Compatible for attribute http-equiv on element meta.',
-			             'This interface to HTML5 document checking is deprecated.'] //ignores these errors
-        },
+            relaxerror: ['Bad value X-UA-Compatible for attribute http-equiv on element meta.'], //ignores these errors
+			generateReport: true,
+			errorHTMLRootDir: "reports",
+			useTimeStamp: true        
+		},
         files: {
             src: [//'<%= config.dist %>/ajax/*.html',
 				  '<%= config.dist %>/beta/*.html',
@@ -315,10 +315,46 @@ module.exports = function(grunt) {
 				  '<%= config.dist %>/*.html']
         }
     },
+	
+    compress: {
+        dist: {
+            options: {
+                archive: './zip/html-design-' + grunt.template.today('yyyy-mm-dd') + '.zip',
+				mode: 'zip'
+            },
+            files: [{
+                src: ['./src/**',  // include all sources
+				      '!./src/bower_components/**',  // exclude bower components
+					  './*',  // includes files in path
+					  './.bowerrc',  // include hidden .bowerrc
+					  '!./*.zip',  // exclude zip files
+					  '!./*.proj',  // exclude project files
+					  '!./*.exe',  // exclude executables
+					  '!./validation*.*'], // exclude validation reports 
+				filter: 'isFile'
+			}]
+        }
+    },
+ 
+	relativeRoot: {
+		dist: {
+			options: {
+				root: '<%= config.dist %>'
+			},
+			files: [{
+				expand: true,
+				cwd: '<%= relativeRoot.dist.options.root %>',
+				src: ['**/*.css', '**/*.html'],
+				dest: '<%= config.dist %>'
+			}]
+		}
+	}	
   });
 
   grunt.loadNpmTasks('assemble');
-  grunt.loadNpmTasks('grunt-html-validation');
+  grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-relative-root');
+  grunt.loadNpmTasks('grunt-w3c-html-validation');
 
   grunt.registerTask('serve', function(target){
     if (target === 'dist') {
@@ -370,6 +406,30 @@ module.exports = function(grunt) {
     'usemin',
     //'htmlmin',
     'validation'
+  ]);
+
+  // package sources in html-design zip
+  grunt.registerTask('package', function(obj){
+    console.log('packaging items to create a zip file');
+    grunt.task.run('compress');
+  });
+ 
+  // build with relative paths for gh-pages branch
+  grunt.registerTask('ghpagesbuild', [
+    'clean:dist',
+    'assemble:dist',
+    'less:dist',
+    //'htmlmin',
+    'useminPrepare',
+    'concat',
+    'cssmin',
+    'imagemin',
+    'uglify',
+    'copy',
+    //'rev',
+    'usemin',
+	'relativeRoot',
+    //'htmlmin',
   ]);
 
   grunt.registerTask('default', [

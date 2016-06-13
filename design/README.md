@@ -8,10 +8,11 @@ The HTML Design comes with a Grunt `Gruntfile.js` which defines the build tasks.
 ## First time setup
 1. Install GIT (this is required by Bower)
 
-2. Install [Node.js](http://nodejs.org/)
+2. Install [Node.js v4 (LTS)](https://nodejs.org/en/download/)
 
-3. Install [Grunt](http://gruntjs.com/) and [Bower](http://bower.io/) globally from the command prompt:
+3. Install [npm v3](https://docs.npmjs.com/how-npm-works/npm3), [Grunt](http://gruntjs.com/) and [Bower](http://bower.io/) globally from the command prompt:
 
+        npm install -g npm@3
         npm install -g grunt-cli
         npm install -g bower
 
@@ -34,7 +35,11 @@ A web server will be started on <http://localhost:9000> and when you modify any 
 ## Modify the design
 The design uses [Bootstrap](http://getbootstrap.com/), which in turn uses [Less](http://lesscss.org/) to manage the CSS. This can be customized by for instance adding or changing standard Bootstrap variables in `.\system\assets\less\_variables.less` and then rebuilding with Grunt.
 
-After modification of the design (i.e. changing the contents of the `.\src\` folder), you should add the changed files to `html-design.zip`. Then you can upload this zip file in the CMS and republish the HTML design.
+After modification of the design (i.e. changing the contents of the `.\src\` folder), you can run the following command:
+
+    grunt package
+
+This will generate a `html-design-{jjjj-mm-dd}.zip` file in the `.\zip\` folder. You can upload this zip file in the CMS and republish the HTML design.
 
 ### Note
 Any changes made to the following files, will be ignored by the build process of the CMS:
