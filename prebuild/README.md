@@ -1,6 +1,6 @@
 Whitelabel HTML Design
 ======================
-These configuration files are used to build the SDL Tridon Reference Implementation HTML design directly from the CMS.
+These configuration files are used to build the SDL Digital Experience Accelerator HTML design directly from the CMS.
 
 ## Files
 * `.bowerrc` - to indicate the **bower_components** need to go in the **src** directory

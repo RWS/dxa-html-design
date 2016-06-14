@@ -14,19 +14,20 @@ logs
 results
 
 npm-debug.log
-node_modules
 
 *.sublime-*
-.tmp
-src/bower_components
 
-
-dist/
 validation-report.json
 validation-status.json
-*.sln
-*.suo
-*.ps1
+*.zip
 
+.tmp/
+dist/
 design/
 html/
+reports/
+whitelabel/
+build-files/
+bower_components/
+node_modules/
+zip/

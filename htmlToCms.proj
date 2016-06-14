@@ -3,23 +3,16 @@
 
     <PropertyGroup>
         <!-- Input parameters -->
-        <CmsUrl>http://saintjohn01.ams.dev/</CmsUrl>
-        <TargetType>tcm:0-1-65538</TargetType>
+        <CmsUrl>http://dxadevweb8.ams.dev/</CmsUrl>
+        <TargetType>tcm:0-6-65538</TargetType>
         <!-- Jenkins replaces spaces with '+' if parameter's value contains spaces, so this is a dirty workaround -->
         <InternalPublications Condition="'$(Publications)' == ''">400 Example Site</InternalPublications>
         <InternalPublications Condition="'$(Publications)' != ''">$(Publications.Replace('+', ' '))</InternalPublications>
-        <InternalSites Condition="'$(Sites)' == ''">Staging (Stable demo version),Staging (GIT version)</InternalSites>
-        <InternalSites Condition="'$(Sites)' != ''">$(Sites.Replace('+', ' '))</InternalSites>
-        <CD01Host>saintjohn03.ams.dev</CD01Host>
 
         <ProjectDirectory>$(MSBuildProjectDirectory)</ProjectDirectory>
-        <HtmlDirectory>$(ProjectDirectory)\html</HtmlDirectory>
-        <!--<FilesDirectory>$(ProjectDirectory)\files</FilesDirectory>-->
-        <!-- attempting a shorter path -->
-        <FilesDirectory>C:\_f</FilesDirectory>
+        <DesignDirectory>$(ProjectDirectory)\design</DesignDirectory>
+        <BuildFilesDirectory>$(ProjectDirectory)\build-files</BuildFilesDirectory>
     
-        <OldOutputDirectory>C:\Standard Implementation\Distribution</OldOutputDirectory>
-        
         <!-- Tools -->
         <PowerShellx64 Condition="'$(PROCESSOR_ARCHITECTURE)' == 'x86' AND '$(PROCESSOR_ARCHITEW6432)' != ''">C:\Windows\Sysnative\WindowsPowerShell\v1.0\powershell.exe</PowerShellx64>
         <PowerShellx64 Condition="'$(PROCESSOR_ARCHITECTURE)' == 'x86' AND '$(PROCESSOR_ARCHITEW6432)' == ''">C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</PowerShellx64>
@@ -40,36 +33,18 @@
     <Target Name="PrepareBuild">
         <Message Text="Preparing build..." Importance="high" />
         
-        <RemoveDir Directories="$(HtmlDirectory);$(FilesDirectory)"/>
-        <MakeDir Directories="$(HtmlDirectory);$(FilesDirectory)"/>
+        <RemoveDir Directories="$(BuildFilesDirectory)"/>
+        <MakeDir Directories="$(BuildFilesDirectory)"/>
         
         <ItemGroup>
             <File Include="$(ProjectDirectory)\prebuild\*.*">
-                <DestinationDir>$(FilesDirectory)</DestinationDir>
+                <DestinationDir>$(BuildFilesDirectory)</DestinationDir>
             </File>
             <File Include="$(ProjectDirectory)\prebuild\node_modules\**\*.*">
-                <DestinationDir>$(FilesDirectory)\node_modules</DestinationDir>
+                <DestinationDir>$(BuildFilesDirectory)\node_modules</DestinationDir>
             </File>
             <File Include="$(ProjectDirectory)\prebuild\temp\**\*.*">
-                <DestinationDir>$(FilesDirectory)\temp</DestinationDir>
-            </File>
-            <File Include="$(ProjectDirectory)\src\**\*.*">
-                <DestinationDir>$(HtmlDirectory)\src</DestinationDir>
-            </File>
-            <File Include="$(ProjectDirectory)\.bowerrc">
-                <DestinationDir>$(HtmlDirectory)</DestinationDir>
-            </File>
-            <File Include="$(ProjectDirectory)\bower.json">
-                <DestinationDir>$(HtmlDirectory)</DestinationDir>
-            </File>
-            <File Include="$(ProjectDirectory)\package.json">
-                <DestinationDir>$(HtmlDirectory)</DestinationDir>
-            </File>
-            <File Include="$(ProjectDirectory)\Gruntfile.js">
-                <DestinationDir>$(HtmlDirectory)</DestinationDir>
-            </File>
-            <File Include="$(ProjectDirectory)\README.md">
-                <DestinationDir>$(HtmlDirectory)</DestinationDir>
+                <DestinationDir>$(BuildFilesDirectory)\temp</DestinationDir>
             </File>
         </ItemGroup>
         
@@ -80,11 +55,12 @@
     <Target Name="PackageBuild">
         <Message Text="Running build commands..." Importance="high" />
 
-        <Exec Command="npm install --color=false" WorkingDirectory="$(FilesDirectory)" />
-        <Exec Command="bower install --color=false" WorkingDirectory="$(FilesDirectory)" />
+        <Exec Command="npm install --color=false" WorkingDirectory="$(BuildFilesDirectory)" />
+        <Exec Command="bower install --color=false" WorkingDirectory="$(BuildFilesDirectory)" />
         
-        <Delete Files="$(FilesDirectory)\html-updateComponents.ps1"/>
-        <Delete Files="$(FilesDirectory)\restart-apppool.ps1"/>
+        <!-- TODO: should move these PowerShell scripts away from prebuild -->
+        <Delete Files="$(BuildFilesDirectory)\html-updateComponents.ps1"/>
+        <Delete Files="$(BuildFilesDirectory)\restart-apppool.ps1"/>
 
     </Target>
 
@@ -92,19 +68,7 @@
     <Target Name="DeployOutput">
         <Message Text="Deploying output to '$(CmsUrl)'..." Importance="high" />
 
-      <Exec Command="&quot;$(PowerShellx64)&quot; -file prebuild\html-updateComponents.ps1 &quot;$(HtmlDirectory)&quot; &quot;$(FilesDirectory)&quot; &quot;$(CmsUrl)&quot; &quot;$(TargetType)&quot; &quot;$(InternalPublications)&quot;" WorkingDirectory="$(ProjectDirectory)" />
-
-      <!--TODO: saintjohn03 is not properly configured for WinRM yet (?)
-      <Exec Command="&quot;$(PowerShellx64)&quot; -file prebuild\restart-apppool.ps1 &quot;$(CD01Host)&quot; &quot;global\srv-cmbuild&quot; &quot;srv_tridion_cm&quot; &quot;$(InternalSites)&quot;" WorkingDirectory="$(ProjectDirectory)" />
-      -->
-
-      <!--
-        <ItemGroup>
-            <HostDistFiles Include="$(OldOutputDirectory)\html\*.*"/>
-        </ItemGroup>
-        <Delete Files="@(HostDistFiles)"/>
-        <Copy SourceFiles="$(HtmlDirectory)\html-design.zip" DestinationFolder="$(OldOutputDirectory)\html"/>
-        <Copy SourceFiles="$(HtmlDirectory)\build-files.zip" DestinationFolder="$(OldOutputDirectory)\html"/>
-      -->
-      </Target>
+      <Exec Command="&quot;$(PowerShellx64)&quot; -command .\prebuild\html-updateComponents.ps1 &quot;'$(DesignDirectory)'&quot; &quot;'$(BuildFilesDirectory)'&quot; &quot;'$(CmsUrl)'&quot; &quot;'$(TargetType)'&quot; &quot;'$(InternalPublications)'&quot;" 
+            WorkingDirectory="$(ProjectDirectory)" />
+     </Target>
 </Project>
