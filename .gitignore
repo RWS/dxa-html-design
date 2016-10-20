@@ -31,3 +31,9 @@ build-files/
 bower_components/
 node_modules/
 zip/
+
+*.iml
+*.ipr
+*.iws
+.idea
+atlassian-ide-plugin.xml
