@@ -50,7 +50,6 @@ function Init-CoreServiceClient
 {
     Add-Type -assemblyName mscorlib
     Add-Type -assemblyName System.ServiceModel
-    Add-Type -Path "$($dllsFolder)ChilkatDotNet4.dll"
     Add-Type -Path "$($dllsFolder)Tridion.Common.dll"
     Add-Type -Path "$($dllsFolder)Tridion.ContentManager.CoreService.Client.dll"
 }
@@ -68,7 +67,7 @@ function Get-CoreServiceClient($type)
 	        $binding.ReaderQuotas.MaxStringContentLength = [int]::MaxValue
 	        $binding.ReaderQuotas.MaxNameTableCharCount = [int]::MaxValue
 			$binding.Security.Mode = "Message"
-			$endpoint = New-Object System.ServiceModel.EndpointAddress ($cmsUrl + "webservices/CoreService2013.svc/wsHttp")
+			$endpoint = New-Object System.ServiceModel.EndpointAddress ($cmsUrl + "webservices/CoreService201501.svc/wsHttp")
 			New-Object Tridion.ContentManager.CoreService.Client.SessionAwareCoreServiceClient $binding,$endpoint
         }
  
@@ -83,7 +82,7 @@ function Get-CoreServiceClient($type)
 	        $binding.Security.Mode = "None"
 			$binding.TransferMode = "StreamedRequest"
 			$binding.MessageEncoding = "Mtom"
-			$endpoint = New-Object System.ServiceModel.EndpointAddress ($cmsUrl + "webservices/CoreService2013.svc/streamUpload_basicHttp")
+			$endpoint = New-Object System.ServiceModel.EndpointAddress ($cmsUrl + "webservices/CoreService201501.svc/streamUpload_basicHttp")
 			New-Object Tridion.ContentManager.CoreService.Client.StreamUploadClient $binding,$endpoint
 		}
 	}
@@ -110,6 +109,7 @@ function Update-MultimediaComponent($componentWebdavUrl, $binaryLocation)
     $mmType = $mmComp.BinaryContent.MultimediaType
     Write-Host "`tBinary filename: '$binaryFilename'"
 
+    # TODO: Use UploadRequest and specify UploadRequest.AccessToken (?)
     $uploadService = Get-CoreServiceClient -type Upload
 	$packageStream = [IO.File]::OpenRead($binaryLocation)
 	$tempPath = $uploadService.UploadBinaryContent($binaryFilename, $packageStream)
