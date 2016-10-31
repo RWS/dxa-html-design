@@ -1,9 +1,9 @@
 param (
     # Path to the html distributive
-    [string]$designDir = "..\design",
+    [string]$designDir,
 
     # Path to the build distributive
-    [string]$buildFilesDir = "..\build-files",
+    [string]$buildFilesDir,
 
     # Set this to the dev cms url
     [string]$cmsUrl = "http://dxadevweb8.ams.dev/",
@@ -24,9 +24,18 @@ if(-not $cmsUrl.EndsWith('/'))
     $cmsUrl += "/"
 }
 
-$dllsFolder = Join-Path (Split-Path $MyInvocation.MyCommand.Path) "ImportExport\"
-$designZip = "html-design.zip"
-$buildFilesZip = "build-files.zip"
+$PSScriptDir = Split-Path $MyInvocation.MyCommand.Path
+if (!$designDir)
+{
+    $designDir = Join-Path $PSScriptDir "..\design"
+}
+if (!$buildFilesDir)
+{
+    $buildFilesDir = Join-Path $PSScriptDir "..\build-files"
+}
+$dllsFolder = Join-Path $PSScriptDir "ImportExport\"
+$designZip = "$PSScriptDir\html-design.zip"
+$buildFilesZip = "$PSScriptDir\build-files.zip"
 
 # Cleanup previous build artifacts (if any)
 if (Test-Path $designZip)
@@ -109,32 +118,18 @@ function Update-MultimediaComponent($componentWebdavUrl, $binaryLocation)
     $mmType = $mmComp.BinaryContent.MultimediaType
     Write-Host "`tBinary filename: '$binaryFilename'"
 
-    # TODO: Use UploadRequest and specify UploadRequest.AccessToken (?)
     $uploadService = Get-CoreServiceClient -type Upload
 	$packageStream = [IO.File]::OpenRead($binaryLocation)
-	$tempPath = $uploadService.UploadBinaryContent($binaryFilename, $packageStream)
+	$tempFileId = $uploadService.UploadBinaryContent($accessToken, $packageStream)
 	$packageStream.Dispose()	
 	$uploadService.Dispose()	
 
-    try 
-    {
-        $mmComp = $coreServiceClient.CheckOut($mmComp.Id, $false, $defaultReadOptions)
-        $mmComp.BinaryContent = New-Object Tridion.ContentManager.CoreService.Client.BinaryContentData
-        $mmComp.BinaryContent.UploadFromFile = $tempPath
-        $mmComp.BinaryContent.Filename = $binaryFilename
-        $mmComp.BinaryContent.MultimediaType = $mmType
-        $mmComp = $coreServiceClient.Save($mmComp, $defaultReadOptions)
-        $mmComp = $coreServiceClient.CheckIn($mmComp.Id, $true, $null, $defaultReadOptions)
-        Write-Host "Updated MM Component: $($mmComp.Id)"
-    }
-    catch
-    {
-        if ($mmComp -ne $null -and $mmComp.LockInfo.LockType -eq "CheckedOut") {
-            Write-Host "`tUndo checkout of Component '$($mmComp.Id)'"
-            $mmComp = $coreServiceClient.UndoCheckOut($mmComp.Id, $false, $defaultReadOptions)
-        }
-        throw $_
-    }
+    $mmComp.BinaryContent = New-Object Tridion.ContentManager.CoreService.Client.BinaryContentData
+    $mmComp.BinaryContent.UploadFromFile = $tempFileId
+    $mmComp.BinaryContent.Filename = $binaryFilename
+    $mmComp.BinaryContent.MultimediaType = $mmType
+    $mmComp = $coreServiceClient.Update($mmComp, $defaultReadOptions)
+    Write-Host "Updated MM Component: $($mmComp.Id)"
 }
 
 function Increment-DesignVersion($componentWebdavUrl)
@@ -185,6 +180,7 @@ function Increment-DesignVersion($componentWebdavUrl)
 # Create core service client and default read options
 Init-CoreServiceClient
 $coreServiceClient = Get-CoreServiceClient "Service"
+$accessToken = $coreServiceClient.GetCurrentUser()
 $defaultReadOptions = New-Object Tridion.ContentManager.CoreService.Client.ReadOptions
 
 Update-MultimediaComponent "/webdav/100 Master/Building Blocks/Modules/Core/Admin/HTML Design.zip" $designZip
