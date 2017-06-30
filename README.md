@@ -57,6 +57,9 @@ Furthermore, Pull Requests on release branches are expected to be extensively te
 
 Of course, it's also possible (and appreciated) to report an Issue without associated Pull Requests.
 
+Build Whitelabel HTML Design
+-----------------------
+If you want to build the Whitelabel Design, please refer to the [following instructions](BUILD.md).
 
 License
 -------
