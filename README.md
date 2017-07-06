@@ -1,52 +1,75 @@
-Whitelabel HTML Design
-======================
-## Overview
-Building the HTML Design is a good way to explore the raw assets and understand how they are compiled/merged and minified. You will also see how you could customize and extend the CSS and JS.
+dxa-html-design
+===
+SDL Digital Experience Accelerator Whitelabel HTML Design
 
-The HTML Design comes with a Grunt `Gruntfile.js` which defines the build tasks. Bower is used to manage some of the included libraries. Grunt and Bower run on Node.js, so the first steps are to setup Node, Grunt and Bower on your development machine:
 
-## First time setup
-1. Install GIT (this is required by Bower)
+About
+-----
+The SDL Digital Experience Accelerator (DXA) is a reference implementation of SDL Web 8 and SDL Tridion 2013 SP1 intended to help you create, design and publish an SDL Web/Tridion-based website quickly.
 
-2. Install [Node.js v4 (LTS)](https://nodejs.org/en/download/)
+It is available for .NET and Java Web Applications and has a modular architecture consisting of a Framework and example web application providing core functionality and separate Modules for additional, optional functionality.
 
-3. Install [npm v3](https://docs.npmjs.com/how-npm-works/npm3), [Grunt](http://gruntjs.com/) and [Bower](http://bower.io/) globally from the command prompt:
+This repository contains the source code of the DXA whitelabel HTML design to allow you to log issues, fork and submit pull requests in case you want to notify us of changes you would like to see. 
 
-        npm install -g npm@3
-        npm install -g grunt-cli
-        npm install -g bower
 
-## Building the assets
-Now you are ready to compile the HTML design. Copy the contents of `.\html\design\` from the installation media (or extract the contents of `html-design.zip` from the CMS), and open a command prompt in the root of the folder. You should then run the following commands:
+Support
+---------------
+At SDL we take your investment in Digital Experience very seriously, and will do our best to support you throughout this journey. 
+If you encounter any issues with the Digital Experience Accelerator, please reach out to us via one of the following channels:
 
-    npm install
-    bower install
-    grunt build
+- Report issues directly in [this repository](https://github.com/sdl/dxa-html-design/issues)
+- Ask questions 24/7 on the SDL Web Community at https://tridion.stackexchange.com
+- Contact Technical Support through the Customer Support Web Portal at https://www.sdl.com/support
 
-The compiled assets (HTML, CSS, JavaScript and fonts) will now be found in the `.\dist\` folder.
 
-## Running locally
-You can also use Grunt to run the site locally, by changing the last command to:
+Documentation
+-------------
+Documentation can be found online in the SDL documentation portal: http://docs.sdl.com/sdldxa
 
-    grunt serve
 
-A web server will be started on <http://localhost:9000> and when you modify any of the source assets, they will be automatically rebuilt and the browser refreshed.
+Repositories
+------------
+The following repositories with source code are available:
 
-## Modify the design
-The design uses [Bootstrap](http://getbootstrap.com/), which in turn uses [Less](http://lesscss.org/) to manage the CSS. This can be customized by for instance adding or changing standard Bootstrap variables in `.\system\assets\less\_variables.less` and then rebuilding with Grunt.
+ - https://github.com/sdl/dxa-content-management - Core Template Building Blocks
+ - https://github.com/sdl/dxa-html-design - Whitelabel HTML Design
+ - https://github.com/sdl/dxa-modules - Modules (.NET and Java)
+ - https://github.com/sdl/dxa-web-application-dotnet - ASP.NET MVC web application (incl. framework)
+ - https://github.com/sdl/dxa-web-application-java - Java Spring MVC web application (incl. framework)
 
-After modification of the design (i.e. changing the contents of the `.\src\` folder), you can run the following command:
 
-    grunt package
+Branches and Contributions
+--------------------------
+We are using the following branching strategy:
 
-This will generate a `html-design-{jjjj-mm-dd}.zip` file in the `.\zip\` folder. You can upload this zip file in the CMS and republish the HTML design.
+ - `master` - Represents the latest stable version. This may be a pre-release version (tagged as `DXA x.y Sprint z`). Updated each development Sprint (approx. bi-weekly).
+ - `develop` - Represents the latest development version. Updated very frequently (typically nightly).
+ - `release/x.y` - Represents the x.y Release. If hotfixes are applicable, they will be applied to the appropriate release branch, so that the release branch actually represent the initial release plus hotfixes.
 
-### Note
-Any changes made to the following files, will be ignored by the build process of the CMS:
+All releases (including pre-releases and hotfix releases) are tagged. 
 
-- `.bowerrc`
-- `bower.json`
-- `Gruntfile.js`
-- `package.json`
-- `README.md`
+If you wish to submit a Pull Request, it should normally be submitted on the `develop` branch, so it can be incorporated in the upcoming release.
 
+Fixes for really severe/urgent issues (which qualify as hotfixes) should be submitted as Pull Request on the appropriate release branch.
+
+Please always submit an Issue for the problem and indicate whether you think it qualifies as a hotfix; Pull Requests on release branches will only be accepted after agreement on the severity of the issue.
+Furthermore, Pull Requests on release branches are expected to be extensively tested by the submitter.
+
+Of course, it's also possible (and appreciated) to report an Issue without associated Pull Requests.
+
+Build Whitelabel HTML Design
+-----------------------
+If you want to build the Whitelabel Design, please refer to the [following instructions](BUILD.md).
+
+License
+-------
+Copyright (c) 2014-2016 SDL Group.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and limitations under the License.
