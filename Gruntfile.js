@@ -30,8 +30,10 @@ var yeomanConfig = {
 
 module.exports = function(grunt) {
 
-  require('time-grunt')(grunt);
+  var serveStatic = require('serve-static');
 
+  require('time-grunt')(grunt);
+  
   // load all grunt tasks
   require('load-grunt-tasks')(grunt);
 
@@ -74,9 +76,8 @@ module.exports = function(grunt) {
           middleware: function (connect) {
               return [
                   lrSnippet,
-                  mountFolder(connect, '.tmp'),
-                  //mountFolder(connect, yeomanConfig.dist),
-                  mountFolder(connect, yeomanConfig.src)
+				  serveStatic('.tmp'),
+				  serveStatic(yeomanConfig.src)
               ];
           }
         }
@@ -85,7 +86,7 @@ module.exports = function(grunt) {
         options: {
             middleware: function (connect) {
                 return [
-                    mountFolder(connect, yeomanConfig.dist)
+                    serveStatic(yeomanConfig.dist)
                 ];
             }
         }
