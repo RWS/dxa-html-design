@@ -36,6 +36,7 @@ The following repositories with source code are available:
  - https://github.com/sdl/dxa-modules - Modules (.NET and Java)
  - https://github.com/sdl/dxa-web-application-dotnet - ASP.NET MVC web application (incl. framework)
  - https://github.com/sdl/dxa-web-application-java - Java Spring MVC web application (incl. framework)
+ - https://github.com/sdl/dxa-model-service - Model Service (Java)
 
 
 Branches and Contributions
