@@ -36,6 +36,7 @@ The following repositories with source code are available:
  - https://github.com/sdl/dxa-modules - Modules (.NET and Java)
  - https://github.com/sdl/dxa-web-application-dotnet - ASP.NET MVC web application (incl. framework)
  - https://github.com/sdl/dxa-web-application-java - Java Spring MVC web application (incl. framework)
+ - https://github.com/sdl/dxa-model-service - Model Service (Java)
 
 
 Branches and Contributions
@@ -57,6 +58,9 @@ Furthermore, Pull Requests on release branches are expected to be extensively te
 
 Of course, it's also possible (and appreciated) to report an Issue without associated Pull Requests.
 
+Build Whitelabel HTML Design
+-----------------------
+If you want to build the Whitelabel Design, please refer to the [following instructions](BUILD.md).
 
 License
 -------

@@ -8,7 +8,7 @@ The HTML Design comes with a Grunt `Gruntfile.js` which defines the build tasks.
 ## First time setup
 1. Install GIT (this is required by Bower)
 
-2. Install [Node.js v4 (LTS)](https://nodejs.org/en/download/)
+2. Install [Node.js v6 (LTS)](https://nodejs.org/en/download/)
 
 3. Install [npm v3](https://docs.npmjs.com/how-npm-works/npm3), [Grunt](http://gruntjs.com/) and [Bower](http://bower.io/) globally from the command prompt:
 

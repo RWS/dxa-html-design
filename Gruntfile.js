@@ -162,6 +162,15 @@ module.exports = function(grunt) {
                 ]
             }]
         },
+		report: {
+            files: [{
+                dot: true,
+                src: [
+                    'validation-status.json',
+                    'validation-report.json'
+                ]
+            }]
+		},
         server: '.tmp'
     },
 
@@ -297,9 +306,11 @@ module.exports = function(grunt) {
             }
         }
     },
+	
     validation: {
         options: {
             reset: grunt.option('reset') || false,
+			stoponerror: false,
             relaxerror: ['Bad value X-UA-Compatible for attribute http-equiv on element meta.'], //ignores these errors
 			generateReport: true,
 			errorHTMLRootDir: "reports",
@@ -405,6 +416,7 @@ module.exports = function(grunt) {
     //'rev',
     'usemin',
     //'htmlmin',
+    'clean:report',
     'validation'
   ]);
 
@@ -430,6 +442,12 @@ module.exports = function(grunt) {
     'usemin',
 	'relativeRoot',
     //'htmlmin',
+  ]);
+  
+  // run only after build to recheck validation
+  grunt.registerTask('validate', [
+    'clean:report',
+    'validation'
   ]);
 
   grunt.registerTask('default', [
