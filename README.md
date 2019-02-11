@@ -1,13 +1,12 @@
-dxa-html-design
-===
 SDL Digital Experience Accelerator Whitelabel HTML Design
+===
 
 
 About
 -----
-The SDL Digital Experience Accelerator (DXA) is a reference implementation of SDL Web (version 8, 8.5, or Cloud) that we provide to help you more quickly create, design, and publish a website based on SDL Web.
+The SDL Digital Experience Accelerator (DXA) is a reference implementation of SDL Tridion Sites 9 and SDL Web 8 intended to help you create, design and publish an SDL Tridion/Web-based website quickly.
 
-DXA is available for both .NET and Java web applications. Its modular architecture consists of a framework and example web application, which includes all core SDL Web functionality as well as separate Modules for additional, optional functionality.
+DXA is available for both .NET and Java web applications. Its modular architecture consists of a framework and example web application, which includes all core SDL Tridion/Web functionality as well as separate Modules for additional, optional functionality.
 
 This repository contains the source code of the DXA whitelabel HTML design to allow you to log issues, fork and submit pull requests in case you want to notify us of changes you would like to see. 
 
@@ -24,7 +23,7 @@ If you encounter any issues with the Digital Experience Accelerator, please reac
 
 Documentation
 -------------
-Documentation can be found online in the SDL documentation portal: http://docs.sdl.com/sdldxa20
+Documentation can be found online in the SDL documentation portal: http://docs.sdl.com/sdldxa
 
 
 Repositories
@@ -64,7 +63,7 @@ If you want to build the Whitelabel Design, please refer to the [following instr
 
 License
 -------
-Copyright (c) 2014-2018 SDL Group.
+Copyright (c) 2014-2019 SDL Group.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
