@@ -1,23 +1,23 @@
-SDL Digital Experience Accelerator Whitelabel HTML Design
+RWS Digital Experience Accelerator Whitelabel HTML Design
 ===
 
 
 About
 -----
-The SDL Digital Experience Accelerator (DXA) is a reference implementation of SDL Tridion Sites 9 and SDL Web 8 intended to help you create, design and publish an SDL Tridion/Web-based website quickly.
+The RWS Digital Experience Accelerator (DXA) is a reference implementation of RWS Tridion Sites 9 and RWS Web 8 intended to help you create, design and publish an RWS Tridion/Web-based website quickly.
 
-DXA is available for both .NET and Java web applications. Its modular architecture consists of a framework and example web application, which includes all core SDL Tridion/Web functionality as well as separate Modules for additional, optional functionality.
+DXA is available for both .NET and Java web applications. Its modular architecture consists of a framework and example web application, which includes all core RWS Tridion/Web functionality as well as separate Modules for additional, optional functionality.
 
 This repository contains the source code of the DXA whitelabel HTML design to allow you to log issues, fork and submit pull requests in case you want to notify us of changes you would like to see. 
 
 
 Support
 ---------------
-At SDL we take your investment in Digital Experience very seriously, if you encounter any issues with the Digital Experience Accelerator, please use one of the following channels:
+At RWS we take your investment in Digital Experience very seriously, if you encounter any issues with the Digital Experience Accelerator, please use one of the following channels:
 
-- Report issues directly in [this repository](https://github.com/sdl/dxa-html-design/issues)
-- Ask questions 24/7 on the SDL Tridion Community at https://tridion.stackexchange.com
-- Contact SDL Professional Services for DXA release management support packages to accelerate your support requirements
+- Report issues directly in [this repository](https://github.com/rws/dxa-html-design/issues)
+- Ask questions 24/7 on the RWS Tridion Community at https://tridion.stackexchange.com
+- Contact RWS Professional Services for DXA release management support packages to accelerate your support requirements
 
 
 Documentation
@@ -29,12 +29,12 @@ Repositories
 ------------
 The following repositories with source code are available:
 
- - https://github.com/sdl/dxa-content-management - Core Template Building Blocks
- - https://github.com/sdl/dxa-html-design - Whitelabel HTML Design
- - https://github.com/sdl/dxa-model-service - Model Service (Java)
- - https://github.com/sdl/dxa-modules - Modules (.NET and Java)
- - https://github.com/sdl/dxa-web-application-dotnet - ASP.NET MVC web application (including framework)
- - https://github.com/sdl/dxa-web-application-java - Java Spring MVC web application (including framework)
+ - https://github.com/rws/dxa-content-management - Core Template Building Blocks
+ - https://github.com/rws/dxa-html-design - Whitelabel HTML Design
+ - https://github.com/rws/dxa-model-service - Model Service (Java)
+ - https://github.com/rws/dxa-modules - Modules (.NET and Java)
+ - https://github.com/rws/dxa-web-application-dotnet - ASP.NET MVC web application (including framework)
+ - https://github.com/rws/dxa-web-application-java - Java Spring MVC web application (including framework)
 
 
 Branches and Contributions
@@ -62,7 +62,7 @@ If you want to build the Whitelabel Design, please refer to the [following instr
 
 License
 -------
-Copyright (c) 2014-2020 SDL Group.
+Copyright (c) 2014-2024 RWS Group.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
